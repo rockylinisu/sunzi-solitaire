@@ -1,0 +1,136 @@
+﻿<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>孫子兵法接龍</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="game-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">手機練習版</p>
+          <h1>孫子兵法接龍</h1>
+        </div>
+        <div class="controls">
+          <label class="difficulty">
+            <span>兵法難度</span>
+            <select id="scriptureLevel" aria-label="兵法難度">
+              <option value="0">入門：全有數</option>
+              <option value="1">一階：13 張無數</option>
+              <option value="2">二階：26 張無數</option>
+              <option value="3">三階：39 張無數</option>
+              <option value="4">軍師：全無數</option>
+            </select>
+          </label>
+          <div class="stat">
+            <span>完成</span>
+            <strong id="placedCount">0/52</strong>
+          </div>
+          <div class="stat">
+            <span>分數</span>
+            <strong id="score">0</strong>
+          </div>
+          <div class="stat">
+            <span>最佳</span>
+            <strong id="bestScore">--</strong>
+          </div>
+          <div class="stat">
+            <span>時間</span>
+            <strong id="timer">00:00</strong>
+          </div>
+          <button id="helpButton" type="button">遊戲說明</button>
+          <button id="newGame" type="button">新戰局</button>
+        </div>
+      </header>
+
+      <section class="board" aria-label="孫子兵法接龍遊戲盤">
+        <div class="target-grid" aria-label="花色目標區">
+          <button class="target target-s" data-suit="S" type="button">
+            <span class="suit-symbol" aria-hidden="true">♠</span>
+            <strong id="targetS">始計</strong>
+          </button>
+          <button class="target target-h" data-suit="H" type="button">
+            <span class="suit-symbol" aria-hidden="true">♥</span>
+            <strong id="targetH">始計</strong>
+          </button>
+          <button class="target target-d" data-suit="D" type="button">
+            <span class="suit-symbol" aria-hidden="true">♦</span>
+            <strong id="targetD">始計</strong>
+          </button>
+          <button class="target target-c" data-suit="C" type="button">
+            <span class="suit-symbol" aria-hidden="true">♣</span>
+            <strong id="targetC">始計</strong>
+          </button>
+        </div>
+
+        <div class="center-stage">
+          <div class="deck-info">
+            <span id="queueCount">待判斷 52 張</span>
+            <span id="passCount">Pass 0</span>
+          </div>
+          <div class="card-slot" id="cardSlot">
+            <div class="current-card" id="currentCard" role="button" tabindex="0" aria-label="目前牌面"></div>
+          </div>
+          <div class="actions">
+            <button id="passButton" type="button">Pass 下一張</button>
+            <button id="playbackButton" type="button">播放全牌</button>
+          </div>
+        </div>
+
+        <div class="learn-line" id="learnLine">將中央牌拖到正確花色位置；若目前不能接，雙擊牌面或按 Pass。</div>
+      </section>
+
+      <div class="message" id="message" role="status">先觀察牌面文字，再判斷它屬於哪一篇、哪一個花色位置。</div>
+      <div class="record-line" id="recordLine">本機最佳紀錄會在完成戰局後保存。</div>
+      <footer class="copyright">Copyright@林煥章 20260714版</footer>
+    </main>
+
+    <div class="playback-viewer" id="playbackViewer" aria-hidden="true">
+      <section class="playback-panel" role="dialog" aria-modal="true" aria-label="全牌播放">
+        <button class="viewer-close" id="closePlayback" type="button" aria-label="關閉">×</button>
+        <p class="playback-mode" id="playbackMode">有數字牌</p>
+        <img id="playbackImage" alt="" />
+        <div class="playback-caption" id="playbackCaption"></div>
+      </section>
+    </div>
+
+    <div class="help-viewer" id="helpViewer" aria-hidden="true">
+      <button class="viewer-backdrop" id="closeHelpBackdrop" type="button" aria-label="關閉遊戲說明"></button>
+      <section class="help-panel" role="dialog" aria-modal="true" aria-label="遊戲說明">
+        <button class="viewer-close" id="closeHelp" type="button" aria-label="關閉">×</button>
+        <h2>遊戲說明</h2>
+        <div class="help-content">
+          <section>
+            <h3>基本玩法</h3>
+            <p>畫面中央一次只顯示一張大牌。請把牌拖到正確花色位置，四個花色都要依 A 到 K 收齊。</p>
+          </section>
+          <section>
+            <h3>不能接時</h3>
+            <p>若目前這張牌還不能接，雙擊中央牌面或按 Pass 下一張，牌會排回隊伍後方。</p>
+          </section>
+          <section>
+            <h3>兵法牌序</h3>
+            <p>牌序依《孫子兵法》十三篇判斷：始計=A、作戰=2、謀攻=3、軍形=4、兵勢=5、虛實=6、軍爭=7、九變=8、行軍=9、地形=10、九地=J、火攻=Q、用間=K。</p>
+          </section>
+          <section>
+            <h3>完成播放</h3>
+            <p>可隨時按「播放全牌」檢視牌序。完成接龍後，系統會依 S1-S13、H1-H13、D1-D13、C1-C13 順序，先播放有數字牌，再播放無數字牌。</p>
+          </section>
+          <section>
+            <h3>積分與紀錄</h3>
+            <p>分數會受時間、Pass 次數、放錯次數與兵法難度影響。完成後會保存本機最佳紀錄。</p>
+          </section>
+          <section>
+            <h3>版權資訊</h3>
+            <p>Copyright@林煥章 20260714版</p>
+          </section>
+        </div>
+      </section>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
+
