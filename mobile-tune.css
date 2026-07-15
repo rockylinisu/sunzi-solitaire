@@ -1,0 +1,146 @@
+@media (max-width: 760px) {
+  :root[data-device-layout="phone"] {
+    --phone-board-pad: 6px;
+    --phone-target-gap: 5px;
+    --phone-target-w: calc((100vw - (var(--phone-board-pad) * 2) - (var(--phone-target-gap) * 3) - 12px) / 4);
+    --phone-target-h: calc(var(--phone-target-w) * 1.516);
+    --phone-info-w: 58px;
+    --phone-actions-h: 54px;
+    --card-w: clamp(220px, min(70vw, calc((100dvh - var(--phone-target-h) - 328px) / 1.516)), 300px);
+  }
+
+  :root[data-device-layout="phone"] .board {
+    grid-template-rows: var(--phone-target-h) minmax(0, 1fr) auto;
+    gap: 5px;
+    padding: var(--phone-board-pad);
+  }
+
+  :root[data-device-layout="phone"] .target-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-rows: var(--phone-target-h);
+    gap: var(--phone-target-gap);
+  }
+
+  :root[data-device-layout="phone"] .target {
+    height: var(--phone-target-h);
+    min-height: var(--phone-target-h);
+    max-height: var(--phone-target-h);
+    aspect-ratio: 0.66;
+    display: grid;
+    grid-template-rows: minmax(0, 1fr);
+    place-items: center;
+    padding: 3px;
+    overflow: hidden;
+  }
+
+  :root[data-device-layout="phone"] .target strong,
+  :root[data-device-layout="phone"] .target.has-card strong {
+    display: none;
+  }
+
+  :root[data-device-layout="phone"] .target .suit-symbol {
+    align-self: center;
+    font-size: clamp(28px, 8.5vw, 38px);
+    justify-self: center;
+    line-height: 1;
+  }
+
+  :root[data-device-layout="phone"] .target.has-card {
+    grid-template-rows: minmax(0, 1fr);
+  }
+
+  :root[data-device-layout="phone"] .target.has-card .target-card-image {
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
+    margin: 0;
+    object-fit: contain;
+  }
+
+  :root[data-device-layout="phone"] .center-stage {
+    grid-template-columns: var(--phone-info-w) minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr) var(--phone-actions-h);
+    grid-template-areas:
+      "info card"
+      "actions actions";
+    gap: 5px;
+    min-height: 0;
+  }
+
+  :root[data-device-layout="phone"] .deck-info {
+    grid-area: info;
+    align-self: center;
+    justify-self: end;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 0;
+  }
+
+  :root[data-device-layout="phone"] .deck-info span {
+    width: 52px;
+    padding: 5px 4px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.2;
+    white-space: normal;
+  }
+
+  :root[data-device-layout="phone"] .card-slot,
+  :root[data-device-layout="phone"] .current-card {
+    grid-area: card;
+    width: var(--card-w);
+    height: calc(var(--card-w) * 1.516);
+    max-height: 100%;
+  }
+
+  :root[data-device-layout="phone"] .actions {
+    grid-area: actions;
+    align-self: end;
+    min-height: var(--phone-actions-h);
+    padding-bottom: 2px;
+    gap: 8px;
+  }
+
+  :root[data-device-layout="phone"] #passButton,
+  :root[data-device-layout="phone"] #playbackButton {
+    min-height: 40px;
+    min-width: min(136px, 38vw);
+    padding: 8px 12px;
+    font-size: 15px;
+  }
+
+  :root[data-device-layout="phone"] .learn-line {
+    min-height: 32px;
+    padding: 4px 6px;
+    font-size: 12px;
+    line-height: 1.35;
+  }
+}
+
+@media (max-width: 390px) {
+  :root[data-device-layout="phone"] {
+    --phone-board-pad: 5px;
+    --phone-target-gap: 4px;
+    --phone-info-w: 52px;
+    --phone-actions-h: 50px;
+    --card-w: clamp(200px, min(68vw, calc((100dvh - var(--phone-target-h) - 312px) / 1.516)), 276px);
+  }
+
+  :root[data-device-layout="phone"] .center-stage {
+    gap: 4px;
+  }
+
+  :root[data-device-layout="phone"] .deck-info span {
+    width: 48px;
+    font-size: 11px;
+  }
+
+  :root[data-device-layout="phone"] #passButton,
+  :root[data-device-layout="phone"] #playbackButton {
+    min-height: 38px;
+    min-width: min(124px, 37vw);
+    font-size: 14px;
+  }
+}
