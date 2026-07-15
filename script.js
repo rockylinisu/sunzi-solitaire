@@ -76,7 +76,7 @@ function makeDeck() {
         rank: RANKS[i],
         title: TITLES[i],
         numberedImage: `cards/${suit}${number}.jpg`,
-        scriptureImage: `cards-n/${suit}${number}.jpg`,
+        scriptureImage: `cards-n/N${suit}${number}.jpg`,
         image: `cards/${suit}${number}.jpg`,
       });
     }
@@ -343,12 +343,13 @@ function orderedCards(prefix) {
   for (const suit of SUITS) {
     for (let value = 1; value <= 13; value += 1) {
       const number = String(value).padStart(2, "0");
+      const filePrefix = prefix === "cards-n" ? "N" : "";
       cards.push({
         suit,
         value,
         rank: RANKS[value - 1],
         title: TITLES[value - 1],
-        image: `${prefix}/${suit}${number}.jpg`,
+        image: `${prefix}/${filePrefix}${suit}${number}.jpg`,
       });
     }
   }
