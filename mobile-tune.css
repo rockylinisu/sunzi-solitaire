@@ -9,6 +9,81 @@
     --card-w: clamp(220px, min(70vw, calc((100dvh - var(--phone-target-h) - 328px) / 1.516)), 300px);
   }
 
+  :root[data-device-layout="phone"] .topbar {
+    gap: 5px;
+    margin-bottom: 5px;
+  }
+
+  :root[data-device-layout="phone"] .controls {
+    grid-template-columns: repeat(16, minmax(0, 1fr));
+    gap: 5px;
+    align-items: stretch;
+  }
+
+  :root[data-device-layout="phone"] .difficulty {
+    grid-column: 1 / 9;
+  }
+
+  :root[data-device-layout="phone"] .controls .stat:nth-of-type(1) {
+    grid-column: 9 / 13;
+  }
+
+  :root[data-device-layout="phone"] .controls .stat:nth-of-type(2) {
+    grid-column: 13 / 17;
+  }
+
+  :root[data-device-layout="phone"] .controls .stat:nth-of-type(3) {
+    grid-column: 1 / 4;
+  }
+
+  :root[data-device-layout="phone"] .controls .stat:nth-of-type(4) {
+    grid-column: 4 / 7;
+  }
+
+  :root[data-device-layout="phone"] #readerButton {
+    grid-column: 7 / 11;
+  }
+
+  :root[data-device-layout="phone"] #helpButton {
+    grid-column: 11 / 14;
+  }
+
+  :root[data-device-layout="phone"] #newGame {
+    grid-column: 14 / 17;
+  }
+
+  :root[data-device-layout="phone"] .difficulty,
+  :root[data-device-layout="phone"] .stat,
+  :root[data-device-layout="phone"] #readerButton,
+  :root[data-device-layout="phone"] #helpButton,
+  :root[data-device-layout="phone"] #newGame {
+    min-height: 42px;
+  }
+
+  :root[data-device-layout="phone"] #readerButton,
+  :root[data-device-layout="phone"] #helpButton,
+  :root[data-device-layout="phone"] #newGame {
+    padding: 0 4px;
+    font-size: clamp(12px, 3.35vw, 14px);
+    line-height: 1.1;
+    white-space: nowrap;
+  }
+
+  :root[data-device-layout="phone"] .difficulty,
+  :root[data-device-layout="phone"] .stat {
+    padding: 4px 6px;
+  }
+
+  :root[data-device-layout="phone"] .difficulty select {
+    min-height: 28px;
+    font-size: clamp(13px, 3.7vw, 16px);
+  }
+
+  :root[data-device-layout="phone"] .stat strong {
+    font-size: clamp(16px, 5.4vw, 24px);
+    line-height: 1.05;
+  }
+
   :root[data-device-layout="phone"] .board {
     grid-template-rows: var(--phone-target-h) minmax(0, 1fr) auto;
     gap: 5px;
@@ -126,6 +201,17 @@
     --phone-info-w: 52px;
     --phone-actions-h: 50px;
     --card-w: clamp(200px, min(68vw, calc((100dvh - var(--phone-target-h) - 312px) / 1.516)), 276px);
+  }
+
+  :root[data-device-layout="phone"] .controls {
+    gap: 4px;
+  }
+
+  :root[data-device-layout="phone"] #readerButton,
+  :root[data-device-layout="phone"] #helpButton,
+  :root[data-device-layout="phone"] #newGame {
+    font-size: clamp(11px, 3.25vw, 13px);
+    padding: 0 3px;
   }
 
   :root[data-device-layout="phone"] .center-stage {
