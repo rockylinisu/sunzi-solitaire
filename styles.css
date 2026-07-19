@@ -58,7 +58,7 @@ h1 {
 
 .controls {
   display: grid;
-  grid-template-columns: minmax(130px, 180px) repeat(4, minmax(66px, 90px)) minmax(82px, 110px) minmax(74px, 96px);
+  grid-template-columns: minmax(130px, 180px) repeat(4, minmax(66px, 90px)) minmax(96px, 122px) minmax(82px, 110px) minmax(74px, 96px);
   align-items: stretch;
   justify-content: flex-end;
   gap: 6px;
@@ -101,6 +101,7 @@ h1 {
 
 #newGame,
 #helpButton,
+#readerButton,
 #passButton,
 #playbackButton {
   border: 0;
@@ -113,6 +114,7 @@ h1 {
 }
 
 #helpButton,
+#readerButton,
 #playbackButton {
   background: rgba(255, 255, 255, 0.72);
 }
@@ -331,6 +333,8 @@ h1 {
 }
 
 .help-viewer,
+.reader-viewer,
+.card-preview-viewer,
 .playback-viewer {
   position: fixed;
   inset: 0;
@@ -341,11 +345,15 @@ h1 {
 }
 
 .help-viewer.open,
+.reader-viewer.open,
+.card-preview-viewer.open,
 .playback-viewer.open {
   display: grid;
 }
 
 .help-panel,
+.reader-panel,
+.card-preview-panel,
 .playback-panel {
   position: relative;
   z-index: 1;
@@ -356,6 +364,13 @@ h1 {
 .help-panel {
   width: min(720px, 96vw);
   max-height: 86vh;
+  overflow: auto;
+  padding: 22px;
+}
+
+.reader-panel {
+  width: min(860px, 96vw);
+  max-height: 88vh;
   overflow: auto;
   padding: 22px;
 }
@@ -378,6 +393,114 @@ h1 {
 .help-panel h2 {
   margin: 0 44px 14px 0;
   font-size: clamp(24px, 4vw, 34px);
+}
+
+.reader-panel h2 {
+  margin: 0 44px 14px 0;
+  font-size: clamp(24px, 4vw, 34px);
+}
+
+.reader-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.reader-font-toggle,
+.reader-speech-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.reader-toolbar button {
+  min-height: 36px;
+  border: 1px solid rgba(23, 18, 14, 0.22);
+  background: rgba(255, 255, 255, 0.72);
+  color: #21160d;
+  padding: 7px 10px;
+  cursor: pointer;
+}
+
+.reader-toolbar button.active {
+  background: var(--gold);
+  border-color: rgba(23, 18, 14, 0.32);
+  font-weight: 800;
+}
+
+.reader-select-label {
+  display: grid;
+  gap: 6px;
+  margin-bottom: 16px;
+  color: #5b4b37;
+  font-size: 14px;
+}
+
+.reader-select-label select {
+  width: min(320px, 100%);
+  padding: 8px 10px;
+  border: 1px solid rgba(23, 18, 14, 0.2);
+  background: white;
+  color: #21160d;
+}
+
+.reader-content {
+  display: grid;
+  gap: 10px;
+  color: #2b2118;
+  line-height: 1.8;
+}
+
+.reader-speech-status {
+  min-height: 1.4em;
+  margin: -4px 0 10px;
+  color: #6a5a45;
+  font-size: 14px;
+}
+
+.reader-content.font-ming {
+  font-family: "PMingLiU", "MingLiU", "Noto Serif TC", "Songti TC", serif;
+}
+
+.reader-content.font-seal {
+  font-family: "PMingLiU", "MingLiU", "Noto Serif TC", "Songti TC", serif;
+  letter-spacing: 0;
+}
+
+.reader-content.font-seal::before {
+  content: "目前未嵌入合法小篆 Web Font，先以系統中文字體顯示；取得授權字型後可替換。";
+  display: block;
+  padding: 8px 10px;
+  background: rgba(217, 180, 95, 0.18);
+  color: #5b4b37;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.reader-content h3 {
+  margin: 0;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(23, 18, 14, 0.16);
+  font-size: 22px;
+}
+
+.reader-section {
+  padding-top: 8px;
+}
+
+.reader-section p {
+  margin: 0;
+}
+
+.reader-section ul {
+  margin: 6px 0 0;
+  padding-left: 1.35em;
+}
+
+.reader-section li {
+  margin: 2px 0;
 }
 
 .help-content {
@@ -435,6 +558,32 @@ h1 {
   font-size: 15px;
 }
 
+.card-preview-panel {
+  width: min(94vw, 460px);
+  max-height: 94dvh;
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  padding: 18px;
+}
+
+.card-preview-title {
+  margin: 0 44px 0 0;
+  color: #2b2118;
+  font-weight: 800;
+  font-size: clamp(18px, 4.2vw, 24px);
+  text-align: center;
+}
+
+.card-preview-panel img {
+  width: min(84vw, 390px);
+  max-height: calc(94dvh - 86px);
+  object-fit: contain;
+  border-radius: 5px;
+  background: white;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.28);
+}
+
 @media (max-width: 760px) {
   :root {
     --card-w: min(64vw, calc((100dvh - 400px) / 1.516), 292px);
@@ -487,10 +636,15 @@ h1 {
   }
 
   #helpButton,
+  #readerButton,
   #newGame {
     min-height: 42px;
     padding: 0 6px;
     font-size: 15px;
+  }
+
+  #readerButton {
+    grid-column: 1 / 3;
   }
 
   #helpButton {
@@ -862,6 +1016,7 @@ h1 {
   }
 
   #helpButton,
+  #readerButton,
   #newGame {
     min-height: 36px;
     font-size: 14px;
@@ -1513,8 +1668,9 @@ h1 {
     --phone-target-gap: 5px;
     --phone-target-w: calc((100vw - (var(--phone-board-pad) * 2) - (var(--phone-target-gap) * 3) - 12px) / 4);
     --phone-target-h: calc(var(--phone-target-w) * 1.516);
-    --phone-actions-h: 64px;
-    --card-w: clamp(210px, min(72vw, calc((100dvh - var(--phone-target-h) - 345px) / 1.516)), 292px);
+    --phone-info-w: 58px;
+    --phone-actions-h: 54px;
+    --card-w: clamp(220px, min(70vw, calc((100dvh - var(--phone-target-h) - 328px) / 1.516)), 300px);
   }
 
   :root[data-device-layout="phone"] .board {
@@ -1566,28 +1722,64 @@ h1 {
   }
 
   :root[data-device-layout="phone"] .center-stage {
-    grid-template-rows: 26px minmax(0, 1fr) var(--phone-actions-h);
+    grid-template-columns: var(--phone-info-w) minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr) var(--phone-actions-h);
+    grid-template-areas:
+      "info card"
+      "actions actions";
     gap: 5px;
     min-height: 0;
   }
 
+  :root[data-device-layout="phone"] .deck-info {
+    grid-area: info;
+    align-self: center;
+    justify-self: end;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 0;
+  }
+
+  :root[data-device-layout="phone"] .deck-info span {
+    width: 52px;
+    padding: 5px 4px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.2;
+    white-space: normal;
+  }
+
   :root[data-device-layout="phone"] .card-slot,
   :root[data-device-layout="phone"] .current-card {
+    grid-area: card;
     width: var(--card-w);
     height: calc(var(--card-w) * 1.516);
     max-height: 100%;
   }
 
   :root[data-device-layout="phone"] .actions {
-    align-self: start;
+    grid-area: actions;
+    align-self: end;
     min-height: var(--phone-actions-h);
-    padding-bottom: 6px;
+    padding-bottom: 2px;
+    gap: 8px;
   }
 
   :root[data-device-layout="phone"] #passButton,
   :root[data-device-layout="phone"] #playbackButton {
-    min-height: 48px;
-    min-width: min(152px, 42vw);
+    min-height: 40px;
+    min-width: min(136px, 38vw);
+    padding: 8px 12px;
+    font-size: 15px;
+  }
+
+  :root[data-device-layout="phone"] .learn-line {
+    min-height: 32px;
+    padding: 4px 6px;
+    font-size: 12px;
+    line-height: 1.35;
   }
 }
 
@@ -1595,19 +1787,25 @@ h1 {
   :root[data-device-layout="phone"] {
     --phone-board-pad: 5px;
     --phone-target-gap: 4px;
-    --phone-actions-h: 60px;
-    --card-w: clamp(190px, min(70vw, calc((100dvh - var(--phone-target-h) - 325px) / 1.516)), 270px);
+    --phone-info-w: 52px;
+    --phone-actions-h: 50px;
+    --card-w: clamp(200px, min(68vw, calc((100dvh - var(--phone-target-h) - 312px) / 1.516)), 276px);
   }
 
   :root[data-device-layout="phone"] .center-stage {
-    grid-template-rows: 24px minmax(0, 1fr) var(--phone-actions-h);
     gap: 4px;
+  }
+
+  :root[data-device-layout="phone"] .deck-info span {
+    width: 48px;
+    font-size: 11px;
   }
 
   :root[data-device-layout="phone"] #passButton,
   :root[data-device-layout="phone"] #playbackButton {
-    min-height: 46px;
-    font-size: 15px;
+    min-height: 38px;
+    min-width: min(124px, 37vw);
+    font-size: 14px;
   }
 }
 

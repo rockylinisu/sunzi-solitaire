@@ -2,15 +2,22 @@
 const SUIT_NAMES = { S: "黑桃", H: "紅心", D: "鑽石", C: "梅花" };
 const SUIT_SYMBOLS = { S: "♠", H: "♥", D: "♦", C: "♣" };
 const RANKS = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
-const TITLES = ["始計", "作戰", "謀攻", "軍形", "兵勢", "虛實", "軍爭", "九變", "行軍", "地形", "九地", "火攻", "用間"];
+const DEFAULT_TITLES = ["始計", "作戰", "謀攻", "軍形", "兵勢", "虛實", "軍爭", "九變", "行軍", "地形", "九地", "火攻", "用間"];
 const LEVEL_NAMES = ["全有數", "13 張無數", "26 張無數", "39 張無數", "全無數"];
 const LEVEL_MULTIPLIERS = [1, 1.15, 1.35, 1.6, 2];
 const RECORD_KEY = "sunzi-center-solitaire-records-v1";
+const PLAYBACK_DELAY_MS = 185;
+
+let TITLES = [...DEFAULT_TITLES];
+let sunziTexts = null;
+let sunziCards = null;
+const imageCache = new Map();
 
 const state = {
   queue: [],
   foundations: { S: 0, H: 0, D: 0, C: 0 },
   targetImages: { S: null, H: null, D: null, C: null },
+  targetCards: { S: null, H: null, D: null, C: null },
   current: null,
   seconds: 0,
   passes: 0,
@@ -22,6 +29,13 @@ const state = {
   won: false,
   playbackTimer: null,
   playbackIndex: 0,
+  playbackCards: [],
+  playbackPreparing: false,
+  playbackRunId: 0,
+  readerHintShown: false,
+  readerFont: "ming",
+  speechUtterance: null,
+  speechPaused: false,
 };
 
 const els = {
@@ -44,6 +58,18 @@ const els = {
   playbackImage: document.querySelector("#playbackImage"),
   playbackMode: document.querySelector("#playbackMode"),
   playbackCaption: document.querySelector("#playbackCaption"),
+  cardPreviewViewer: document.querySelector("#cardPreviewViewer"),
+  cardPreviewImage: document.querySelector("#cardPreviewImage"),
+  cardPreviewTitle: document.querySelector("#cardPreviewTitle"),
+  readerViewer: document.querySelector("#readerViewer"),
+  readerChapterSelect: document.querySelector("#readerChapterSelect"),
+  readerContent: document.querySelector("#readerContent"),
+  readerMingFont: document.querySelector("#readerMingFont"),
+  readerSealFont: document.querySelector("#readerSealFont"),
+  readerSpeak: document.querySelector("#readerSpeak"),
+  readerPause: document.querySelector("#readerPause"),
+  readerStop: document.querySelector("#readerStop"),
+  readerSpeechStatus: document.querySelector("#readerSpeechStatus"),
   targets: [...document.querySelectorAll(".target")],
 };
 
@@ -65,6 +91,19 @@ function applyLayoutMode() {
 }
 
 function makeDeck() {
+  if (sunziCards?.cards?.length === 52) {
+    return sunziCards.cards.map((card) => ({
+      id: card.cardId,
+      suit: card.suit,
+      value: card.value,
+      rank: card.rank,
+      title: card.title,
+      numberedImage: card.numberedImage,
+      scriptureImage: card.scriptureImage,
+      image: card.numberedImage,
+    }));
+  }
+
   const deck = [];
   for (const suit of SUITS) {
     for (let i = 0; i < RANKS.length; i += 1) {
@@ -92,11 +131,38 @@ function shuffle(items) {
   return items;
 }
 
+async function loadJson(path) {
+  const response = await fetch(path, { cache: "no-store" });
+  if (!response.ok) throw new Error(`Cannot load ${path}`);
+  return response.json();
+}
+
+async function loadProjectData() {
+  try {
+    const [texts, cards] = await Promise.all([
+      loadJson("data/sunzi-texts.json"),
+      loadJson("data/sunzi-cards.json"),
+    ]);
+    if (texts?.chapters?.length === 13) {
+      sunziTexts = texts;
+      TITLES = texts.chapters
+        .slice()
+        .sort((a, b) => a.chapterNumber - b.chapterNumber)
+        .map((chapter) => chapter.title);
+    }
+    if (cards?.cards?.length === 52) sunziCards = cards;
+    renderReaderOptions();
+  } catch (error) {
+    console.warn("Using built-in Sunzi card metadata fallback.", error);
+  }
+}
+
 function newGame() {
   clearInterval(state.timer);
   stopPlayback();
   state.foundations = { S: 0, H: 0, D: 0, C: 0 };
   state.targetImages = { S: null, H: null, D: null, C: null };
+  state.targetCards = { S: null, H: null, D: null, C: null };
   state.queue = shuffle(makeDeck());
   state.current = null;
   state.seconds = 0;
@@ -105,6 +171,7 @@ function newGame() {
   state.placed = 0;
   state.score = 0;
   state.won = false;
+  state.readerHintShown = false;
   applyDifficulty();
   drawNext();
   state.timer = setInterval(tick, 1000);
@@ -161,12 +228,13 @@ function renderTargets() {
     const label = SUIT_NAMES[suit];
     const symbol = SUIT_SYMBOLS[suit];
     const nextText = nextValue <= 13 ? TITLES[nextValue - 1] : "完成";
-    const image = state.targetImages[suit];
+    const placedCard = state.targetCards[suit];
+    const image = placedCard?.image || state.targetImages[suit];
     target.classList.toggle("has-card", Boolean(image));
-    target.setAttribute("aria-label", `${label}，下一張 ${nextText}`);
+    target.setAttribute("aria-label", image ? `${label}，已接第 ${placedCard?.value || state.foundations[suit]} 篇，長按可放大` : `${label}，下一張 ${nextText}`);
     target.innerHTML = `
       ${image ? "" : `<span class="suit-symbol" aria-hidden="true">${symbol}</span>`}
-      ${image ? `<img class="target-card-image" src="${image}" alt="${label} 已接牌面" />` : ""}
+      ${image ? `<img class="target-card-image" src="${image}" alt="${label} 已接牌面，可放大查看" />` : ""}
       <strong>${nextText}</strong>
     `;
   }
@@ -186,6 +254,7 @@ function placeOnSuit(suit) {
   if (!state.current || state.won) return;
   if (state.current.suit === suit && state.current.value === state.foundations[suit] + 1) {
     state.targetImages[suit] = state.current.image;
+    state.targetCards[suit] = { ...state.current };
     state.foundations[suit] += 1;
     state.placed += 1;
     setMessage(`${SUIT_NAMES[suit]} ${state.current.title} 接龍成功。`);
@@ -363,14 +432,76 @@ function playbackCards() {
   ];
 }
 
-function startPlayback() {
+function preloadImage(src) {
+  if (imageCache.has(src)) return imageCache.get(src);
+
+  const promise = new Promise((resolve) => {
+    const image = new Image();
+    image.decoding = "async";
+    image.loading = "eager";
+    image.onload = async () => {
+      if (typeof image.decode === "function") {
+        try {
+          await image.decode();
+        } catch {
+          // Some mobile browsers already decoded the image by onload.
+        }
+      }
+      resolve(image);
+    };
+    image.onerror = () => resolve(null);
+    image.src = src;
+  });
+
+  imageCache.set(src, promise);
+  return promise;
+}
+
+async function preloadPlaybackImages(cards) {
+  const batchSize = 12;
+  for (let i = 0; i < cards.length; i += batchSize) {
+    const batch = cards.slice(i, i + batchSize);
+    await Promise.allSettled(batch.map((card) => preloadImage(card.image)));
+  }
+}
+
+async function startPlayback() {
   stopPlayback();
   const cards = playbackCards();
+  const runId = state.playbackRunId + 1;
+  state.playbackRunId = runId;
+  state.playbackPreparing = true;
+  state.playbackCards = cards;
   state.playbackIndex = 0;
   els.playbackViewer.classList.add("open");
   els.playbackViewer.setAttribute("aria-hidden", "false");
-  showPlaybackCard(cards);
-  state.playbackTimer = setInterval(() => showPlaybackCard(cards), 185);
+  els.playbackImage.removeAttribute("src");
+  els.playbackImage.alt = "";
+  els.playbackMode.textContent = "準備播放";
+  els.playbackCaption.textContent = "正在預載牌面，請稍候...";
+  if (els.playbackButton) els.playbackButton.disabled = true;
+
+  try {
+    await preloadPlaybackImages(cards);
+  } finally {
+    if (els.playbackButton) els.playbackButton.disabled = false;
+  }
+
+  if (state.playbackRunId !== runId || !state.playbackPreparing) return;
+  state.playbackPreparing = false;
+  schedulePlaybackFrame(runId);
+}
+
+function schedulePlaybackFrame(runId) {
+  if (state.playbackRunId !== runId) return;
+  showPlaybackCard(state.playbackCards);
+  if (state.playbackIndex < state.playbackCards.length) {
+    state.playbackTimer = window.setTimeout(() => schedulePlaybackFrame(runId), PLAYBACK_DELAY_MS);
+  } else {
+    state.playbackTimer = window.setTimeout(() => {
+      if (state.playbackRunId === runId) stopPlayback();
+    }, PLAYBACK_DELAY_MS);
+  }
 }
 
 function showPlaybackCard(cards) {
@@ -379,6 +510,15 @@ function showPlaybackCard(cards) {
     return;
   }
   const card = cards[state.playbackIndex];
+  const cachedImage = imageCache.get(card.image);
+  if (cachedImage && typeof cachedImage.then === "function") {
+    cachedImage.then((image) => {
+      if (image && els.playbackImage.dataset.currentImage === card.image) {
+        els.playbackImage.src = image.src;
+      }
+    });
+  }
+  els.playbackImage.dataset.currentImage = card.image;
   els.playbackImage.src = card.image;
   els.playbackImage.alt = `${card.mode} ${SUIT_NAMES[card.suit]} ${card.title}`;
   els.playbackMode.textContent = card.mode;
@@ -387,10 +527,210 @@ function showPlaybackCard(cards) {
 }
 
 function stopPlayback() {
-  clearInterval(state.playbackTimer);
+  state.playbackRunId += 1;
+  window.clearTimeout(state.playbackTimer);
   state.playbackTimer = null;
+  state.playbackPreparing = false;
+  state.playbackCards = [];
   els.playbackViewer.classList.remove("open");
   els.playbackViewer.setAttribute("aria-hidden", "true");
+  if (els.playbackButton) els.playbackButton.disabled = false;
+  if (state.won && !state.readerHintShown) {
+    state.readerHintShown = true;
+    setMessage("點擊任一花色，進入《孫子兵法十三篇》。");
+  }
+}
+
+function openCardPreview(suit) {
+  const card = state.targetCards[suit];
+  if (!card || !els.cardPreviewViewer) return;
+  els.cardPreviewImage.src = card.image;
+  els.cardPreviewImage.alt = `${SUIT_NAMES[card.suit]} ${card.rank}，第 ${card.value} 篇 ${card.title}`;
+  els.cardPreviewTitle.textContent = `第${card.value}篇｜${card.title}`;
+  els.cardPreviewViewer.classList.add("open");
+  els.cardPreviewViewer.setAttribute("aria-hidden", "false");
+}
+
+function closeCardPreview() {
+  if (!els.cardPreviewViewer) return;
+  els.cardPreviewViewer.classList.remove("open");
+  els.cardPreviewViewer.setAttribute("aria-hidden", "true");
+}
+
+function bindTargetPreview(target) {
+  let longPressTimer = null;
+  let longPressOpened = false;
+
+  target.addEventListener("pointerdown", () => {
+    longPressOpened = false;
+    if (!state.targetCards[target.dataset.suit]) return;
+    longPressTimer = window.setTimeout(() => {
+      longPressOpened = true;
+      openCardPreview(target.dataset.suit);
+    }, 420);
+  });
+
+  const clearLongPress = () => {
+    window.clearTimeout(longPressTimer);
+    longPressTimer = null;
+  };
+
+  target.addEventListener("pointerup", clearLongPress);
+  target.addEventListener("pointerleave", clearLongPress);
+  target.addEventListener("pointercancel", clearLongPress);
+  target.addEventListener("click", (event) => {
+    if (longPressOpened) {
+      event.preventDefault();
+      return;
+    }
+    if (state.won && state.placed >= 52) {
+      event.preventDefault();
+      openReaderViewer();
+      return;
+    }
+    if (event.target.closest(".target-card-image")) {
+      event.preventDefault();
+      openCardPreview(target.dataset.suit);
+      return;
+    }
+    placeOnSuit(target.dataset.suit);
+  });
+}
+
+function renderReaderOptions() {
+  if (!els.readerChapterSelect || !sunziTexts?.chapters?.length) return;
+  els.readerChapterSelect.innerHTML = "";
+  for (const chapter of sunziTexts.chapters) {
+    const option = document.createElement("option");
+    option.value = chapter.chapterId;
+    option.textContent = `${chapter.chapterNumber}. ${chapter.fullTitle}`;
+    els.readerChapterSelect.append(option);
+  }
+  renderReaderChapter();
+}
+
+function renderReaderChapter() {
+  stopReaderSpeech();
+  if (!els.readerContent) return;
+  els.readerContent.innerHTML = "";
+  applyReaderFont();
+  if (!sunziTexts?.chapters?.length) {
+    const empty = document.createElement("p");
+    empty.textContent = "十三篇資料尚未載入。";
+    els.readerContent.append(empty);
+    return;
+  }
+
+  const selectedId = els.readerChapterSelect.value || sunziTexts.chapters[0].chapterId;
+  const chapter = sunziTexts.chapters.find((item) => item.chapterId === selectedId) || sunziTexts.chapters[0];
+  const title = document.createElement("h3");
+  title.textContent = chapter.fullTitle;
+  els.readerContent.append(title);
+
+  for (const section of chapter.sections) {
+    const block = document.createElement("section");
+    block.className = `reader-section reader-section-${section.type}`;
+    if (section.text) {
+      const paragraph = document.createElement("p");
+      paragraph.textContent = section.text;
+      block.append(paragraph);
+    }
+    if (section.items?.length) {
+      const list = document.createElement("ul");
+      for (const item of section.items) {
+        const li = document.createElement("li");
+        li.textContent = item.text;
+        list.append(li);
+      }
+      block.append(list);
+    }
+    els.readerContent.append(block);
+  }
+}
+
+function currentReaderChapter() {
+  if (!sunziTexts?.chapters?.length) return null;
+  const selectedId = els.readerChapterSelect.value || sunziTexts.chapters[0].chapterId;
+  return sunziTexts.chapters.find((item) => item.chapterId === selectedId) || sunziTexts.chapters[0];
+}
+
+function applyReaderFont() {
+  if (!els.readerContent) return;
+  els.readerContent.classList.toggle("font-ming", state.readerFont === "ming");
+  els.readerContent.classList.toggle("font-seal", state.readerFont === "seal");
+  els.readerMingFont?.classList.toggle("active", state.readerFont === "ming");
+  els.readerSealFont?.classList.toggle("active", state.readerFont === "seal");
+}
+
+function setReaderFont(font) {
+  state.readerFont = font;
+  applyReaderFont();
+}
+
+function setReaderSpeechStatus(text) {
+  if (els.readerSpeechStatus) els.readerSpeechStatus.textContent = text;
+}
+
+function startReaderSpeech() {
+  const chapter = currentReaderChapter();
+  if (!chapter) return;
+  if (!("speechSynthesis" in window) || typeof SpeechSynthesisUtterance === "undefined") {
+    setReaderSpeechStatus("此瀏覽器不支援朗讀功能。");
+    return;
+  }
+
+  stopReaderSpeech();
+  const utterance = new SpeechSynthesisUtterance(chapter.fullText || chapter.sections.map((section) => section.text).join("\n"));
+  utterance.lang = "zh-TW";
+  utterance.rate = 0.92;
+  utterance.pitch = 1;
+  utterance.onend = () => {
+    state.speechUtterance = null;
+    state.speechPaused = false;
+    setReaderSpeechStatus("朗讀完成。");
+  };
+  utterance.onerror = () => {
+    state.speechUtterance = null;
+    state.speechPaused = false;
+    setReaderSpeechStatus("朗讀中斷，請再試一次。");
+  };
+
+  state.speechUtterance = utterance;
+  state.speechPaused = false;
+  window.speechSynthesis.speak(utterance);
+  setReaderSpeechStatus(`正在朗讀：${chapter.fullTitle}`);
+}
+
+function toggleReaderSpeechPause() {
+  if (!state.speechUtterance || !("speechSynthesis" in window)) return;
+  if (state.speechPaused) {
+    window.speechSynthesis.resume();
+    state.speechPaused = false;
+    setReaderSpeechStatus("繼續朗讀。");
+  } else {
+    window.speechSynthesis.pause();
+    state.speechPaused = true;
+    setReaderSpeechStatus("朗讀已暫停。");
+  }
+}
+
+function stopReaderSpeech() {
+  if ("speechSynthesis" in window) window.speechSynthesis.cancel();
+  state.speechUtterance = null;
+  state.speechPaused = false;
+  setReaderSpeechStatus("");
+}
+
+function openReaderViewer() {
+  renderReaderOptions();
+  els.readerViewer.classList.add("open");
+  els.readerViewer.setAttribute("aria-hidden", "false");
+}
+
+function closeReaderViewer() {
+  stopReaderSpeech();
+  els.readerViewer.classList.remove("open");
+  els.readerViewer.setAttribute("aria-hidden", "true");
 }
 
 function openHelpViewer() {
@@ -425,15 +765,28 @@ els.currentCard.addEventListener("keydown", (event) => {
 });
 els.passButton.addEventListener("click", passCard);
 els.playbackButton.addEventListener("click", startPlayback);
-els.targets.forEach((target) => target.addEventListener("click", () => placeOnSuit(target.dataset.suit)));
+els.targets.forEach(bindTargetPreview);
 document.querySelector("#newGame").addEventListener("click", newGame);
+document.querySelector("#readerButton").addEventListener("click", openReaderViewer);
 document.querySelector("#helpButton").addEventListener("click", openHelpViewer);
+document.querySelector("#readerChapterSelect").addEventListener("change", renderReaderChapter);
+document.querySelector("#readerMingFont").addEventListener("click", () => setReaderFont("ming"));
+document.querySelector("#readerSealFont").addEventListener("click", () => setReaderFont("seal"));
+document.querySelector("#readerSpeak").addEventListener("click", startReaderSpeech);
+document.querySelector("#readerPause").addEventListener("click", toggleReaderSpeechPause);
+document.querySelector("#readerStop").addEventListener("click", stopReaderSpeech);
+document.querySelector("#closeReader").addEventListener("click", closeReaderViewer);
+document.querySelector("#closeReaderBackdrop").addEventListener("click", closeReaderViewer);
+document.querySelector("#closeCardPreview").addEventListener("click", closeCardPreview);
+document.querySelector("#closeCardPreviewBackdrop").addEventListener("click", closeCardPreview);
 document.querySelector("#closeHelp").addEventListener("click", closeHelpViewer);
 document.querySelector("#closeHelpBackdrop").addEventListener("click", closeHelpViewer);
 document.querySelector("#closePlayback").addEventListener("click", stopPlayback);
 els.scriptureLevel.addEventListener("change", newGame);
 window.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {
+    closeReaderViewer();
+    closeCardPreview();
     closeHelpViewer();
     stopPlayback();
   }
@@ -441,8 +794,13 @@ window.addEventListener("keydown", (event) => {
 window.addEventListener("resize", applyLayoutMode);
 window.addEventListener("orientationchange", applyLayoutMode);
 
-applyLayoutMode();
-newGame();
+async function initializeApp() {
+  applyLayoutMode();
+  await loadProjectData();
+  newGame();
+}
+
+initializeApp();
 
 
 

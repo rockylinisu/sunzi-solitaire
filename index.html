@@ -41,6 +41,7 @@
             <span>時間</span>
             <strong id="timer">00:00</strong>
           </div>
+          <button id="readerButton" type="button">十三篇閱讀館</button>
           <button id="helpButton" type="button">遊戲說明</button>
           <button id="newGame" type="button">新戰局</button>
         </div>
@@ -94,6 +95,40 @@
         <p class="playback-mode" id="playbackMode">有數字牌</p>
         <img id="playbackImage" alt="" />
         <div class="playback-caption" id="playbackCaption"></div>
+      </section>
+    </div>
+
+    <div class="card-preview-viewer" id="cardPreviewViewer" aria-hidden="true">
+      <button class="viewer-backdrop" id="closeCardPreviewBackdrop" type="button" aria-label="關閉牌面放大"></button>
+      <section class="card-preview-panel" role="dialog" aria-modal="true" aria-label="牌面放大">
+        <button class="viewer-close" id="closeCardPreview" type="button" aria-label="關閉">×</button>
+        <p class="card-preview-title" id="cardPreviewTitle">第1篇｜始計</p>
+        <img id="cardPreviewImage" alt="" />
+      </section>
+    </div>
+
+    <div class="reader-viewer" id="readerViewer" aria-hidden="true">
+      <button class="viewer-backdrop" id="closeReaderBackdrop" type="button" aria-label="關閉十三篇閱讀館"></button>
+      <section class="reader-panel" role="dialog" aria-modal="true" aria-label="孫子兵法十三篇閱讀館">
+        <button class="viewer-close" id="closeReader" type="button" aria-label="關閉">×</button>
+        <h2>孫子兵法十三篇閱讀館</h2>
+        <div class="reader-toolbar" aria-label="閱讀設定">
+          <div class="reader-font-toggle" aria-label="字體切換">
+            <button id="readerMingFont" class="active" type="button">細明體</button>
+            <button id="readerSealFont" type="button">小篆</button>
+          </div>
+          <div class="reader-speech-controls" aria-label="朗讀控制">
+            <button id="readerSpeak" type="button">▶ 朗讀全文</button>
+            <button id="readerPause" type="button">⏸ 暫停／繼續</button>
+            <button id="readerStop" type="button">■ 停止</button>
+          </div>
+        </div>
+        <label class="reader-select-label">
+          <span>篇章</span>
+          <select id="readerChapterSelect" aria-label="選擇篇章"></select>
+        </label>
+        <p class="reader-speech-status" id="readerSpeechStatus" role="status"></p>
+        <article class="reader-content" id="readerContent"></article>
       </section>
     </div>
 

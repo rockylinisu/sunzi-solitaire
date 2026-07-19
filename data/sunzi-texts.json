@@ -1,0 +1,7007 @@
+{
+  "schemaVersion": 1,
+  "language": "zh-Hant",
+  "source": {
+    "name": "孫子兵法 原典",
+    "privateSourceFile": "孫子兵法 原典 .docx",
+    "publicSourceIncluded": false,
+    "conversionNote": "依使用者提供的 Word 母本整理為網站可用結構化資料；原始 Word 檔不公開。"
+  },
+  "chapters": [
+    {
+      "chapterId": "sunzi-01",
+      "chapterNumber": 1,
+      "title": "始計第一",
+      "fullTitle": "始計第一",
+      "rank": "A",
+      "audio": null,
+      "fullText": "孫子曰:兵者，國之大事，死生之地，存亡之道，不可不察也。故經之以五事，校之以計，而索其情。一曰道，二曰天，三曰地，四曰將，五曰法。道者：令民與上同意；可與之死，可與之生，而不畏危也。天者：陰陽、寒暑、時制也。地者：遠近、險易、廣狹、死生也。將者：智、信、仁、勇、嚴也。法者：曲制、官道、主用也。凡此五者，將莫不聞，知之者勝，不知者不勝。故校之以計，而索其情；曰：主孰有道，將孰有能，天地孰得，法令孰行，兵眾孰強，士卒孰練，賞罰孰明，吾以此知勝負矣。將聽吾計，用之必勝，留之；將不聽吾計，用之必敗，去之。計利以聽，乃為之勢，以佐其外；勢者：因利而制權也。兵者：詭道也。故能而示之不能，用而示之不用，近而示之遠，遠而示之近，利而誘之，亂而取之，實而備之，強而避之，怒而撓之，卑而驕之，佚而勞之，親而離之。攻其無備，出其不意。此兵家之勝，不可先傳也。夫未戰而廟算勝者，得算多也；未戰而廟算不勝者，得算少也；多算勝，少算不勝，而況無算乎？吾以此觀之，勝負見矣。",
+      "sections": [
+        {
+          "sectionId": "sunzi-01-s001",
+          "type": "paragraph",
+          "text": "孫子曰:兵者，國之大事，死生之地，存亡之道，不可不察也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 3,
+            "style": "ab",
+            "numId": "4",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-01-s002",
+          "type": "paragraph",
+          "text": "故經之以五事，校之以計，而索其情。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 4,
+            "style": "ab",
+            "numId": "4",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-01-s003",
+          "type": "paragraph",
+          "text": "一曰道，二曰天，三曰地，四曰將，五曰法。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 5,
+            "style": "ab",
+            "numId": "4",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-01-s004",
+          "type": "paragraph",
+          "text": "道者：令民與上同意；可與之死，可與之生，而不畏危也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 6,
+            "style": "ab",
+            "numId": "24",
+            "ilvl": "2"
+          }
+        },
+        {
+          "sectionId": "sunzi-01-s005",
+          "type": "paragraph",
+          "text": "天者：陰陽、寒暑、時制也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 7,
+            "style": "ab",
+            "numId": "24",
+            "ilvl": "2"
+          }
+        },
+        {
+          "sectionId": "sunzi-01-s006",
+          "type": "paragraph",
+          "text": "地者：遠近、險易、廣狹、死生也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 8,
+            "style": "ab",
+            "numId": "24",
+            "ilvl": "2"
+          }
+        },
+        {
+          "sectionId": "sunzi-01-s007",
+          "type": "paragraph",
+          "text": "將者：智、信、仁、勇、嚴也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 9,
+            "style": "ab",
+            "numId": "24",
+            "ilvl": "2"
+          }
+        },
+        {
+          "sectionId": "sunzi-01-s008",
+          "type": "paragraph",
+          "text": "法者：曲制、官道、主用也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 10,
+            "style": "ab",
+            "numId": "24",
+            "ilvl": "2"
+          }
+        },
+        {
+          "sectionId": "sunzi-01-s009",
+          "type": "paragraph",
+          "text": "凡此五者，將莫不聞，知之者勝，不知者不勝。故校之以計，而索其情；",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 11,
+            "style": "ab",
+            "numId": "4",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-01-s010",
+          "type": "paragraph",
+          "text": "曰：",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 12,
+            "style": "ab",
+            "numId": "4",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-01-s011",
+          "type": "paragraph",
+          "text": "主孰有道，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 13,
+            "style": "ab",
+            "numId": "22",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-01-s012",
+          "type": "paragraph",
+          "text": "將孰有能，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 14,
+            "style": "ab",
+            "numId": "22",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-01-s013",
+          "type": "paragraph",
+          "text": "天地孰得，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 15,
+            "style": "ab",
+            "numId": "22",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-01-s014",
+          "type": "paragraph",
+          "text": "法令孰行，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 16,
+            "style": "ab",
+            "numId": "22",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-01-s015",
+          "type": "paragraph",
+          "text": "兵眾孰強，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 17,
+            "style": "ab",
+            "numId": "22",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-01-s016",
+          "type": "paragraph",
+          "text": "士卒孰練，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 18,
+            "style": "ab",
+            "numId": "22",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-01-s017",
+          "type": "paragraph",
+          "text": "賞罰孰明，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 19,
+            "style": "ab",
+            "numId": "22",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-01-s018",
+          "type": "paragraph",
+          "text": "吾以此知勝負矣。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 20,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-01-s019",
+          "type": "paragraph",
+          "text": "將聽吾計，用之必勝，留之；將不聽吾計，用之必敗，去之。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 21,
+            "style": "ab",
+            "numId": "4",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-01-s020",
+          "type": "paragraph",
+          "text": "計利以聽，乃為之勢，以佐其外；勢者：因利而制權也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 22,
+            "style": "ab",
+            "numId": "4",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-01-s021",
+          "type": "paragraph",
+          "text": "兵者：詭道也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 23,
+            "style": "ab",
+            "numId": "4",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-01-s022",
+          "type": "paragraph",
+          "text": "故",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 24,
+            "style": "ab",
+            "numId": "4",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-01-s023",
+          "type": "paragraph",
+          "text": "能而示之不能，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 25,
+            "style": "ab",
+            "numId": "21",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-01-s024",
+          "type": "paragraph",
+          "text": "用而示之不用，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 26,
+            "style": "ab",
+            "numId": "21",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-01-s025",
+          "type": "paragraph",
+          "text": "近而示之遠，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 27,
+            "style": "ab",
+            "numId": "21",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-01-s026",
+          "type": "paragraph",
+          "text": "遠而示之近，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 28,
+            "style": "ab",
+            "numId": "21",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-01-s027",
+          "type": "paragraph",
+          "text": "利而誘之，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 29,
+            "style": "ab",
+            "numId": "21",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-01-s028",
+          "type": "paragraph",
+          "text": "亂而取之，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 30,
+            "style": "ab",
+            "numId": "21",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-01-s029",
+          "type": "paragraph",
+          "text": "實而備之，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 31,
+            "style": "ab",
+            "numId": "21",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-01-s030",
+          "type": "paragraph",
+          "text": "強而避之，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 32,
+            "style": "ab",
+            "numId": "21",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-01-s031",
+          "type": "paragraph",
+          "text": "怒而撓之，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 33,
+            "style": "ab",
+            "numId": "21",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-01-s032",
+          "type": "paragraph",
+          "text": "卑而驕之，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 34,
+            "style": "ab",
+            "numId": "21",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-01-s033",
+          "type": "paragraph",
+          "text": "佚而勞之，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 35,
+            "style": "ab",
+            "numId": "21",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-01-s034",
+          "type": "paragraph",
+          "text": "親而離之。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 36,
+            "style": "ab",
+            "numId": "21",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-01-s035",
+          "type": "paragraph",
+          "text": "攻其無備，出其不意。此兵家之勝，不可先傳也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 37,
+            "style": "ab",
+            "numId": "4",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-01-s036",
+          "type": "paragraph",
+          "text": "夫未戰而廟算勝者，得算多也；未戰而廟算不勝者，得算少也；多算勝，少算不勝，而況無算乎？吾以此觀之，勝負見矣。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 38,
+            "style": "ab",
+            "numId": "4",
+            "ilvl": "0"
+          }
+        }
+      ]
+    },
+    {
+      "chapterId": "sunzi-02",
+      "chapterNumber": 2,
+      "title": "作戰第二",
+      "fullTitle": "作戰第二",
+      "rank": "2",
+      "audio": null,
+      "fullText": "孫子曰：凡用兵之法，馳車千駟，革車千乘，帶甲十萬，千里饋糧；則內外之費，賓客之用，膠漆之材，車甲之奉，日費千金，然後十萬之師舉矣。其用戰也，貴勝。久則鈍兵挫銳，攻城則力屈，久暴師則國用不足。夫鈍兵挫銳，屈力殫貨，則諸侯乘其弊而起，雖有智者，不能善其後矣。故兵聞拙速，未睹巧之久也。夫兵久而國利者，未之有也。故不盡知用兵之害者，則不能盡知用兵之利也。善用兵者，役不再籍，糧不三載；取用於國，因糧於敵，故軍食可足也。國之貧於師者遠輸，遠輸則百姓貧。近於師者貴賣，貴賣則百姓財竭，財竭則急於丘役。力屈財殫中原，內虛於家。百姓之費，十去其七；公家之費，破車罷馬，甲胄矢弩，戟楯蔽櫓，丘牛大車，十去其六。故智將務食於敵，食敵一鍾，當吾二十鍾，萁稈一石，當吾二十石。故殺敵者，怒也；取敵之利者，貨也。故車戰，得車十乘以上，賞其先得者，而更其旌旗，車雜而乘之，卒善以養之，是謂勝敵而益強。故兵貴勝，不貴久。故知兵之將，民之司命，國家安危之主也。",
+      "sections": [
+        {
+          "sectionId": "sunzi-02-s001",
+          "type": "paragraph",
+          "text": "孫子曰：凡用兵之法，馳車千駟，革車千乘，帶甲十萬，千里饋糧；則內外之費，賓客之用，膠漆之材，車甲之奉，日費千金，然後十萬之師舉矣。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 40,
+            "style": "ab",
+            "numId": "3",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-02-s002",
+          "type": "paragraph",
+          "text": "其用戰也，貴勝。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 41,
+            "style": "ab",
+            "numId": "3",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-02-s003",
+          "type": "paragraph",
+          "text": "久則鈍兵挫銳，攻城則力屈，久暴師則國用不足。夫鈍兵挫銳，屈力殫貨，則諸侯乘其弊而起，雖有智者，不能善其後矣。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 42,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-02-s004",
+          "type": "paragraph",
+          "text": "故兵聞拙速，未睹巧之久也。夫兵久而國利者，未之有也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 43,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-02-s005",
+          "type": "paragraph",
+          "text": "故不盡知用兵之害者，則不能盡知用兵之利也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 44,
+            "style": "ab",
+            "numId": "3",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-02-s006",
+          "type": "paragraph",
+          "text": "善用兵者，役不再籍，糧不三載；取用於國，因糧於敵，故軍食可足也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 45,
+            "style": "ab",
+            "numId": "3",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-02-s007",
+          "type": "paragraph",
+          "text": "國之貧於師者遠輸，遠輸則百姓貧。近於師者貴賣，貴賣則百姓財竭，財竭則急於丘役。力屈財殫中原，內虛於家。百姓之費，十去其七；公家之費，破車罷馬，甲胄矢弩，戟楯蔽櫓，丘牛大車，十去其六。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 46,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-02-s008",
+          "type": "paragraph",
+          "text": "故智將務食於敵，食敵一鍾，當吾二十鍾，萁稈一石，當吾二十石。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 47,
+            "style": "ab",
+            "numId": "3",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-02-s009",
+          "type": "paragraph",
+          "text": "故殺敵者，怒也；取敵之利者，貨也。故車戰，得車十乘以上，賞其先得者，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 48,
+            "style": "ab",
+            "numId": "3",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-02-s010",
+          "type": "paragraph",
+          "text": "而更其旌旗，車雜而乘之，卒善以養之，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 49,
+            "style": "ab",
+            "numId": "3",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-02-s011",
+          "type": "paragraph",
+          "text": "是謂勝敵而益強。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 50,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-02-s012",
+          "type": "paragraph",
+          "text": "故兵貴勝，不貴久。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 51,
+            "style": "ab",
+            "numId": "3",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-02-s013",
+          "type": "paragraph",
+          "text": "故知兵之將，民之司命，國家安危之主也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 52,
+            "style": "ab",
+            "numId": "3",
+            "ilvl": "0"
+          }
+        }
+      ]
+    },
+    {
+      "chapterId": "sunzi-03",
+      "chapterNumber": 3,
+      "title": "謀攻第三",
+      "fullTitle": "謀攻第三",
+      "rank": "3",
+      "audio": null,
+      "fullText": "孫子曰：凡用兵之法，全國為上，破國次之；全軍為上，破軍次之；全旅為上，破旅次之；全卒為上，破卒次之；全伍為上，破伍次之。是故百戰百勝，非善之善者也；不戰而屈人之兵，善之善者也。故上兵伐謀，其次伐交，其次伐兵，其下攻城。攻城之法，為不得已。修櫓轒轀，具器械，三月而後成；距闉又三月而後已；將不勝其忿，而蟻附之，殺士卒三分之一，而城不拔者，此攻之災也。故善用兵者，屈人之兵，而非戰也；拔人之城，而非攻也；毀人之國，而非久也。必以全爭於天下，故兵不頓而利可全，此謀攻之法也。故用兵之法，十則圍之，五則攻之，倍則分之；敵則能戰之，少則能逃之，不若則能避之。故小敵之堅，大敵之擒也。夫將者，國之輔也，輔周則國必強，輔隙則國必弱。故君所以患於軍者三：不知三軍之不可以進而謂之進，不知三軍之不可以退而謂之退，是謂縻軍。不知三軍之事，而同三軍之政，則軍士惑矣。不知三軍之權，而同三軍之任，則軍士疑矣。三軍既惑且疑，則諸侯之難至矣，是謂亂軍引勝。故知勝有五：知可以戰與不可以戰者，勝；識眾寡之用者，勝；上下同欲者，勝；以虞待不虞者，勝。將能而君不御者，勝。此五者，知勝之道也。故曰：知己知彼，百戰不殆；不知彼而知己，一勝一負；不知彼，不知己，每戰必敗",
+      "sections": [
+        {
+          "sectionId": "sunzi-03-s001",
+          "type": "paragraph",
+          "text": "孫子曰：凡用兵之法，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 54,
+            "style": "ab",
+            "numId": "2",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-03-s002",
+          "type": "paragraph",
+          "text": "全國為上，破國次之；",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 55,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-03-s003",
+          "type": "paragraph",
+          "text": "全軍為上，破軍次之；",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 56,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-03-s004",
+          "type": "paragraph",
+          "text": "全旅為上，破旅次之；",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 57,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-03-s005",
+          "type": "paragraph",
+          "text": "全卒為上，破卒次之；",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 58,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-03-s006",
+          "type": "paragraph",
+          "text": "全伍為上，破伍次之。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 59,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-03-s007",
+          "type": "paragraph",
+          "text": "是故",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 60,
+            "style": "ab",
+            "numId": "2",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-03-s008",
+          "type": "paragraph",
+          "text": "百戰百勝，非善之善者也；不戰而屈人之兵，善之善者也。故",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 61,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-03-s009",
+          "type": "paragraph",
+          "text": "上兵伐謀，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 62,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-03-s010",
+          "type": "paragraph",
+          "text": "其次伐交，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 63,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-03-s011",
+          "type": "paragraph",
+          "text": "其次伐兵，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 64,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-03-s012",
+          "type": "paragraph",
+          "text": "其下攻城。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 65,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-03-s013",
+          "type": "paragraph",
+          "text": "攻城之法，為不得已。修櫓轒轀，具器械，三月而後成；距闉又三月而後已；將不勝其忿，而蟻附之，殺士卒三分之一，而城不拔者，此攻之災也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 66,
+            "style": "ab",
+            "numId": "2",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-03-s014",
+          "type": "paragraph",
+          "text": "故善用兵者，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 67,
+            "style": "ab",
+            "numId": "2",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-03-s015",
+          "type": "paragraph",
+          "text": "屈人之兵，而非戰也；",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 68,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-03-s016",
+          "type": "paragraph",
+          "text": "拔人之城，而非攻也；",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 69,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-03-s017",
+          "type": "paragraph",
+          "text": "毀人之國，而非久也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 70,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-03-s018",
+          "type": "paragraph",
+          "text": "必以全爭於天下，故兵不頓而利可全，此謀攻之法也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 71,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-03-s019",
+          "type": "paragraph",
+          "text": "故用兵之法，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 72,
+            "style": "ab",
+            "numId": "2",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-03-s020",
+          "type": "paragraph",
+          "text": "十則圍之，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 73,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-03-s021",
+          "type": "paragraph",
+          "text": "五則攻之，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 74,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-03-s022",
+          "type": "paragraph",
+          "text": "倍則分之；",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 75,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-03-s023",
+          "type": "paragraph",
+          "text": "敵則能戰之，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 76,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-03-s024",
+          "type": "paragraph",
+          "text": "少則能逃之，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 77,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-03-s025",
+          "type": "paragraph",
+          "text": "不若則能避之。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 78,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-03-s026",
+          "type": "paragraph",
+          "text": "故小敵之堅，大敵之擒也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 79,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-03-s027",
+          "type": "paragraph",
+          "text": "夫將者，國之輔也，輔周則國必強，輔隙則國必弱。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 80,
+            "style": "ab",
+            "numId": "2",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-03-s028",
+          "type": "paragraph",
+          "text": "故君所以患於軍者三：",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 81,
+            "style": "ab",
+            "numId": "2",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-03-s029",
+          "type": "paragraph",
+          "text": "不知三軍之不可以進而謂之進，不知三軍之不可以退而謂之退，是謂縻軍。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 82,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-03-s030",
+          "type": "paragraph",
+          "text": "不知三軍之事，而同三軍之政，則軍士惑矣。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 83,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-03-s031",
+          "type": "paragraph",
+          "text": "不知三軍之權，而同三軍之任，則軍士疑矣。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 84,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-03-s032",
+          "type": "paragraph",
+          "text": "三軍既惑且疑，則諸侯之難至矣，是謂亂軍引勝。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 85,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-03-s033",
+          "type": "paragraph",
+          "text": "故知勝有五：",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 86,
+            "style": "ab",
+            "numId": "2",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-03-s034",
+          "type": "paragraph",
+          "text": "知可以戰與不可以戰者，勝；",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 87,
+            "style": "ab",
+            "numId": "20",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-03-s035",
+          "type": "paragraph",
+          "text": "識眾寡之用者，勝；",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 88,
+            "style": "ab",
+            "numId": "20",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-03-s036",
+          "type": "paragraph",
+          "text": "上下同欲者，勝；",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 89,
+            "style": "ab",
+            "numId": "20",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-03-s037",
+          "type": "paragraph",
+          "text": "以虞待不虞者，勝。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 90,
+            "style": "ab",
+            "numId": "20",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-03-s038",
+          "type": "paragraph",
+          "text": "將能而君不御者，勝。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 91,
+            "style": "ab",
+            "numId": "20",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-03-s039",
+          "type": "paragraph",
+          "text": "此五者，知勝之道也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 92,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-03-s040",
+          "type": "paragraph",
+          "text": "故曰：",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 93,
+            "style": "ab",
+            "numId": "2",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-03-s041",
+          "type": "paragraph",
+          "text": "知己知彼，百戰不殆；",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 94,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-03-s042",
+          "type": "paragraph",
+          "text": "不知彼而知己，一勝一負；",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 95,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-03-s043",
+          "type": "paragraph",
+          "text": "不知彼，不知己，每戰必敗",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 96,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        }
+      ]
+    },
+    {
+      "chapterId": "sunzi-04",
+      "chapterNumber": 4,
+      "title": "軍形第四",
+      "fullTitle": "軍形第四",
+      "rank": "4",
+      "audio": null,
+      "fullText": "孫子曰：昔之善戰者，先為不可勝，以待敵之可勝。不可勝在己，可勝在敵。故善戰者，能為不可勝，不能使敵必可勝。故曰：勝可知，而不可為。不可勝者，守也；可勝者，攻也。守則不足，攻則有餘。善守者，藏於九地之下；善攻者，動於九天之上，故能自保而全勝也。見勝，不過眾人之所知，非善之善者也；戰勝，而天下曰善，非善之善者也。故舉秋毫，不為多力；見日月，不為明目；聞雷霆，不為聰耳。古之善戰者，勝於易勝者也。故善戰者之勝也，無智名，無勇功。故其戰勝不忒。不忒者，其所措必勝，勝己敗者也。故善戰者，立於不敗之地，而不失敵之敗也。是故:勝兵先勝，而後求戰；敗兵先戰，而後求勝。善用兵者，修道而保法，故能為勝敗之政。兵法：一曰度，二曰量，三曰數， 四曰稱，五曰勝；地生度，度生量，量生數，數生稱，稱生勝。故勝兵若以鎰稱銖，敗兵若以銖稱鎰。勝者之戰民也，若決積水於千仞之谿者，形也。",
+      "sections": [
+        {
+          "sectionId": "sunzi-04-s001",
+          "type": "paragraph",
+          "text": "孫子曰：昔之善戰者，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 98,
+            "style": "ab",
+            "numId": "5",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-04-s002",
+          "type": "paragraph",
+          "text": "先為不可勝，以待敵之可勝。不可勝在己，可勝在敵。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 99,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-04-s003",
+          "type": "paragraph",
+          "text": "故善戰者，能為不可勝，不能使敵必可勝。故曰：",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 100,
+            "style": "ab",
+            "numId": "5",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-04-s004",
+          "type": "paragraph",
+          "text": "勝可知，而不可為。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 101,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-04-s005",
+          "type": "paragraph",
+          "text": "不可勝者，守也；可勝者，攻也。守則不足，攻則有餘。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 102,
+            "style": "ab",
+            "numId": "5",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-04-s006",
+          "type": "paragraph",
+          "text": "善守者，藏於九地之下；善攻者，動於九天之上，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 103,
+            "style": "ab",
+            "numId": "5",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-04-s007",
+          "type": "paragraph",
+          "text": "故能自保而全勝也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 104,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-04-s008",
+          "type": "paragraph",
+          "text": "見勝，不過眾人之所知，非善之善者也；",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 105,
+            "style": "ab",
+            "numId": "5",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-04-s009",
+          "type": "paragraph",
+          "text": "戰勝，而天下曰善，非善之善者也。故",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 106,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-04-s010",
+          "type": "paragraph",
+          "text": "舉秋毫，不為多力；見日月，不為明目；聞雷霆，不為聰耳。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 107,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-04-s011",
+          "type": "paragraph",
+          "text": "古之善戰者，勝於易勝者也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 108,
+            "style": "ab",
+            "numId": "5",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-04-s012",
+          "type": "paragraph",
+          "text": "故善戰者之勝也，無智名，無勇功。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 109,
+            "style": "ab",
+            "numId": "5",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-04-s013",
+          "type": "paragraph",
+          "text": "故其戰勝不忒。不忒者，其所措必勝，勝己敗者也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 110,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-04-s014",
+          "type": "paragraph",
+          "text": "故善戰者，立於不敗之地，而不失敵之敗也。是故:",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 111,
+            "style": "ab",
+            "numId": "39",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-04-s015",
+          "type": "paragraph",
+          "text": "勝兵先勝，而後求戰；敗兵先戰，而後求勝。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 112,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-04-s016",
+          "type": "paragraph",
+          "text": "善用兵者，修道而保法，故能為勝敗之政。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 113,
+            "style": "ab",
+            "numId": "5",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-04-s017",
+          "type": "paragraph",
+          "text": "兵法：一曰度，二曰量，三曰數， 四曰稱，五曰勝；",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 114,
+            "style": "ab",
+            "numId": "5",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-04-s018",
+          "type": "paragraph",
+          "text": "地生度，度生量，量生數，數生稱，稱生勝。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 115,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-04-s019",
+          "type": "paragraph",
+          "text": "故勝兵若以鎰稱銖，敗兵若以銖稱鎰。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 116,
+            "style": "ab",
+            "numId": "5",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-04-s020",
+          "type": "paragraph",
+          "text": "勝者之戰民也，若決積水於千仞之谿者，形也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 117,
+            "style": "ab",
+            "numId": "5",
+            "ilvl": "0"
+          }
+        }
+      ]
+    },
+    {
+      "chapterId": "sunzi-05",
+      "chapterNumber": 5,
+      "title": "兵勢第五",
+      "fullTitle": "兵勢第五",
+      "rank": "5",
+      "audio": null,
+      "fullText": "孫子曰：凡治眾如治寡，分數是也。鬥眾如鬥寡，形名是也。三軍之眾，可使必受敵而無敗者，奇正是也。兵之所加，如以碫投卵者，虛實是也。凡戰者，以正合，以奇勝。故善出奇者，無窮如天地，不竭如江河。終而復始，日月是也。死而復生，四時是也。聲不過五，五聲之變，不可勝聽也。色不過五，五色之變，不可勝觀也。味不過五，五味之變，不可勝嘗也。戰勢，不過奇正，奇正之變，不可勝窮也。奇正相生，如循環之無端，熟能窮之哉?激水之疾，至於漂石者，勢也。鷙鳥之擊，至於毀折者，節也。是故善戰者，其勢險，其節短；勢如張弩，節如發機。紛紛紜紜，鬥亂而不可亂也；渾渾沌沌，形圓而不可敗也。亂生於治，怯生於勇，弱生於強。治亂，數也；勇怯，勢也；強弱，形也。故善動敵者，形之，敵必從之；予之，敵必取之，以利動之，以卒待之。故善戰者，求之於勢，不責於人；故能擇人任勢。任勢者，其戰人也，如轉木石。木石之性，安則靜，危則動，方則止，圓則行。故善戰人之勢，如轉圓石於千仞之山者，勢也。",
+      "sections": [
+        {
+          "sectionId": "sunzi-05-s001",
+          "type": "paragraph",
+          "text": "孫子曰：凡",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 119,
+            "style": "ab",
+            "numId": "6",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-05-s002",
+          "type": "paragraph",
+          "text": "治眾如治寡，分數是也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 120,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-05-s003",
+          "type": "paragraph",
+          "text": "鬥眾如鬥寡，形名是也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 121,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-05-s004",
+          "type": "paragraph",
+          "text": "三軍之眾，可使必受敵而無敗者，奇正是也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 122,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-05-s005",
+          "type": "paragraph",
+          "text": "兵之所加，如以碫投卵者，虛實是也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 123,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-05-s006",
+          "type": "paragraph",
+          "text": "凡戰者，以正合，以奇勝。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 124,
+            "style": "ab",
+            "numId": "6",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-05-s007",
+          "type": "paragraph",
+          "text": "故善出奇者，無窮如天地，不竭如江河。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 125,
+            "style": "ab",
+            "numId": "6",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-05-s008",
+          "type": "paragraph",
+          "text": "終而復始，日月是也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 126,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-05-s009",
+          "type": "paragraph",
+          "text": "死而復生，四時是也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 127,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-05-s010",
+          "type": "paragraph",
+          "text": "聲不過五，五聲之變，不可勝聽也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 128,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-05-s011",
+          "type": "paragraph",
+          "text": "色不過五，五色之變，不可勝觀也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 129,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-05-s012",
+          "type": "paragraph",
+          "text": "味不過五，五味之變，不可勝嘗也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 130,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-05-s013",
+          "type": "paragraph",
+          "text": "戰勢，不過奇正，奇正之變，不可",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 131,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-05-s014",
+          "type": "paragraph",
+          "text": "勝窮也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 132,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-05-s015",
+          "type": "paragraph",
+          "text": "奇正相生，如循環之無端，熟能窮之哉?",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 133,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-05-s016",
+          "type": "paragraph",
+          "text": "激水之疾，至於漂石者，勢也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 134,
+            "style": "ab",
+            "numId": "6",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-05-s017",
+          "type": "paragraph",
+          "text": "鷙鳥之擊，至於毀折者，節也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 135,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-05-s018",
+          "type": "paragraph",
+          "text": "是故善戰者，其勢險，其節短；",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 136,
+            "style": "ab",
+            "numId": "6",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-05-s019",
+          "type": "paragraph",
+          "text": "勢如張弩，節如發機。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 137,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-05-s020",
+          "type": "paragraph",
+          "text": "紛紛紜紜，鬥亂而不可亂也；",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 138,
+            "style": "ab",
+            "numId": "6",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-05-s021",
+          "type": "paragraph",
+          "text": "渾渾沌沌，形圓而不可敗也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 139,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-05-s022",
+          "type": "paragraph",
+          "text": "亂生於治，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 140,
+            "style": "ab",
+            "numId": "6",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-05-s023",
+          "type": "paragraph",
+          "text": "怯生於勇，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 141,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-05-s024",
+          "type": "paragraph",
+          "text": "弱生於強。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 142,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-05-s025",
+          "type": "paragraph",
+          "text": "治亂，數也；",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 143,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-05-s026",
+          "type": "paragraph",
+          "text": "勇怯，勢也；",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 144,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-05-s027",
+          "type": "paragraph",
+          "text": "強弱，形也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 145,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-05-s028",
+          "type": "paragraph",
+          "text": "故善動敵者，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 146,
+            "style": "ab",
+            "numId": "6",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-05-s029",
+          "type": "paragraph",
+          "text": "形之，敵必從之；",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 147,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-05-s030",
+          "type": "paragraph",
+          "text": "予之，敵必取之，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 148,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-05-s031",
+          "type": "paragraph",
+          "text": "以利動之，以卒待之。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 149,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-05-s032",
+          "type": "paragraph",
+          "text": "故善戰者，求之於勢，不責於人；",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 150,
+            "style": "ab",
+            "numId": "6",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-05-s033",
+          "type": "paragraph",
+          "text": "故能擇人任勢。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 151,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-05-s034",
+          "type": "paragraph",
+          "text": "任勢者，其戰人也，如轉木石。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 152,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-05-s035",
+          "type": "paragraph",
+          "text": "木石之性，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 153,
+            "style": "ab",
+            "numId": "6",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-05-s036",
+          "type": "paragraph",
+          "text": "安則靜，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 154,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-05-s037",
+          "type": "paragraph",
+          "text": "危則動，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 155,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-05-s038",
+          "type": "paragraph",
+          "text": "方則止，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 156,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-05-s039",
+          "type": "paragraph",
+          "text": "圓則行。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 157,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-05-s040",
+          "type": "paragraph",
+          "text": "故善戰人之勢，如轉圓石於千仞之山者，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 158,
+            "style": "ab",
+            "numId": "6",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-05-s041",
+          "type": "paragraph",
+          "text": "勢也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 159,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        }
+      ]
+    },
+    {
+      "chapterId": "sunzi-06",
+      "chapterNumber": 6,
+      "title": "虛實第六",
+      "fullTitle": "虛實第六",
+      "rank": "6",
+      "audio": null,
+      "fullText": "孫子曰：凡先處戰地而待敵者佚，後處戰地而趨戰者勞。故善戰者，致人而不致於人也。能使敵人自至者，利之也；能使敵人不得至者，害之也。故敵佚能勞之，飽能饑之，安能動之。出其所不趨，趨其所不意；行千里而不勞者，行於無人之地也；攻而必取者，攻其所不守也；守而必固者，守其所不攻也。故善攻者，敵不知其所守；善守者，敵不知其所攻。微乎！微乎！至於無形；神乎！神乎！至於無聲；故能為敵之司命。進而不可禦者，衝其虛也；退而不可追者，速而不可及也。故我欲戰，敵雖高壘深溝，不得不與我戰者，攻其所必救也；我不欲戰；雖畫地而守之，敵不得與我戰者，乖其所之也。故形人而我無形，則我專而敵分。我專為一，敵分為十，是以十攻其一也，則我眾而敵寡。能以眾擊寡者，則我之所與敵者，約矣。吾所與戰之地不可知，不可知，則敵之所備者多，敵之所備者多，則我之所與戰者，寡矣。故備前則後寡，備後則前寡，備左則右寡，備右則左寡，無所不備，則無所不寡；寡者，備人也，眾者，使人備己者也。故知戰之地，知戰之日，則可千里而會戰。不知戰地，不知戰日，則左不能救右，右不能救左，前不能救後，後不能救前，而況遠者數十里，近者數里乎？以吾度之，越人之兵雖多，亦奚益於勝哉？故曰：勝可為也。敵雖眾，可使無鬥。故策之而知得失之計，作之而知動靜之理，形之而知死生之地，角之而知有餘不足之處。故形兵之極，至於無形。無形，則深間不能窺，智者不能謀。因形而措勝於眾，眾不能知；人皆知我所以勝之形，而莫知吾所以制勝之形，故其戰勝不復，而應形於無窮。夫兵形象水，水之形，避高而趨下；兵之形，避實而擊虛，水因地而制流，兵因敵而制勝。故兵無常勢，水無常形；能因敵變化而取勝者，謂之神。故五行無常勝，四時無常位，日有短長，月有死生。",
+      "sections": [
+        {
+          "sectionId": "sunzi-06-s001",
+          "type": "paragraph",
+          "text": "孫子曰：凡先處戰地而待敵者佚，後處戰地而趨戰者勞。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 161,
+            "style": "ab",
+            "numId": "7",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-06-s002",
+          "type": "paragraph",
+          "text": "故善戰者，致人而不致於人也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 162,
+            "style": "ab",
+            "numId": "7",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-06-s003",
+          "type": "paragraph",
+          "text": "能使敵人自至者，利之也；",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 163,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-06-s004",
+          "type": "paragraph",
+          "text": "能使敵人不得至者，害之也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 164,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-06-s005",
+          "type": "paragraph",
+          "text": "故敵佚能勞之，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 165,
+            "style": "ab",
+            "numId": "7",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-06-s006",
+          "type": "paragraph",
+          "text": "飽能饑之，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 166,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-06-s007",
+          "type": "paragraph",
+          "text": "安能動之。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 167,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-06-s008",
+          "type": "paragraph",
+          "text": "出其所不趨，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 168,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-06-s009",
+          "type": "paragraph",
+          "text": "趨其所不意；",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 169,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-06-s010",
+          "type": "paragraph",
+          "text": "行千里而不勞者，行於無人之地也；",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 170,
+            "style": "ab",
+            "numId": "7",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-06-s011",
+          "type": "paragraph",
+          "text": "攻而必取者，攻其所不守也；",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 171,
+            "style": "ab",
+            "numId": "7",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-06-s012",
+          "type": "paragraph",
+          "text": "守而必固者，守其所不攻也。故",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 172,
+            "style": "ab",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-06-s013",
+          "type": "paragraph",
+          "text": "善攻者，敵不知其所守；",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 173,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-06-s014",
+          "type": "paragraph",
+          "text": "善守者，敵不知其所攻。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 174,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-06-s015",
+          "type": "paragraph",
+          "text": "微乎！微乎！至於無形；",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 175,
+            "style": "ab",
+            "numId": "7",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-06-s016",
+          "type": "paragraph",
+          "text": "神乎！神乎！至於無聲；",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 176,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-06-s017",
+          "type": "paragraph",
+          "text": "故能為敵之司命。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 177,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-06-s018",
+          "type": "paragraph",
+          "text": "進而不可禦者，衝其虛也；",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 178,
+            "style": "ab",
+            "numId": "7",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-06-s019",
+          "type": "paragraph",
+          "text": "退而不可追者，速而不可及也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 179,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-06-s020",
+          "type": "paragraph",
+          "text": "故我欲戰，敵雖高壘深溝，不得不與我戰者，攻其所必救也；",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 180,
+            "style": "ab",
+            "numId": "7",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-06-s021",
+          "type": "paragraph",
+          "text": "我不欲戰；雖畫地而守之，敵不得與我戰者，乖其所之也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 181,
+            "style": "ab",
+            "numId": "7",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-06-s022",
+          "type": "paragraph",
+          "text": "故形人而我無形，則我專而敵分。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 182,
+            "style": "ab",
+            "numId": "7",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-06-s023",
+          "type": "paragraph",
+          "text": "我專為一，敵分為十，是以十攻其一也，則我眾而敵寡。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 183,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-06-s024",
+          "type": "paragraph",
+          "text": "能以眾擊寡者，則我之所與敵者，約矣。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 184,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-06-s025",
+          "type": "paragraph",
+          "text": "吾所與戰之地不可知，不可知，則敵之所備者多，敵之所備者多，則我之所與戰者，寡矣。故",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 185,
+            "style": "ab",
+            "numId": "7",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-06-s026",
+          "type": "paragraph",
+          "text": "備前則後寡，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 186,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-06-s027",
+          "type": "paragraph",
+          "text": "備後則前寡，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 187,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-06-s028",
+          "type": "paragraph",
+          "text": "備左則右寡，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 188,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-06-s029",
+          "type": "paragraph",
+          "text": "備右則左寡，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 189,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-06-s030",
+          "type": "paragraph",
+          "text": "無所不備，則無所不寡；",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 190,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-06-s031",
+          "type": "paragraph",
+          "text": "寡者，備人也，眾者，使人備己者也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 191,
+            "style": "ab",
+            "numId": "7",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-06-s032",
+          "type": "paragraph",
+          "text": "故知戰之地，知戰之日，則可千里而會戰。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 192,
+            "style": "ab",
+            "numId": "7",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-06-s033",
+          "type": "paragraph",
+          "text": "不知戰地，不知戰日，則",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 193,
+            "style": "ab",
+            "numId": "7",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-06-s034",
+          "type": "paragraph",
+          "text": "左不能救右，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 194,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-06-s035",
+          "type": "paragraph",
+          "text": "右不能救左，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 195,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-06-s036",
+          "type": "paragraph",
+          "text": "前不能救後，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 196,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-06-s037",
+          "type": "paragraph",
+          "text": "後不能救前，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 197,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-06-s038",
+          "type": "paragraph",
+          "text": "而況遠者數十里，近者數里乎？",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 198,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-06-s039",
+          "type": "paragraph",
+          "text": "以吾度之，越人之兵雖多，亦奚益於勝哉？故曰：",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 199,
+            "style": "ab",
+            "numId": "7",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-06-s040",
+          "type": "paragraph",
+          "text": "勝可為也。敵雖眾，可使無鬥。故",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 200,
+            "style": "ab",
+            "numId": "7",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-06-s041",
+          "type": "paragraph",
+          "text": "策之而知得失之計，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 201,
+            "style": "ab",
+            "numId": "25",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-06-s042",
+          "type": "paragraph",
+          "text": "作之而知動靜之理，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 202,
+            "style": "ab",
+            "numId": "25",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-06-s043",
+          "type": "paragraph",
+          "text": "形之而知死生之地，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 203,
+            "style": "ab",
+            "numId": "25",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-06-s044",
+          "type": "paragraph",
+          "text": "角之而知有餘不足之處。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 204,
+            "style": "ab",
+            "numId": "25",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-06-s045",
+          "type": "paragraph",
+          "text": "故形兵之極，至於無形。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 205,
+            "style": "ab",
+            "numId": "7",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-06-s046",
+          "type": "paragraph",
+          "text": "無形，則深間不能窺，智者不能謀。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 206,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-06-s047",
+          "type": "paragraph",
+          "text": "因形而措勝於眾，眾不能知；",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 207,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-06-s048",
+          "type": "paragraph",
+          "text": "人皆知我所以勝之形，而莫知吾所以制勝之形，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 208,
+            "style": "ab",
+            "numId": "7",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-06-s049",
+          "type": "paragraph",
+          "text": "故其戰勝不復，而應形於無窮。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 209,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-06-s050",
+          "type": "paragraph",
+          "text": "夫兵形象水，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 210,
+            "style": "ab",
+            "numId": "7",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-06-s051",
+          "type": "paragraph",
+          "text": "水之形，避高而趨下；",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 211,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-06-s052",
+          "type": "paragraph",
+          "text": "兵之形，避實而擊虛，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 212,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-06-s053",
+          "type": "paragraph",
+          "text": "水因地而制流，兵因敵而制勝。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 213,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-06-s054",
+          "type": "paragraph",
+          "text": "故兵無常勢，水無常形；",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 214,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-06-s055",
+          "type": "paragraph",
+          "text": "能因敵變化而取勝者，謂之神。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 215,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-06-s056",
+          "type": "paragraph",
+          "text": "故五行無常勝，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 216,
+            "style": "ab",
+            "numId": "7",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-06-s057",
+          "type": "paragraph",
+          "text": "四時無常位，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 217,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-06-s058",
+          "type": "paragraph",
+          "text": "日有短長，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 218,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-06-s059",
+          "type": "paragraph",
+          "text": "月有死生。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 219,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        }
+      ]
+    },
+    {
+      "chapterId": "sunzi-07",
+      "chapterNumber": 7,
+      "title": "軍爭第七",
+      "fullTitle": "軍爭第七",
+      "rank": "7",
+      "audio": null,
+      "fullText": "孫子曰：凡用兵之法，將受命於君，合軍聚眾，交合而舍，莫難於軍爭。軍爭之難者，以迂為直，以患為利。故迂其途而誘之以利，後人發，先人至，此知迂直之計者也。故軍爭為利，軍爭為危。舉軍而爭利，則不及，委軍而爭利，則輜重捐。是故卷甲而趨，日夜不處，倍道兼行，百里而爭利，則擒三將軍；勁者先，疲者後，其法十一而至。五十里而爭利，則蹶上將軍，其法半至。三十里而爭利，則三分之二至。是故軍無輜重則亡，無糧食則亡，無委積則亡。故不知諸侯之謀者，不能豫交；不知山林、險阻、沮澤之形者，不能行軍；不用鄉導者，不能得地利。故兵以詐立，以利動，以分合為變者也。故其疾如風，其徐如林，侵掠如火，不動如山，難知如陰，動如雷霆。掠鄉分眾，廓地分利，懸權而動，先知迂直之計者勝，此軍爭之法也。《軍政》曰：「言不相聞，故為金鼓；視不相見，故為旌旗。」夫金鼓、旌旗者，所以一人之耳目也。人既專一，則勇者不得獨進，怯者不得獨退，此用眾之法也。故夜戰多火鼓，晝戰多旌旗，所以變人之耳目也。故三軍可奪氣，將軍可奪心。是故朝氣銳，晝氣惰，暮氣歸。故善用兵者，避其銳氣，擊其惰歸，此治氣者也。以治待亂，以靜待譁，此治心者也。以近待遠，以佚待勞，以飽待饑，此治力者也。無邀正正之旗，勿擊堂堂之陣，此治變者也。故用兵之法，高陵勿向，背丘勿逆，佯卻勿從，銳卒勿攻，餌兵勿食，歸師勿遏，圍師必闕，窮寇勿迫，此用兵之法也。",
+      "sections": [
+        {
+          "sectionId": "sunzi-07-s001",
+          "type": "paragraph",
+          "text": "孫子曰：凡用兵之法，將受命於君，合軍聚眾，交合而舍，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 221,
+            "style": "ab",
+            "numId": "9",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-07-s002",
+          "type": "paragraph",
+          "text": "莫難於軍爭。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 222,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-07-s003",
+          "type": "paragraph",
+          "text": "軍爭之難者，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 223,
+            "style": "ab",
+            "numId": "9",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-07-s004",
+          "type": "paragraph",
+          "text": "以迂為直，以患為利。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 224,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-07-s005",
+          "type": "paragraph",
+          "text": "故迂其途而誘之以利，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 225,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-07-s006",
+          "type": "paragraph",
+          "text": "後人發，先人至，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 226,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-07-s007",
+          "type": "paragraph",
+          "text": "此知迂直之計者也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 227,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-07-s008",
+          "type": "paragraph",
+          "text": "故軍爭為利，軍爭為危。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 228,
+            "style": "ab",
+            "numId": "9",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-07-s009",
+          "type": "paragraph",
+          "text": "舉軍而爭利，則不及，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 229,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-07-s010",
+          "type": "list",
+          "text": "委軍而爭利，則輜重捐。",
+          "items": [
+            {
+              "itemId": "sunzi-07-s010-i001",
+              "text": "是故卷甲而趨，日夜不處，倍道兼行，百里而爭利，則擒三將軍；勁者先，疲者後，其法十一而至。",
+              "audio": null,
+              "source": {
+                "paragraphIndex": 231,
+                "style": "ab",
+                "numId": "40",
+                "ilvl": "1"
+              }
+            },
+            {
+              "itemId": "sunzi-07-s010-i002",
+              "text": "五十里而爭利，則蹶上將軍，其法半至。",
+              "audio": null,
+              "source": {
+                "paragraphIndex": 232,
+                "style": "ab",
+                "numId": "40",
+                "ilvl": "1"
+              }
+            },
+            {
+              "itemId": "sunzi-07-s010-i003",
+              "text": "三十里而爭利，則三分之二至。",
+              "audio": null,
+              "source": {
+                "paragraphIndex": 233,
+                "style": "ab",
+                "numId": "40",
+                "ilvl": "1"
+              }
+            }
+          ],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 230,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-07-s011",
+          "type": "paragraph",
+          "text": "是故軍無輜重則亡，無糧食則亡，無委積則亡。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 234,
+            "style": "ab",
+            "numId": "9",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-07-s012",
+          "type": "paragraph",
+          "text": "故",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 235,
+            "style": "ab",
+            "numId": "9",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-07-s013",
+          "type": "paragraph",
+          "text": "不知諸侯之謀者，不能豫交；",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 236,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-07-s014",
+          "type": "paragraph",
+          "text": "不知山林、險阻、沮澤之形者，不能行軍；",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 237,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-07-s015",
+          "type": "paragraph",
+          "text": "不用鄉導者，不能得地利。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 238,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-07-s016",
+          "type": "paragraph",
+          "text": "故兵以詐立，以利動，以分合為變者也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 239,
+            "style": "ab",
+            "numId": "9",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-07-s017",
+          "type": "paragraph",
+          "text": "故",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 240,
+            "style": "ab",
+            "numId": "9",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-07-s018",
+          "type": "paragraph",
+          "text": "其疾如風，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 241,
+            "style": "ab",
+            "numId": "18",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-07-s019",
+          "type": "paragraph",
+          "text": "其徐如林，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 242,
+            "style": "ab",
+            "numId": "18",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-07-s020",
+          "type": "paragraph",
+          "text": "侵掠如火，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 243,
+            "style": "ab",
+            "numId": "18",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-07-s021",
+          "type": "paragraph",
+          "text": "不動如山，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 244,
+            "style": "ab",
+            "numId": "18",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-07-s022",
+          "type": "paragraph",
+          "text": "難知如陰，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 245,
+            "style": "ab",
+            "numId": "18",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-07-s023",
+          "type": "paragraph",
+          "text": "動如雷霆。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 246,
+            "style": "ab",
+            "numId": "18",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-07-s024",
+          "type": "paragraph",
+          "text": "掠鄉分眾，廓地分利，懸權而動，先知迂直之計者勝，此軍爭之法也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 247,
+            "style": "ab",
+            "numId": "9",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-07-s025",
+          "type": "paragraph",
+          "text": "《軍政》曰：「言不相聞，故為金鼓；視不相見，故為旌旗。」夫金鼓、旌旗者，所以一人之耳目也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 248,
+            "style": "ab",
+            "numId": "9",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-07-s026",
+          "type": "paragraph",
+          "text": "人既專一，則勇者不得獨進，怯者不得獨退，此用眾之法也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 249,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-07-s027",
+          "type": "paragraph",
+          "text": "故夜戰多火鼓，晝戰多旌旗，所以變人之耳目也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 250,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-07-s028",
+          "type": "paragraph",
+          "text": "故三軍可奪氣，將軍可奪心。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 251,
+            "style": "ab",
+            "numId": "9",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-07-s029",
+          "type": "paragraph",
+          "text": "是故朝氣銳，晝氣惰，暮氣歸。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 252,
+            "style": "ab",
+            "numId": "9",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-07-s030",
+          "type": "paragraph",
+          "text": "故善用兵者，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 253,
+            "style": "ab",
+            "numId": "9",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-07-s031",
+          "type": "paragraph",
+          "text": "避其銳氣，擊其惰歸，此治氣者也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 254,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-07-s032",
+          "type": "paragraph",
+          "text": "以治待亂，以靜待譁，此治心者也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 255,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-07-s033",
+          "type": "paragraph",
+          "text": "以近待遠，以佚待勞，以飽待饑，此治力者也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 256,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-07-s034",
+          "type": "paragraph",
+          "text": "無邀正正之旗，勿擊堂堂之陣，此治變者也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 257,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-07-s035",
+          "type": "paragraph",
+          "text": "故用兵之法，高陵勿向，背丘勿逆，佯卻勿從，銳卒勿攻，餌兵勿食，歸師勿遏，圍師必闕，窮寇勿迫，此用兵之法也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 258,
+            "style": "ab",
+            "numId": "9",
+            "ilvl": "0"
+          }
+        }
+      ]
+    },
+    {
+      "chapterId": "sunzi-08",
+      "chapterNumber": 8,
+      "title": "九變第八",
+      "fullTitle": "九變第八",
+      "rank": "8",
+      "audio": null,
+      "fullText": "孫子曰：凡用兵之法，將受命於君，合軍聚眾；圮地無舍，衢地合交，絕地勿留，圍地則謀，死地則戰。途有所不由，軍有所不擊，城有所不攻，地有所不爭，君命有所不受。故將通於九變之利，如用兵矣；將不通九變之利者，雖知地形，不能得地之利矣。治兵不知九變之術，雖知地形，不能得地之利矣。治兵不知九變之術，雖知地利，不能得人之用矣。是故智者之慮，必雜於利害。雜於利，而務可信也，雜於害，而患可解也。是故屈諸侯者以害，役諸侯者以業，趨諸侯者以利。故用兵之法，無恃其不來，恃吾有以待之；無恃其不攻，恃吾有所不可攻也。故將有五危：必死可殺，必生可虜，忿速可侮，廉節可辱，愛民可煩。凡此五危，將之過也，用兵之災也。覆軍殺將，必以五危，不可不察也。",
+      "sections": [
+        {
+          "sectionId": "sunzi-08-s001",
+          "type": "paragraph",
+          "text": "孫子曰：凡用兵之法，將受命於君，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 260,
+            "style": "ab",
+            "numId": "9",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-08-s002",
+          "type": "paragraph",
+          "text": "合軍聚眾；圮地無舍，衢地合交，絕地勿留，圍地則謀，死地則戰。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 261,
+            "style": "ab",
+            "numId": "9",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-08-s003",
+          "type": "paragraph",
+          "text": "途有所不由，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 262,
+            "style": "ab",
+            "numId": "41",
+            "ilvl": "1"
+          }
+        },
+        {
+          "sectionId": "sunzi-08-s004",
+          "type": "paragraph",
+          "text": "軍有所不擊，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 263,
+            "style": "ab",
+            "numId": "41",
+            "ilvl": "1"
+          }
+        },
+        {
+          "sectionId": "sunzi-08-s005",
+          "type": "paragraph",
+          "text": "城有所不攻，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 264,
+            "style": "ab",
+            "numId": "41",
+            "ilvl": "1"
+          }
+        },
+        {
+          "sectionId": "sunzi-08-s006",
+          "type": "paragraph",
+          "text": "地有所不爭，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 265,
+            "style": "ab",
+            "numId": "41",
+            "ilvl": "1"
+          }
+        },
+        {
+          "sectionId": "sunzi-08-s007",
+          "type": "paragraph",
+          "text": "君命有所不受。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 266,
+            "style": "ab",
+            "numId": "41",
+            "ilvl": "1"
+          }
+        },
+        {
+          "sectionId": "sunzi-08-s008",
+          "type": "paragraph",
+          "text": "故將通於九變之利，如用兵矣；",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 267,
+            "style": "ab",
+            "numId": "9",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-08-s009",
+          "type": "paragraph",
+          "text": "將不通九變之利者，雖知地形，不能得地之利矣。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 268,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-08-s010",
+          "type": "paragraph",
+          "text": "治兵不知九變之術，雖知地形，不能得地之利矣。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 269,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-08-s011",
+          "type": "paragraph",
+          "text": "治兵不知九變之術，雖知地利，不能得人之用矣。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 270,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-08-s012",
+          "type": "paragraph",
+          "text": "是故智者之慮，必雜於利害。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 271,
+            "style": "ab",
+            "numId": "9",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-08-s013",
+          "type": "paragraph",
+          "text": "雜於利，而務可信也，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 272,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-08-s014",
+          "type": "paragraph",
+          "text": "雜於害，而患可解也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 273,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-08-s015",
+          "type": "paragraph",
+          "text": "是故",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 274,
+            "style": "ab",
+            "numId": "9",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-08-s016",
+          "type": "paragraph",
+          "text": "屈諸侯者以害，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 275,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-08-s017",
+          "type": "paragraph",
+          "text": "役諸侯者以業，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 276,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-08-s018",
+          "type": "paragraph",
+          "text": "趨諸侯者以利。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 277,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-08-s019",
+          "type": "paragraph",
+          "text": "故",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 278,
+            "style": "ab",
+            "numId": "9",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-08-s020",
+          "type": "paragraph",
+          "text": "用兵之法，無恃其不來，恃吾有以待之；",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 279,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-08-s021",
+          "type": "paragraph",
+          "text": "無恃其不攻，恃吾有所不可攻也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 280,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-08-s022",
+          "type": "paragraph",
+          "text": "故將有五危：",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 281,
+            "style": "ab",
+            "numId": "9",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-08-s023",
+          "type": "paragraph",
+          "text": "必死可殺，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 282,
+            "style": "ab",
+            "numId": "17",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-08-s024",
+          "type": "paragraph",
+          "text": "必生可虜，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 283,
+            "style": "ab",
+            "numId": "17",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-08-s025",
+          "type": "paragraph",
+          "text": "忿速可侮，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 284,
+            "style": "ab",
+            "numId": "17",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-08-s026",
+          "type": "paragraph",
+          "text": "廉節可辱，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 285,
+            "style": "ab",
+            "numId": "17",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-08-s027",
+          "type": "paragraph",
+          "text": "愛民可煩。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 286,
+            "style": "ab",
+            "numId": "17",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-08-s028",
+          "type": "paragraph",
+          "text": "凡此五危，將之過也，用兵之災也。覆軍殺將，必以五危，不可不察也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 287,
+            "style": "ab",
+            "numId": "9",
+            "ilvl": "0"
+          }
+        }
+      ]
+    },
+    {
+      "chapterId": "sunzi-09",
+      "chapterNumber": 9,
+      "title": "行軍第九",
+      "fullTitle": "行軍第九",
+      "rank": "9",
+      "audio": null,
+      "fullText": "孫子曰：凡處軍相敵，絕山依谷，視生處高，戰隆無登，此處山上之軍也。絕水必遠水，客絕水而來，勿迎於水內，令半濟而擊之；欲戰者，無附於水而迎客，視生處高，無迎水流，此處水上之軍也。絕斥澤，惟亟去勿留；若交軍於斥澤之中，必依水草，而背眾樹，此處斥澤之軍也，平陸處易，右背高，前死後生，此處平陸之軍也。凡此四軍之利，黃帝之所以勝四帝也。凡軍好高而惡下，貴陽而賤陰，養生而處實，軍無百疾，是謂必勝。丘陵隄防，必處其陽，而右背之，此兵之利，地之助也。上雨水沫至，欲涉者，待其定也。凡地有絕澗，天井，天牢，天羅，天陷，天隙，必亟去之，勿近之；吾遠之，敵近之；吾迎之，敵背之；軍旁有險阻，潢井，蒹葭，林木，翳薈者，必謹覆索之，此伏姦之所處也。敵近而靜者，恃其險也。遠而挑戰者，欲人之進也。其所居易者，利也。眾樹動者，來也。眾草多障者，疑也。鳥起者，伏也。獸駭者，覆也。塵，高而銳者，車來也；卑而廣者，徒來也；散而條達者，樵採也，少而往來者，營軍也。辭卑而益備者，進也；辭詭而強進驅者，退也。無約而請和者，謀也。輕車先出，居其側者，陣也。奔走而陳兵者，期也。半進半退者，誘也。杖而立者，饑也。汲而先飲者，渴也。見利而不知進者，勞也。鳥集者，虛也；夜呼者，恐也；軍擾者，將不重也；旌旗動者，亂也。吏怒者，倦也。殺馬肉食者，軍無糧也。懸甑不返其舍者，窮寇也。諄諄翕翕，徐與人言者，失眾也。數賞者，窘也。數罰者，困也。先暴而後畏其眾者，不精之至也。來委謝者，欲休息也。兵怒而相迎，久而不合，又不相去，必謹察之。兵非貴益多也，惟無武進，足以併力料敵取人而已。夫惟無慮而易敵者，必擒於人。卒未親附而罰之，則不服，不服則難用。卒已親附而罰不行，則不可用。故令之以文，齊之以武，是為必取。令素行以教其民，則民服；令不素行以教其民，則民不服；令素行，與眾相得也。",
+      "sections": [
+        {
+          "sectionId": "sunzi-09-s001",
+          "type": "list",
+          "text": "孫子曰：凡處軍相敵，",
+          "items": [
+            {
+              "itemId": "sunzi-09-s001-i001",
+              "text": "絕山依谷，視生處高，戰隆無登，此處山上之軍也。",
+              "audio": null,
+              "source": {
+                "paragraphIndex": 290,
+                "style": "ab",
+                "numId": "14",
+                "ilvl": "1"
+              }
+            },
+            {
+              "itemId": "sunzi-09-s001-i002",
+              "text": "絕水必遠水，客絕水而來，勿迎於水內，令半濟而擊之；欲戰者，無附於水而迎客，視生處高，無迎水流，此處水上之軍也。",
+              "audio": null,
+              "source": {
+                "paragraphIndex": 291,
+                "style": "ab",
+                "numId": "14",
+                "ilvl": "1"
+              }
+            },
+            {
+              "itemId": "sunzi-09-s001-i003",
+              "text": "絕斥澤，惟亟去勿留；若交軍於斥澤之中，必依水草，而背眾樹，此處斥澤之軍也，",
+              "audio": null,
+              "source": {
+                "paragraphIndex": 292,
+                "style": "ab",
+                "numId": "14",
+                "ilvl": "1"
+              }
+            },
+            {
+              "itemId": "sunzi-09-s001-i004",
+              "text": "平陸處易，右背高，前死後生，此處平陸之軍也。",
+              "audio": null,
+              "source": {
+                "paragraphIndex": 293,
+                "style": "ab",
+                "numId": "14",
+                "ilvl": "1"
+              }
+            }
+          ],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 289,
+            "style": "ab",
+            "numId": "9",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-09-s002",
+          "type": "paragraph",
+          "text": "凡此四軍之利，黃帝之所以勝四帝也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 294,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-09-s003",
+          "type": "paragraph",
+          "text": "凡軍好高而惡下，貴陽而賤陰，養生而處實，軍無百疾，是謂必勝。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 295,
+            "style": "ab",
+            "numId": "9",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-09-s004",
+          "type": "paragraph",
+          "text": "丘陵隄防，必處其陽，而右背之，此兵之利，地之助也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 296,
+            "style": "ab",
+            "numId": "16",
+            "ilvl": "1"
+          }
+        },
+        {
+          "sectionId": "sunzi-09-s005",
+          "type": "paragraph",
+          "text": "上雨水沫至，欲涉者，待其定也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 297,
+            "style": "ab",
+            "numId": "16",
+            "ilvl": "1"
+          }
+        },
+        {
+          "sectionId": "sunzi-09-s006",
+          "type": "paragraph",
+          "text": "凡地有絕澗，天井，天牢，天羅，天陷，天隙，必亟去之，勿近之；吾遠之，敵近之；吾迎之，敵背之；",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 298,
+            "style": "ab",
+            "numId": "16",
+            "ilvl": "1"
+          }
+        },
+        {
+          "sectionId": "sunzi-09-s007",
+          "type": "paragraph",
+          "text": "軍旁有險阻，潢井，蒹葭，林木，翳薈者，必謹覆索之，此伏姦之所處也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 299,
+            "style": "ab",
+            "numId": "16",
+            "ilvl": "1"
+          }
+        },
+        {
+          "sectionId": "sunzi-09-s008",
+          "type": "paragraph",
+          "text": "敵近而靜者，恃其險也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 300,
+            "style": "ab",
+            "numId": "13",
+            "ilvl": "1"
+          }
+        },
+        {
+          "sectionId": "sunzi-09-s009",
+          "type": "paragraph",
+          "text": "遠而挑戰者，欲人之進也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 301,
+            "style": "ab",
+            "numId": "13",
+            "ilvl": "1"
+          }
+        },
+        {
+          "sectionId": "sunzi-09-s010",
+          "type": "paragraph",
+          "text": "其所居易者，利也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 302,
+            "style": "ab",
+            "numId": "13",
+            "ilvl": "1"
+          }
+        },
+        {
+          "sectionId": "sunzi-09-s011",
+          "type": "paragraph",
+          "text": "眾樹動者，來也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 303,
+            "style": "ab",
+            "numId": "13",
+            "ilvl": "1"
+          }
+        },
+        {
+          "sectionId": "sunzi-09-s012",
+          "type": "paragraph",
+          "text": "眾草多障者，疑也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 304,
+            "style": "ab",
+            "numId": "13",
+            "ilvl": "1"
+          }
+        },
+        {
+          "sectionId": "sunzi-09-s013",
+          "type": "paragraph",
+          "text": "鳥起者，伏也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 305,
+            "style": "ab",
+            "numId": "13",
+            "ilvl": "1"
+          }
+        },
+        {
+          "sectionId": "sunzi-09-s014",
+          "type": "paragraph",
+          "text": "獸駭者，覆也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 306,
+            "style": "ab",
+            "numId": "13",
+            "ilvl": "1"
+          }
+        },
+        {
+          "sectionId": "sunzi-09-s015",
+          "type": "paragraph",
+          "text": "塵，高而銳者，車來也；",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 307,
+            "style": "ab",
+            "numId": "13",
+            "ilvl": "1"
+          }
+        },
+        {
+          "sectionId": "sunzi-09-s016",
+          "type": "paragraph",
+          "text": "卑而廣者，徒來也；",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 308,
+            "style": "ab",
+            "numId": "13",
+            "ilvl": "1"
+          }
+        },
+        {
+          "sectionId": "sunzi-09-s017",
+          "type": "paragraph",
+          "text": "散而條達者，樵採也，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 309,
+            "style": "ab",
+            "numId": "13",
+            "ilvl": "1"
+          }
+        },
+        {
+          "sectionId": "sunzi-09-s018",
+          "type": "paragraph",
+          "text": "少而往來者，營軍也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 310,
+            "style": "ab",
+            "numId": "13",
+            "ilvl": "1"
+          }
+        },
+        {
+          "sectionId": "sunzi-09-s019",
+          "type": "paragraph",
+          "text": "辭卑而益備者，進也；",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 311,
+            "style": "ab",
+            "numId": "13",
+            "ilvl": "1"
+          }
+        },
+        {
+          "sectionId": "sunzi-09-s020",
+          "type": "paragraph",
+          "text": "辭詭而強進驅者，退也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 312,
+            "style": "ab",
+            "numId": "13",
+            "ilvl": "1"
+          }
+        },
+        {
+          "sectionId": "sunzi-09-s021",
+          "type": "paragraph",
+          "text": "無約而請和者，謀也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 313,
+            "style": "ab",
+            "numId": "13",
+            "ilvl": "1"
+          }
+        },
+        {
+          "sectionId": "sunzi-09-s022",
+          "type": "paragraph",
+          "text": "輕車先出，居其側者，陣也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 314,
+            "style": "ab",
+            "numId": "13",
+            "ilvl": "1"
+          }
+        },
+        {
+          "sectionId": "sunzi-09-s023",
+          "type": "paragraph",
+          "text": "奔走而陳兵者，期也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 315,
+            "style": "ab",
+            "numId": "13",
+            "ilvl": "1"
+          }
+        },
+        {
+          "sectionId": "sunzi-09-s024",
+          "type": "paragraph",
+          "text": "半進半退者，誘也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 316,
+            "style": "ab",
+            "numId": "13",
+            "ilvl": "1"
+          }
+        },
+        {
+          "sectionId": "sunzi-09-s025",
+          "type": "paragraph",
+          "text": "杖而立者，饑也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 317,
+            "style": "ab",
+            "numId": "13",
+            "ilvl": "1"
+          }
+        },
+        {
+          "sectionId": "sunzi-09-s026",
+          "type": "paragraph",
+          "text": "汲而先飲者，渴也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 318,
+            "style": "ab",
+            "numId": "13",
+            "ilvl": "1"
+          }
+        },
+        {
+          "sectionId": "sunzi-09-s027",
+          "type": "paragraph",
+          "text": "見利而不知進者，勞也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 319,
+            "style": "ab",
+            "numId": "13",
+            "ilvl": "1"
+          }
+        },
+        {
+          "sectionId": "sunzi-09-s028",
+          "type": "paragraph",
+          "text": "鳥集者，虛也；",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 320,
+            "style": "ab",
+            "numId": "13",
+            "ilvl": "1"
+          }
+        },
+        {
+          "sectionId": "sunzi-09-s029",
+          "type": "paragraph",
+          "text": "夜呼者，恐也；",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 321,
+            "style": "ab",
+            "numId": "13",
+            "ilvl": "1"
+          }
+        },
+        {
+          "sectionId": "sunzi-09-s030",
+          "type": "paragraph",
+          "text": "軍擾者，將不重也；",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 322,
+            "style": "ab",
+            "numId": "13",
+            "ilvl": "1"
+          }
+        },
+        {
+          "sectionId": "sunzi-09-s031",
+          "type": "paragraph",
+          "text": "旌旗動者，亂也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 323,
+            "style": "ab",
+            "numId": "13",
+            "ilvl": "1"
+          }
+        },
+        {
+          "sectionId": "sunzi-09-s032",
+          "type": "paragraph",
+          "text": "吏怒者，倦也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 324,
+            "style": "ab",
+            "numId": "13",
+            "ilvl": "1"
+          }
+        },
+        {
+          "sectionId": "sunzi-09-s033",
+          "type": "paragraph",
+          "text": "殺馬肉食者，軍無糧也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 325,
+            "style": "ab",
+            "numId": "13",
+            "ilvl": "1"
+          }
+        },
+        {
+          "sectionId": "sunzi-09-s034",
+          "type": "paragraph",
+          "text": "懸甑不返其舍者，窮寇也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 326,
+            "style": "ab",
+            "numId": "13",
+            "ilvl": "1"
+          }
+        },
+        {
+          "sectionId": "sunzi-09-s035",
+          "type": "paragraph",
+          "text": "諄諄翕翕，徐與人言者，失眾也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 327,
+            "style": "ab",
+            "numId": "13",
+            "ilvl": "1"
+          }
+        },
+        {
+          "sectionId": "sunzi-09-s036",
+          "type": "paragraph",
+          "text": "數賞者，窘也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 328,
+            "style": "ab",
+            "numId": "13",
+            "ilvl": "1"
+          }
+        },
+        {
+          "sectionId": "sunzi-09-s037",
+          "type": "paragraph",
+          "text": "數罰者，困也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 329,
+            "style": "ab",
+            "numId": "13",
+            "ilvl": "1"
+          }
+        },
+        {
+          "sectionId": "sunzi-09-s038",
+          "type": "paragraph",
+          "text": "先暴而後畏其眾者，不精之至也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 330,
+            "style": "ab",
+            "numId": "13",
+            "ilvl": "1"
+          }
+        },
+        {
+          "sectionId": "sunzi-09-s039",
+          "type": "paragraph",
+          "text": "來委謝者，欲休息也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 331,
+            "style": "ab",
+            "numId": "13",
+            "ilvl": "1"
+          }
+        },
+        {
+          "sectionId": "sunzi-09-s040",
+          "type": "paragraph",
+          "text": "兵怒而相迎，久而不合，又不相去，必謹察之。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 332,
+            "style": "ab",
+            "numId": "13",
+            "ilvl": "1"
+          }
+        },
+        {
+          "sectionId": "sunzi-09-s041",
+          "type": "paragraph",
+          "text": "兵非貴益多也，惟無武進，足以併力料敵取人而已。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 333,
+            "style": "ab",
+            "numId": "9",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-09-s042",
+          "type": "paragraph",
+          "text": "夫惟無慮而易敵者，必擒於人。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 334,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-09-s043",
+          "type": "paragraph",
+          "text": "卒未親附而罰之，則不服，不服則難用。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 335,
+            "style": "ab",
+            "numId": "9",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-09-s044",
+          "type": "paragraph",
+          "text": "卒已親附而罰不行，則不可用。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 336,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-09-s045",
+          "type": "paragraph",
+          "text": "故令之以文，齊之以武，是為必取。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 337,
+            "style": "ab",
+            "numId": "9",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-09-s046",
+          "type": "paragraph",
+          "text": "令素行以教其民，則民服；",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 338,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-09-s047",
+          "type": "paragraph",
+          "text": "令不素行以教其民，則民不服；",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 339,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-09-s048",
+          "type": "paragraph",
+          "text": "令素行，與眾相得也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 340,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        }
+      ]
+    },
+    {
+      "chapterId": "sunzi-10",
+      "chapterNumber": 10,
+      "title": "地形第十",
+      "fullTitle": "地形第十",
+      "rank": "10",
+      "audio": null,
+      "fullText": "孫子曰：地形有通者，有挂者，有支者，有隘者，有險者，有遠者。我可以往，彼可以來，曰通；通形者，先居高陽，利糧道，以戰則利。可以往，難以返，曰挂，挂形者，敵無備，出而勝之，敵若有備，出而不勝，難以返不利。我出而不利，彼出亦不利，曰支；支形者，敵雖利我，我無出也，引而去之，令敵半出而擊之利。隘形者，我先居之，必盈以待敵；若敵先居之，盈而勿從，不盈而從之。險形者，我先居之，必居高陽以待敵；若敵先居之，引而去之，勿從也。遠形者，勢均，難以挑戰，戰而不利。凡此六者，地之道也，將之至任，不可不察也。故兵有走者，有弛者，有陷者，有崩者，有亂者，有北者；凡此六者，非天地之災，將之過也。夫勢均，以一擊十，曰走。卒強吏弱，曰弛。吏強卒弱，曰陷。大吏怒而不服，遇敵懟而自戰，將不知其能，曰崩。將弱不嚴，教道不明，吏卒無常，陳兵縱橫，曰亂。將不能料敵，以少合眾，以弱擊強，兵無選鋒，曰北。凡此六者，敗之道也。將之至任，不可不察也。夫地形者，兵之助也。料敵致勝，計險阨遠近，上將之道也。知此而用戰者必勝，不知此而用戰者必敗。故戰道必勝，主曰：「無戰，必戰可也。戰道不勝， 主曰：「必戰」。無戰可也。故進不求名，退不避罪，唯民是保，而利於主，國之寶也。視卒如嬰兒，故可與之赴深谿；視卒如愛子，故可與之俱死。厚而不能使，愛而不能令，亂而不能治，譬若驕子，不可用也。知吾卒之可擊，而不知敵之不可擊，勝之半也；知敵之可擊，而不知吾卒之不可擊，勝之半也；知敵之可擊，知吾卒之可以擊，而不知地形之不可以戰，勝之半也。故知兵者，動而不迷，舉而不窮。故曰：知彼知已，勝乃不殆：知天知地，勝乃可全。",
+      "sections": [
+        {
+          "sectionId": "sunzi-10-s001",
+          "type": "paragraph",
+          "text": "孫子曰：地形有通者，有挂者，有支者，有隘者，有險者，有遠者。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 342,
+            "style": "ab",
+            "numId": "9",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-10-s002",
+          "type": "paragraph",
+          "text": "我可以往，彼可以來，曰通；通形者，先居高陽，利糧道，以戰則利。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 343,
+            "style": "ab",
+            "numId": "12",
+            "ilvl": "1"
+          }
+        },
+        {
+          "sectionId": "sunzi-10-s003",
+          "type": "paragraph",
+          "text": "可以往，難以返，曰挂，挂形者，敵無備，出而勝之，敵若有備，出而不勝，難以返不利。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 344,
+            "style": "ab",
+            "numId": "12",
+            "ilvl": "1"
+          }
+        },
+        {
+          "sectionId": "sunzi-10-s004",
+          "type": "paragraph",
+          "text": "我出而不利，彼出亦不利，曰支；支形者，敵雖利我，我無出也，引而去之，令敵半出而擊之利。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 345,
+            "style": "ab",
+            "numId": "12",
+            "ilvl": "1"
+          }
+        },
+        {
+          "sectionId": "sunzi-10-s005",
+          "type": "paragraph",
+          "text": "隘形者，我先居之，必盈以待敵；若敵先居之，盈而勿從，不盈而從之。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 346,
+            "style": "ab",
+            "numId": "12",
+            "ilvl": "1"
+          }
+        },
+        {
+          "sectionId": "sunzi-10-s006",
+          "type": "paragraph",
+          "text": "險形者，我先居之，必居高陽以待敵；若敵先居之，引而去之，勿從也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 347,
+            "style": "ab",
+            "numId": "12",
+            "ilvl": "1"
+          }
+        },
+        {
+          "sectionId": "sunzi-10-s007",
+          "type": "paragraph",
+          "text": "遠形者，勢均，難以挑戰，戰而不利。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 348,
+            "style": "ab",
+            "numId": "12",
+            "ilvl": "1"
+          }
+        },
+        {
+          "sectionId": "sunzi-10-s008",
+          "type": "paragraph",
+          "text": "凡此六者，地之道也，將之至任，不可不察也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 349,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-10-s009",
+          "type": "paragraph",
+          "text": "故兵有走者，有弛者，有陷者，有崩者，有亂者，有北者；凡此六者，非天地之災，將之過也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 350,
+            "style": "ab",
+            "numId": "9",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-10-s010",
+          "type": "paragraph",
+          "text": "夫勢均，以一擊十，曰走。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 351,
+            "style": "ab",
+            "numId": "11",
+            "ilvl": "1"
+          }
+        },
+        {
+          "sectionId": "sunzi-10-s011",
+          "type": "paragraph",
+          "text": "卒強吏弱，曰弛。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 352,
+            "style": "ab",
+            "numId": "11",
+            "ilvl": "1"
+          }
+        },
+        {
+          "sectionId": "sunzi-10-s012",
+          "type": "paragraph",
+          "text": "吏強卒弱，曰陷。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 353,
+            "style": "ab",
+            "numId": "11",
+            "ilvl": "1"
+          }
+        },
+        {
+          "sectionId": "sunzi-10-s013",
+          "type": "paragraph",
+          "text": "大吏怒而不服，遇敵懟而自戰，將不知其能，曰崩。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 354,
+            "style": "ab",
+            "numId": "11",
+            "ilvl": "1"
+          }
+        },
+        {
+          "sectionId": "sunzi-10-s014",
+          "type": "paragraph",
+          "text": "將弱不嚴，教道不明，吏卒無常，陳兵縱橫，曰亂。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 355,
+            "style": "ab",
+            "numId": "11",
+            "ilvl": "1"
+          }
+        },
+        {
+          "sectionId": "sunzi-10-s015",
+          "type": "paragraph",
+          "text": "將不能料敵，以少合眾，以弱擊強，兵無選鋒，曰北。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 356,
+            "style": "ab",
+            "numId": "11",
+            "ilvl": "1"
+          }
+        },
+        {
+          "sectionId": "sunzi-10-s016",
+          "type": "paragraph",
+          "text": "凡此六者，敗之道也。將之至任，不可不察也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 357,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-10-s017",
+          "type": "paragraph",
+          "text": "夫地形者，兵之助也。料敵致勝，計險阨遠近，上將之道也。知此而用戰者必勝，不知此而用戰者必敗。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 358,
+            "style": "ab",
+            "numId": "9",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-10-s018",
+          "type": "paragraph",
+          "text": "故",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 359,
+            "style": "ab",
+            "numId": "9",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-10-s019",
+          "type": "paragraph",
+          "text": "戰道必勝，主曰：「無戰，必戰可也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 360,
+            "style": "ab",
+            "numId": "9",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-10-s020",
+          "type": "paragraph",
+          "text": "戰道不勝， 主曰：「必戰」。無戰可也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 361,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-10-s021",
+          "type": "paragraph",
+          "text": "故",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 362,
+            "style": "ab",
+            "numId": "9",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-10-s022",
+          "type": "paragraph",
+          "text": "進不求名，退不避罪，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 363,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-10-s023",
+          "type": "paragraph",
+          "text": "唯民是保，而利於主，國之寶也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 364,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-10-s024",
+          "type": "paragraph",
+          "text": "視卒如嬰兒，故可與之赴深谿；",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 365,
+            "style": "ab",
+            "numId": "10",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-10-s025",
+          "type": "paragraph",
+          "text": "視卒如愛子，故可與之俱死。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 366,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-10-s026",
+          "type": "paragraph",
+          "text": "厚而不能使，愛而不能令，亂而不能治，譬若驕子，不可用也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 367,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-10-s027",
+          "type": "paragraph",
+          "text": "知吾卒之可擊，而不知敵之不可擊，勝之半也；",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 368,
+            "style": "ab",
+            "numId": "10",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-10-s028",
+          "type": "paragraph",
+          "text": "知敵之可擊，而不知吾卒之不可擊，勝之半也；",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 369,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-10-s029",
+          "type": "paragraph",
+          "text": "知敵之可擊，知吾卒之可以擊，而不知地形之不可以戰，勝之半也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 370,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-10-s030",
+          "type": "paragraph",
+          "text": "故知兵者，動而不迷，舉而不窮。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 371,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-10-s031",
+          "type": "paragraph",
+          "text": "故曰：",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 372,
+            "style": "ab",
+            "numId": "10",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-10-s032",
+          "type": "paragraph",
+          "text": "知彼知已，勝乃不殆：知天知地，勝乃可全。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 373,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        }
+      ]
+    },
+    {
+      "chapterId": "sunzi-11",
+      "chapterNumber": 11,
+      "title": "九地第十一",
+      "fullTitle": "九地第十一",
+      "rank": "J",
+      "audio": null,
+      "fullText": "孫子曰：用兵之法，有散地，有輕地，有爭地，有交地，有衢地，有重地，有圮地，有圍地，有死地。諸侯自戰其地者，為散地。入人之地而不深者，為輕地。我得則利，彼得亦利者，為爭地。我可以往，彼可以來者，為交地。諸侯之地三屬，先至而得天下之眾者，為衢地。入人之地深，背城邑多者，為重地。山林、險阻、沮澤，凡難行之道者，為圮地。所由入者隘，所從歸者迂，彼寡可以擊吾之眾者，為圍地。疾戰則存，不疾戰則亡者，為死地。是故散地則無戰，輕地則無止，爭地則無攻，交地則無絕，衢地則合交，重地則掠，圮地則行，圍地則謀，死地則戰。所謂古之善用兵者，能使敵人前後不相及，眾寡不相恃，貴賤不相救，上下不相收，卒離而不集，兵合而不齊；合於利而動，不合於利而止。敢問：「敵眾整而將來，待之若何？」曰：「先奪其所愛，則聽矣；兵之情主速，由不虞之道，攻其所不戒也。」凡為客之道：深入則專，主人不克，鄉掠於饒野，三軍足食，謹養勿勞，併氣積力，運兵計謀，為不可測，投之無所往，死且不北，死焉不得，士人盡力。兵士甚陷則不懼，無所往則固，深入則拘，不得已則鬥。是故，其兵不修而戒，不求而得，不約而親，不令而信，禁祥去疑，至死無所之。吾士無餘財，非惡貨也；無餘命，非惡壽也。令發之日，士卒坐者，涕霑襟，偃臥者，涕交頤，投之無所往，則諸劌之勇也。故善用兵者，譬如率然；率然者，常山之蛇也，擊其首，則尾至；擊其尾，則首至；擊其中，則首尾俱至。敢問：「兵可使如率然乎？」曰：「可。」夫吳人與越人相惡也，當其同舟共濟而遇風，其相救也，如左右手。是故，方馬埋輪，未足恃也，齊勇如一，政之道也，剛柔皆得，地之理也。故善用兵者，攜手若使一人，不得已也。將軍之事，靜以幽，正以治；能愚士卒之耳目，使之無知。易其事，革其謀，使人無識。易其居，迂其途，使人不得慮。帥與之期，如登高而去其梯；帥與之深入諸侯之地，而發其機，焚舟破釜；若驅群羊，驅而往，驅而來，莫知所之。聚三軍之眾，投之於險，此將軍之事也。九地之變，屈伸之利，人情之理，不可不察也。凡為客之道，深則專，淺則散。去國越境而師者，絕地也；四達者，衢地也；入深者，重地也；入淺者，輕地也；背固前隘者，圍地也；無所往者，死地也。是故，散地，吾將一其志，輕地，吾將使之屬，爭地，吾將趨其後，交地，吾將謹其守，衢地，吾將固其結，重地，吾將繼其食，圮地，吾將進其途，圍地，吾將塞其闕，死地，吾將示之以不活。故兵之情：圍則禦，不得已則鬥，逼則從。是故不知諸侯之謀者，不得豫交，不知山林、險阻、沮澤之形者，不能行軍；不用鄉導者，不能得地利。此三者不知一，非王霸之兵也。夫王霸之兵，伐大國，則其眾不得聚；威加於敵，則其交不得合。是故不爭天下之交，不養天下之權，信己之私，威加於敵，故其城可拔，其國可隳。施無法之賞，懸無政之令，犯三軍之眾，若使一人。犯之以事，勿告以言；犯之以利，勿告以害；投之亡地然後存，陷之死地而後生。夫眾陷於害，然後能為勝敗，故為兵之事，在詳順敵之意，併力一向，千里殺將，是謂巧能成事。是故政舉之日，夷關折符，無通其使；厲於廊廟之上，以誅其事；敵人開闔，必亟入之。先其所愛，微與之期；踐墨隨敵，以決戰事。是故，始如處女，敵人開戶，後如脫兔，敵不及拒。",
+      "sections": [
+        {
+          "sectionId": "sunzi-11-s001",
+          "type": "paragraph",
+          "text": "孫子曰：用兵之法，有散地，有輕地，有爭地，有交地，有衢地，有重地，有圮地，有圍地，有死地。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 375,
+            "style": "ab",
+            "numId": "10",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-11-s002",
+          "type": "paragraph",
+          "text": "諸侯自戰其地者，為散地。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 376,
+            "style": "ab",
+            "numId": "10",
+            "ilvl": "1"
+          }
+        },
+        {
+          "sectionId": "sunzi-11-s003",
+          "type": "paragraph",
+          "text": "入人之地而不深者，為輕地。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 377,
+            "style": "ab",
+            "numId": "10",
+            "ilvl": "1"
+          }
+        },
+        {
+          "sectionId": "sunzi-11-s004",
+          "type": "paragraph",
+          "text": "我得則利，彼得亦利者，為爭地。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 378,
+            "style": "ab",
+            "numId": "10",
+            "ilvl": "1"
+          }
+        },
+        {
+          "sectionId": "sunzi-11-s005",
+          "type": "paragraph",
+          "text": "我可以往，彼可以來者，為交地。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 379,
+            "style": "ab",
+            "numId": "10",
+            "ilvl": "1"
+          }
+        },
+        {
+          "sectionId": "sunzi-11-s006",
+          "type": "paragraph",
+          "text": "諸侯之地三屬，先至而得天下之眾者，為衢地。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 380,
+            "style": "ab",
+            "numId": "10",
+            "ilvl": "1"
+          }
+        },
+        {
+          "sectionId": "sunzi-11-s007",
+          "type": "paragraph",
+          "text": "入人之地深，背城邑多者，為重地。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 381,
+            "style": "ab",
+            "numId": "10",
+            "ilvl": "1"
+          }
+        },
+        {
+          "sectionId": "sunzi-11-s008",
+          "type": "paragraph",
+          "text": "山林、險阻、沮澤，凡難行之道者，為圮地。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 382,
+            "style": "ab",
+            "numId": "10",
+            "ilvl": "1"
+          }
+        },
+        {
+          "sectionId": "sunzi-11-s009",
+          "type": "paragraph",
+          "text": "所由入者隘，所從歸者迂，彼寡可以擊吾之眾者，為圍地。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 383,
+            "style": "ab",
+            "numId": "10",
+            "ilvl": "1"
+          }
+        },
+        {
+          "sectionId": "sunzi-11-s010",
+          "type": "paragraph",
+          "text": "疾戰則存，不疾戰則亡者，為死地。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 384,
+            "style": "ab",
+            "numId": "10",
+            "ilvl": "1"
+          }
+        },
+        {
+          "sectionId": "sunzi-11-s011",
+          "type": "list",
+          "text": "是故",
+          "items": [
+            {
+              "itemId": "sunzi-11-s011-i001",
+              "text": "散地則無戰，",
+              "audio": null,
+              "source": {
+                "paragraphIndex": 386,
+                "style": "ab",
+                "numId": "10",
+                "ilvl": "1"
+              }
+            },
+            {
+              "itemId": "sunzi-11-s011-i002",
+              "text": "輕地則無止，",
+              "audio": null,
+              "source": {
+                "paragraphIndex": 387,
+                "style": "ab",
+                "numId": "10",
+                "ilvl": "1"
+              }
+            },
+            {
+              "itemId": "sunzi-11-s011-i003",
+              "text": "爭地則無攻，",
+              "audio": null,
+              "source": {
+                "paragraphIndex": 388,
+                "style": "ab",
+                "numId": "10",
+                "ilvl": "1"
+              }
+            },
+            {
+              "itemId": "sunzi-11-s011-i004",
+              "text": "交地則無絕，",
+              "audio": null,
+              "source": {
+                "paragraphIndex": 389,
+                "style": "ab",
+                "numId": "10",
+                "ilvl": "1"
+              }
+            },
+            {
+              "itemId": "sunzi-11-s011-i005",
+              "text": "衢地則合交，",
+              "audio": null,
+              "source": {
+                "paragraphIndex": 390,
+                "style": "ab",
+                "numId": "10",
+                "ilvl": "1"
+              }
+            },
+            {
+              "itemId": "sunzi-11-s011-i006",
+              "text": "重地則掠，",
+              "audio": null,
+              "source": {
+                "paragraphIndex": 391,
+                "style": "ab",
+                "numId": "10",
+                "ilvl": "1"
+              }
+            },
+            {
+              "itemId": "sunzi-11-s011-i007",
+              "text": "圮地則行，",
+              "audio": null,
+              "source": {
+                "paragraphIndex": 392,
+                "style": "ab",
+                "numId": "10",
+                "ilvl": "1"
+              }
+            },
+            {
+              "itemId": "sunzi-11-s011-i008",
+              "text": "圍地則謀，",
+              "audio": null,
+              "source": {
+                "paragraphIndex": 393,
+                "style": "ab",
+                "numId": "10",
+                "ilvl": "1"
+              }
+            },
+            {
+              "itemId": "sunzi-11-s011-i009",
+              "text": "死地則戰。",
+              "audio": null,
+              "source": {
+                "paragraphIndex": 394,
+                "style": "ab",
+                "numId": "10",
+                "ilvl": "1"
+              }
+            }
+          ],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 385,
+            "style": "ab",
+            "numId": "10",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-11-s012",
+          "type": "list",
+          "text": "所謂古之善用兵者，",
+          "items": [
+            {
+              "itemId": "sunzi-11-s012-i001",
+              "text": "能使敵人前後不相及，",
+              "audio": null,
+              "source": {
+                "paragraphIndex": 396,
+                "style": "ab",
+                "numId": "10",
+                "ilvl": "1"
+              }
+            },
+            {
+              "itemId": "sunzi-11-s012-i002",
+              "text": "眾寡不相恃，",
+              "audio": null,
+              "source": {
+                "paragraphIndex": 397,
+                "style": "ab",
+                "numId": "10",
+                "ilvl": "1"
+              }
+            },
+            {
+              "itemId": "sunzi-11-s012-i003",
+              "text": "貴賤不相救，",
+              "audio": null,
+              "source": {
+                "paragraphIndex": 398,
+                "style": "ab",
+                "numId": "10",
+                "ilvl": "1"
+              }
+            },
+            {
+              "itemId": "sunzi-11-s012-i004",
+              "text": "上下不相收，",
+              "audio": null,
+              "source": {
+                "paragraphIndex": 399,
+                "style": "ab",
+                "numId": "10",
+                "ilvl": "1"
+              }
+            },
+            {
+              "itemId": "sunzi-11-s012-i005",
+              "text": "卒離而不集，",
+              "audio": null,
+              "source": {
+                "paragraphIndex": 400,
+                "style": "ab",
+                "numId": "10",
+                "ilvl": "1"
+              }
+            },
+            {
+              "itemId": "sunzi-11-s012-i006",
+              "text": "兵合而不齊；",
+              "audio": null,
+              "source": {
+                "paragraphIndex": 401,
+                "style": "ab",
+                "numId": "10",
+                "ilvl": "1"
+              }
+            },
+            {
+              "itemId": "sunzi-11-s012-i007",
+              "text": "合於利而動，",
+              "audio": null,
+              "source": {
+                "paragraphIndex": 402,
+                "style": "ab",
+                "numId": "10",
+                "ilvl": "1"
+              }
+            },
+            {
+              "itemId": "sunzi-11-s012-i008",
+              "text": "不合於利而止。",
+              "audio": null,
+              "source": {
+                "paragraphIndex": 403,
+                "style": "ab",
+                "numId": "10",
+                "ilvl": "1"
+              }
+            }
+          ],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 395,
+            "style": "ab",
+            "numId": "10",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-11-s013",
+          "type": "paragraph",
+          "text": "敢問：「敵眾整而將來，待之若何？」",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 404,
+            "style": "ab",
+            "numId": "10",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-11-s014",
+          "type": "paragraph",
+          "text": "曰：「先奪其所愛，則聽矣；兵之情主速，由不虞之道，攻其所不戒也。」",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 405,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-11-s015",
+          "type": "paragraph",
+          "text": "凡為客之道：深入則專，主人不克，鄉掠於饒野，三軍足食，謹養勿勞，併氣積力，運兵計謀，為不可測，投之無所往，死且不北，死焉不得，士人盡力。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 406,
+            "style": "ab",
+            "numId": "10",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-11-s016",
+          "type": "paragraph",
+          "text": "兵士甚陷則不懼，無所往則固，深入則拘，不得已則鬥。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 407,
+            "style": "ab",
+            "numId": "10",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-11-s017",
+          "type": "paragraph",
+          "text": "是故，其兵",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 408,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-11-s018",
+          "type": "paragraph",
+          "text": "不修而戒，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 409,
+            "style": "ab",
+            "numId": "42",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-11-s019",
+          "type": "paragraph",
+          "text": "不求而得，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 410,
+            "style": "ab",
+            "numId": "42",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-11-s020",
+          "type": "paragraph",
+          "text": "不約而親，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 411,
+            "style": "ab",
+            "numId": "42",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-11-s021",
+          "type": "paragraph",
+          "text": "不令而信，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 412,
+            "style": "ab",
+            "numId": "42",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-11-s022",
+          "type": "paragraph",
+          "text": "禁祥去疑，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 413,
+            "style": "ab",
+            "numId": "42",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-11-s023",
+          "type": "paragraph",
+          "text": "至死無所之。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 414,
+            "style": "ab",
+            "numId": "42",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-11-s024",
+          "type": "paragraph",
+          "text": "吾士無餘財，非惡貨也；",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 415,
+            "style": "ab",
+            "numId": "10",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-11-s025",
+          "type": "paragraph",
+          "text": "無餘命，非惡壽也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 416,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-11-s026",
+          "type": "paragraph",
+          "text": "令發之日，士卒坐者，涕霑襟，偃臥者，涕交頤，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 417,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-11-s027",
+          "type": "paragraph",
+          "text": "投之無所往，則諸劌之勇也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 418,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-11-s028",
+          "type": "paragraph",
+          "text": "故善用兵者，譬如率然；率然者，常山之蛇也，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 419,
+            "style": "ab",
+            "numId": "10",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-11-s029",
+          "type": "paragraph",
+          "text": "擊其首，則尾至；",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 420,
+            "style": "ab",
+            "numId": "10",
+            "ilvl": "1"
+          }
+        },
+        {
+          "sectionId": "sunzi-11-s030",
+          "type": "paragraph",
+          "text": "擊其尾，則首至；",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 421,
+            "style": "ab",
+            "numId": "10",
+            "ilvl": "1"
+          }
+        },
+        {
+          "sectionId": "sunzi-11-s031",
+          "type": "paragraph",
+          "text": "擊其中，則首尾俱至。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 422,
+            "style": "ab",
+            "numId": "10",
+            "ilvl": "1"
+          }
+        },
+        {
+          "sectionId": "sunzi-11-s032",
+          "type": "paragraph",
+          "text": "敢問：「兵可使如率然乎？」曰：「可。」夫吳人與越人相惡也，當其同舟共濟而遇風，其相救也，如左右手。是故，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 423,
+            "style": "ab",
+            "numId": "10",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-11-s033",
+          "type": "paragraph",
+          "text": "方馬埋輪，未足恃也，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 424,
+            "style": "ab",
+            "numId": "10",
+            "ilvl": "1"
+          }
+        },
+        {
+          "sectionId": "sunzi-11-s034",
+          "type": "paragraph",
+          "text": "齊勇如一，政之道也，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 425,
+            "style": "ab",
+            "numId": "10",
+            "ilvl": "1"
+          }
+        },
+        {
+          "sectionId": "sunzi-11-s035",
+          "type": "paragraph",
+          "text": "剛柔皆得，地之理也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 426,
+            "style": "ab",
+            "numId": "10",
+            "ilvl": "1"
+          }
+        },
+        {
+          "sectionId": "sunzi-11-s036",
+          "type": "paragraph",
+          "text": "故善用兵者，攜手若使一人，不得已也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 427,
+            "style": "ab",
+            "numId": "10",
+            "ilvl": "1"
+          }
+        },
+        {
+          "sectionId": "sunzi-11-s037",
+          "type": "list",
+          "text": "將軍之事，靜以幽，正以治；",
+          "items": [
+            {
+              "itemId": "sunzi-11-s037-i001",
+              "text": "能愚士卒之耳目，使之無知。",
+              "audio": null,
+              "source": {
+                "paragraphIndex": 429,
+                "style": "ab",
+                "numId": "10",
+                "ilvl": "1"
+              }
+            },
+            {
+              "itemId": "sunzi-11-s037-i002",
+              "text": "易其事，革其謀，使人無識。",
+              "audio": null,
+              "source": {
+                "paragraphIndex": 430,
+                "style": "ab",
+                "numId": "10",
+                "ilvl": "1"
+              }
+            },
+            {
+              "itemId": "sunzi-11-s037-i003",
+              "text": "易其居，迂其途，使人不得慮。",
+              "audio": null,
+              "source": {
+                "paragraphIndex": 431,
+                "style": "ab",
+                "numId": "10",
+                "ilvl": "1"
+              }
+            },
+            {
+              "itemId": "sunzi-11-s037-i004",
+              "text": "帥與之期，如登高而去其梯；",
+              "audio": null,
+              "source": {
+                "paragraphIndex": 432,
+                "style": "ab",
+                "numId": "10",
+                "ilvl": "1"
+              }
+            },
+            {
+              "itemId": "sunzi-11-s037-i005",
+              "text": "帥與之深入諸侯之地，而發其機，",
+              "audio": null,
+              "source": {
+                "paragraphIndex": 433,
+                "style": "ab",
+                "numId": "10",
+                "ilvl": "1"
+              }
+            },
+            {
+              "itemId": "sunzi-11-s037-i006",
+              "text": "焚舟破釜；若驅群羊，驅而往，驅而來，莫知所之。",
+              "audio": null,
+              "source": {
+                "paragraphIndex": 434,
+                "style": "ab",
+                "numId": "10",
+                "ilvl": "1"
+              }
+            }
+          ],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 428,
+            "style": "ab",
+            "numId": "10",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-11-s038",
+          "type": "paragraph",
+          "text": "聚三軍之眾，投之於險，此將軍之事也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 435,
+            "style": "ab",
+            "numId": "10",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-11-s039",
+          "type": "paragraph",
+          "text": "九地之變，屈伸之利，人情之理，不可不察也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 436,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-11-s040",
+          "type": "list",
+          "text": "凡為客之道，",
+          "items": [
+            {
+              "itemId": "sunzi-11-s040-i001",
+              "text": "深則專，",
+              "audio": null,
+              "source": {
+                "paragraphIndex": 438,
+                "style": "ab",
+                "numId": "10",
+                "ilvl": "1"
+              }
+            },
+            {
+              "itemId": "sunzi-11-s040-i002",
+              "text": "淺則散。",
+              "audio": null,
+              "source": {
+                "paragraphIndex": 439,
+                "style": "ab",
+                "numId": "10",
+                "ilvl": "1"
+              }
+            },
+            {
+              "itemId": "sunzi-11-s040-i003",
+              "text": "去國越境而師者，絕地也；",
+              "audio": null,
+              "source": {
+                "paragraphIndex": 440,
+                "style": "ab",
+                "numId": "10",
+                "ilvl": "1"
+              }
+            },
+            {
+              "itemId": "sunzi-11-s040-i004",
+              "text": "四達者，衢地也；",
+              "audio": null,
+              "source": {
+                "paragraphIndex": 441,
+                "style": "ab",
+                "numId": "10",
+                "ilvl": "1"
+              }
+            },
+            {
+              "itemId": "sunzi-11-s040-i005",
+              "text": "入深者，重地也；",
+              "audio": null,
+              "source": {
+                "paragraphIndex": 442,
+                "style": "ab",
+                "numId": "10",
+                "ilvl": "1"
+              }
+            },
+            {
+              "itemId": "sunzi-11-s040-i006",
+              "text": "入淺者，輕地也；",
+              "audio": null,
+              "source": {
+                "paragraphIndex": 443,
+                "style": "ab",
+                "numId": "10",
+                "ilvl": "1"
+              }
+            },
+            {
+              "itemId": "sunzi-11-s040-i007",
+              "text": "背固前隘者，圍地也；",
+              "audio": null,
+              "source": {
+                "paragraphIndex": 444,
+                "style": "ab",
+                "numId": "10",
+                "ilvl": "1"
+              }
+            },
+            {
+              "itemId": "sunzi-11-s040-i008",
+              "text": "無所往者，死地也。",
+              "audio": null,
+              "source": {
+                "paragraphIndex": 445,
+                "style": "ab",
+                "numId": "10",
+                "ilvl": "1"
+              }
+            }
+          ],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 437,
+            "style": "ab",
+            "numId": "10",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-11-s041",
+          "type": "list",
+          "text": "是故，",
+          "items": [
+            {
+              "itemId": "sunzi-11-s041-i001",
+              "text": "散地，吾將一其志，",
+              "audio": null,
+              "source": {
+                "paragraphIndex": 447,
+                "style": "ab",
+                "numId": "10",
+                "ilvl": "1"
+              }
+            },
+            {
+              "itemId": "sunzi-11-s041-i002",
+              "text": "輕地，吾將使之屬，",
+              "audio": null,
+              "source": {
+                "paragraphIndex": 448,
+                "style": "ab",
+                "numId": "10",
+                "ilvl": "1"
+              }
+            },
+            {
+              "itemId": "sunzi-11-s041-i003",
+              "text": "爭地，吾將趨其後，",
+              "audio": null,
+              "source": {
+                "paragraphIndex": 449,
+                "style": "ab",
+                "numId": "10",
+                "ilvl": "1"
+              }
+            },
+            {
+              "itemId": "sunzi-11-s041-i004",
+              "text": "交地，吾將謹其守，",
+              "audio": null,
+              "source": {
+                "paragraphIndex": 450,
+                "style": "ab",
+                "numId": "10",
+                "ilvl": "1"
+              }
+            },
+            {
+              "itemId": "sunzi-11-s041-i005",
+              "text": "衢地，吾將固其結，",
+              "audio": null,
+              "source": {
+                "paragraphIndex": 451,
+                "style": "ab",
+                "numId": "10",
+                "ilvl": "1"
+              }
+            },
+            {
+              "itemId": "sunzi-11-s041-i006",
+              "text": "重地，吾將繼其食，",
+              "audio": null,
+              "source": {
+                "paragraphIndex": 452,
+                "style": "ab",
+                "numId": "10",
+                "ilvl": "1"
+              }
+            },
+            {
+              "itemId": "sunzi-11-s041-i007",
+              "text": "圮地，吾將進其途，",
+              "audio": null,
+              "source": {
+                "paragraphIndex": 453,
+                "style": "ab",
+                "numId": "10",
+                "ilvl": "1"
+              }
+            },
+            {
+              "itemId": "sunzi-11-s041-i008",
+              "text": "圍地，吾將塞其闕，",
+              "audio": null,
+              "source": {
+                "paragraphIndex": 454,
+                "style": "ab",
+                "numId": "10",
+                "ilvl": "1"
+              }
+            },
+            {
+              "itemId": "sunzi-11-s041-i009",
+              "text": "死地，吾將示之以不活。",
+              "audio": null,
+              "source": {
+                "paragraphIndex": 455,
+                "style": "ab",
+                "numId": "10",
+                "ilvl": "1"
+              }
+            }
+          ],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 446,
+            "style": "ab",
+            "numId": "10",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-11-s042",
+          "type": "paragraph",
+          "text": "故兵之情：圍則禦，不得已則鬥，逼則從。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 456,
+            "style": "ab",
+            "numId": "10",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-11-s043",
+          "type": "list",
+          "text": "是故",
+          "items": [
+            {
+              "itemId": "sunzi-11-s043-i001",
+              "text": "不知諸侯之謀者，不得豫交，",
+              "audio": null,
+              "source": {
+                "paragraphIndex": 458,
+                "style": "ab",
+                "numId": "10",
+                "ilvl": "1"
+              }
+            },
+            {
+              "itemId": "sunzi-11-s043-i002",
+              "text": "不知山林、險阻、沮澤之形者，不能行軍；",
+              "audio": null,
+              "source": {
+                "paragraphIndex": 459,
+                "style": "ab",
+                "numId": "10",
+                "ilvl": "1"
+              }
+            },
+            {
+              "itemId": "sunzi-11-s043-i003",
+              "text": "不用鄉導者，不能得地利。",
+              "audio": null,
+              "source": {
+                "paragraphIndex": 460,
+                "style": "ab",
+                "numId": "10",
+                "ilvl": "1"
+              }
+            }
+          ],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 457,
+            "style": "ab",
+            "numId": "10",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-11-s044",
+          "type": "paragraph",
+          "text": "此三者不知一，非王霸之兵也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 461,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-11-s045",
+          "type": "paragraph",
+          "text": "夫王霸之兵，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 462,
+            "style": "ab",
+            "numId": "10",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-11-s046",
+          "type": "paragraph",
+          "text": "伐大國，則其眾不得聚；",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 463,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-11-s047",
+          "type": "paragraph",
+          "text": "威加於敵，則其交不得合。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 464,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-11-s048",
+          "type": "paragraph",
+          "text": "是故不爭天下之交，不養天下之權，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 465,
+            "style": "ab",
+            "numId": "10",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-11-s049",
+          "type": "paragraph",
+          "text": "信己之私，威加於敵，故其城可拔，其國可隳。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 466,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-11-s050",
+          "type": "paragraph",
+          "text": "施無法之賞，懸無政之令，犯三軍之眾，若使一人。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 467,
+            "style": "ab",
+            "numId": "10",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-11-s051",
+          "type": "paragraph",
+          "text": "犯之以事，勿告以言；",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 468,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-11-s052",
+          "type": "paragraph",
+          "text": "犯之以利，勿告以害；",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 469,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-11-s053",
+          "type": "paragraph",
+          "text": "投之亡地然後存，陷之死地而後生。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 470,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-11-s054",
+          "type": "paragraph",
+          "text": "夫眾陷於害，然後能為勝敗，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 471,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-11-s055",
+          "type": "paragraph",
+          "text": "故為兵之事，在詳順敵之意，併力一向，千里殺將，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 472,
+            "style": "ab",
+            "numId": "10",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-11-s056",
+          "type": "paragraph",
+          "text": "是謂巧能成事。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 473,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-11-s057",
+          "type": "paragraph",
+          "text": "是故政舉之日，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 474,
+            "style": "ab",
+            "numId": "10",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-11-s058",
+          "type": "paragraph",
+          "text": "夷關折符，無通其使；",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 475,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-11-s059",
+          "type": "paragraph",
+          "text": "厲於廊廟之上，以誅其事；",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 476,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-11-s060",
+          "type": "paragraph",
+          "text": "敵人開闔，必亟入之。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 477,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-11-s061",
+          "type": "paragraph",
+          "text": "先其所愛，微與之期；",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 478,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-11-s062",
+          "type": "paragraph",
+          "text": "踐墨隨敵，以決戰事。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 479,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-11-s063",
+          "type": "paragraph",
+          "text": "是故，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 480,
+            "style": "ab",
+            "numId": "10",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-11-s064",
+          "type": "paragraph",
+          "text": "始如處女，敵人開戶，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 481,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-11-s065",
+          "type": "paragraph",
+          "text": "後如脫兔，敵不及拒。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 482,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        }
+      ]
+    },
+    {
+      "chapterId": "sunzi-12",
+      "chapterNumber": 12,
+      "title": "火攻第十二",
+      "fullTitle": "火攻第十二",
+      "rank": "Q",
+      "audio": null,
+      "fullText": "孫子曰：凡火攻有五：一曰火人，二曰火積，三曰火輜，四曰火庫，五曰火隊。行火必有因，煙火必素具。發火有時，起火有日。時者，天之燥也。日者，月在箕、壁、軫、翼也。凡此四宿者，風起之日也。凡火攻，必因五火之變而應之，火發於內，則早應於外。火發兵靜者，待而勿攻。極其火力，可從而從之，不可從而止。火發於外，無待於內，以時發之。火發上風，無攻下風，晝風久，夜風止。凡軍必知五火之變，以數守之。故以火佐攻者明，以水佐攻者強，水可以絕，不可以奪。夫戰勝攻取，而不修其功者凶，命曰費留。故曰：明主慮之，良將修之，非利不動，非得不用，非危不戰。主不可以怒而興師，將不可以慍而致戰；合於利而動，不合於利而止。怒可以復喜，慍可以復悅；亡國不可以復存，死者不可以復生。故明主慎之，良將警之，此安國全軍之道也。",
+      "sections": [
+        {
+          "sectionId": "sunzi-12-s001",
+          "type": "list",
+          "text": "孫子曰：凡火攻有五：",
+          "items": [
+            {
+              "itemId": "sunzi-12-s001-i001",
+              "text": "一曰火人，",
+              "audio": null,
+              "source": {
+                "paragraphIndex": 485,
+                "style": "ab",
+                "numId": "28",
+                "ilvl": "1"
+              }
+            },
+            {
+              "itemId": "sunzi-12-s001-i002",
+              "text": "二曰火積，",
+              "audio": null,
+              "source": {
+                "paragraphIndex": 486,
+                "style": "ab",
+                "numId": "28",
+                "ilvl": "1"
+              }
+            },
+            {
+              "itemId": "sunzi-12-s001-i003",
+              "text": "三曰火輜，",
+              "audio": null,
+              "source": {
+                "paragraphIndex": 487,
+                "style": "ab",
+                "numId": "28",
+                "ilvl": "1"
+              }
+            },
+            {
+              "itemId": "sunzi-12-s001-i004",
+              "text": "四曰火庫，",
+              "audio": null,
+              "source": {
+                "paragraphIndex": 488,
+                "style": "ab",
+                "numId": "28",
+                "ilvl": "1"
+              }
+            },
+            {
+              "itemId": "sunzi-12-s001-i005",
+              "text": "五曰火隊。",
+              "audio": null,
+              "source": {
+                "paragraphIndex": 489,
+                "style": "ab",
+                "numId": "28",
+                "ilvl": "1"
+              }
+            }
+          ],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 484,
+            "style": "ab",
+            "numId": "27",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-12-s002",
+          "type": "paragraph",
+          "text": "行火必有因，煙火必素具。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 490,
+            "style": "ab",
+            "numId": "27",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-12-s003",
+          "type": "paragraph",
+          "text": "發火有時，起火有日。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 491,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-12-s004",
+          "type": "paragraph",
+          "text": "時者，天之燥也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 492,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-12-s005",
+          "type": "paragraph",
+          "text": "日者，月在箕、壁、軫、翼也。凡此四宿者，風起之日也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 493,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-12-s006",
+          "type": "list",
+          "text": "凡火攻，必因五火之變而應之，",
+          "items": [
+            {
+              "itemId": "sunzi-12-s006-i001",
+              "text": "火發於內，則早應於外。",
+              "audio": null,
+              "source": {
+                "paragraphIndex": 495,
+                "style": "ab",
+                "numId": "29",
+                "ilvl": "1"
+              }
+            },
+            {
+              "itemId": "sunzi-12-s006-i002",
+              "text": "火發兵靜者，待而勿攻。極其火力，可從而從之，不可從而止。",
+              "audio": null,
+              "source": {
+                "paragraphIndex": 496,
+                "style": "ab",
+                "numId": "29",
+                "ilvl": "1"
+              }
+            },
+            {
+              "itemId": "sunzi-12-s006-i003",
+              "text": "火發於外，無待於內，以時發之。",
+              "audio": null,
+              "source": {
+                "paragraphIndex": 497,
+                "style": "ab",
+                "numId": "29",
+                "ilvl": "1"
+              }
+            },
+            {
+              "itemId": "sunzi-12-s006-i004",
+              "text": "火發上風，無攻下風，",
+              "audio": null,
+              "source": {
+                "paragraphIndex": 498,
+                "style": "ab",
+                "numId": "29",
+                "ilvl": "1"
+              }
+            },
+            {
+              "itemId": "sunzi-12-s006-i005",
+              "text": "晝風久，夜風止。",
+              "audio": null,
+              "source": {
+                "paragraphIndex": 499,
+                "style": "ab",
+                "numId": "29",
+                "ilvl": "1"
+              }
+            }
+          ],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 494,
+            "style": "ab",
+            "numId": "27",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-12-s007",
+          "type": "paragraph",
+          "text": "凡軍必知五火之變，以數守之。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 500,
+            "style": "ab",
+            "numId": "27",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-12-s008",
+          "type": "paragraph",
+          "text": "故以火佐攻者明，以水佐攻者強，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 501,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-12-s009",
+          "type": "paragraph",
+          "text": "水可以絕，不可以奪。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 502,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-12-s010",
+          "type": "paragraph",
+          "text": "夫戰勝攻取，而不修其功者凶，命曰費留。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 503,
+            "style": "ab",
+            "numId": "27",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-12-s011",
+          "type": "paragraph",
+          "text": "故曰：",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 504,
+            "style": "ab",
+            "numId": "27",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-12-s012",
+          "type": "list",
+          "text": "明主慮之，良將修之，",
+          "items": [
+            {
+              "itemId": "sunzi-12-s012-i001",
+              "text": "非利不動，",
+              "audio": null,
+              "source": {
+                "paragraphIndex": 506,
+                "style": "ab",
+                "numId": "43",
+                "ilvl": "1"
+              }
+            },
+            {
+              "itemId": "sunzi-12-s012-i002",
+              "text": "非得不用，",
+              "audio": null,
+              "source": {
+                "paragraphIndex": 507,
+                "style": "ab",
+                "numId": "43",
+                "ilvl": "1"
+              }
+            },
+            {
+              "itemId": "sunzi-12-s012-i003",
+              "text": "非危不戰。",
+              "audio": null,
+              "source": {
+                "paragraphIndex": 508,
+                "style": "ab",
+                "numId": "43",
+                "ilvl": "1"
+              }
+            }
+          ],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 505,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-12-s013",
+          "type": "paragraph",
+          "text": "主不可以怒而興師，將不可以慍而致戰；",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 509,
+            "style": "ab",
+            "numId": "27",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-12-s014",
+          "type": "paragraph",
+          "text": "合於利而動，不合於利而止。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 510,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-12-s015",
+          "type": "paragraph",
+          "text": "怒可以復喜，慍可以復悅；",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 511,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-12-s016",
+          "type": "paragraph",
+          "text": "亡國不可以復存，死者不可以復生。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 512,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-12-s017",
+          "type": "paragraph",
+          "text": "故明主慎之，良將警之，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 513,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-12-s018",
+          "type": "paragraph",
+          "text": "此安國全軍之道也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 514,
+            "style": "ab",
+            "numId": "44",
+            "ilvl": "0"
+          }
+        }
+      ]
+    },
+    {
+      "chapterId": "sunzi-13",
+      "chapterNumber": 13,
+      "title": "用間第十三",
+      "fullTitle": "用間第十三",
+      "rank": "K",
+      "audio": null,
+      "fullText": "孫子曰：凡興師十萬，出征千里，百姓之費，公家之奉，日費千金，內外騷動，怠於道路，不得操事者，七十萬家。相守數年，以爭一日之勝；而愛爵祿百金，不知敵之情者，不仁之至也；非人之將也，非主之佐也，非勝之主也。故明君賢將，所以動而勝人，成功出於眾者，先知也。先知者，不可取於鬼神，不可象於事，不可驗於度，必取之於人，知敵之情者也。故用間有五：有鄉間，有內間，有反間，有死間，有生間；五間俱起，莫知其道，是謂神紀，人君之寶也。鄉間者，因其鄉人而用之；內間者，因其官人而 用之；反間者，因其敵而用之；死間者，為誑事於外，令吾間知之，而傳於敵間也；生間者，反報也。故三軍之事，親莫親於間，賞莫厚於間，事莫密於間；非聖智不能用間，非仁義不能使間，非微妙不能得間之實；微哉！微哉！無所不用間也。間事未發 而先聞者，間與所告者皆死。凡軍之所欲擊，城之所欲攻，人之所欲殺，必先知其守將、左右、謁者、門者、舍人之姓名，令吾間必索知之。必索敵間之來間我者，因而利之，導而舍之，故反間可得而使也；因是而知之，故鄉間、內間可得而使也；因是而知之，故死間為誑事可使告敵；因是而知之，故生間可使如期。五間之事，主必知之，知之必在反間，故反間不可不厚也。昔殷之興也，伊摯在夏；周之興也，呂牙在殷，故明君賢將，能以上智為間者，必成大功。此兵之要，三軍之所恃而動也。",
+      "sections": [
+        {
+          "sectionId": "sunzi-13-s001",
+          "type": "paragraph",
+          "text": "孫子曰：凡興師十萬，出征千里，百姓之費，公家之奉，日費千金，內外騷動，怠於道路，不得操事者，七十萬家。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 516,
+            "style": "ab",
+            "numId": "31",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-13-s002",
+          "type": "paragraph",
+          "text": "相守數年，以爭一日之勝；而愛爵祿百金，不知敵之情者，不仁之至也；非人之將也，非主之佐也，非勝之主也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 517,
+            "style": "ab",
+            "numId": "31",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-13-s003",
+          "type": "paragraph",
+          "text": "故明君賢將，所以動而勝人，成功出於眾者，先知也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 518,
+            "style": "ab",
+            "numId": "31",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-13-s004",
+          "type": "list",
+          "text": "先知者，",
+          "items": [
+            {
+              "itemId": "sunzi-13-s004-i001",
+              "text": "不可取於鬼神，",
+              "audio": null,
+              "source": {
+                "paragraphIndex": 520,
+                "style": "ab",
+                "numId": "32",
+                "ilvl": "1"
+              }
+            },
+            {
+              "itemId": "sunzi-13-s004-i002",
+              "text": "不可象於事，",
+              "audio": null,
+              "source": {
+                "paragraphIndex": 521,
+                "style": "ab",
+                "numId": "32",
+                "ilvl": "1"
+              }
+            },
+            {
+              "itemId": "sunzi-13-s004-i003",
+              "text": "不可驗於度，",
+              "audio": null,
+              "source": {
+                "paragraphIndex": 522,
+                "style": "ab",
+                "numId": "32",
+                "ilvl": "1"
+              }
+            },
+            {
+              "itemId": "sunzi-13-s004-i004",
+              "text": "必取之於人，知敵之情者也。",
+              "audio": null,
+              "source": {
+                "paragraphIndex": 523,
+                "style": "ab",
+                "numId": "32",
+                "ilvl": "1"
+              }
+            }
+          ],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 519,
+            "style": "ab",
+            "numId": "31",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-13-s005",
+          "type": "list",
+          "text": "故用間有五：",
+          "items": [
+            {
+              "itemId": "sunzi-13-s005-i001",
+              "text": "有鄉間，",
+              "audio": null,
+              "source": {
+                "paragraphIndex": 525,
+                "style": "ab",
+                "numId": "33",
+                "ilvl": "1"
+              }
+            },
+            {
+              "itemId": "sunzi-13-s005-i002",
+              "text": "有內間，",
+              "audio": null,
+              "source": {
+                "paragraphIndex": 526,
+                "style": "ab",
+                "numId": "33",
+                "ilvl": "1"
+              }
+            },
+            {
+              "itemId": "sunzi-13-s005-i003",
+              "text": "有反間，",
+              "audio": null,
+              "source": {
+                "paragraphIndex": 527,
+                "style": "ab",
+                "numId": "33",
+                "ilvl": "1"
+              }
+            },
+            {
+              "itemId": "sunzi-13-s005-i004",
+              "text": "有死間，",
+              "audio": null,
+              "source": {
+                "paragraphIndex": 528,
+                "style": "ab",
+                "numId": "33",
+                "ilvl": "1"
+              }
+            },
+            {
+              "itemId": "sunzi-13-s005-i005",
+              "text": "有生間；",
+              "audio": null,
+              "source": {
+                "paragraphIndex": 529,
+                "style": "ab",
+                "numId": "33",
+                "ilvl": "1"
+              }
+            }
+          ],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 524,
+            "style": "ab",
+            "numId": "31",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-13-s006",
+          "type": "paragraph",
+          "text": "五間俱起，莫知其道，是謂神紀，人君之寶也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 530,
+            "style": "ab",
+            "numId": "31",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-13-s007",
+          "type": "paragraph",
+          "text": "鄉間者，因其鄉人而用之；",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 531,
+            "style": "ab",
+            "numId": "34",
+            "ilvl": "1"
+          }
+        },
+        {
+          "sectionId": "sunzi-13-s008",
+          "type": "paragraph",
+          "text": "內間者，因其官人而 用之；",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 532,
+            "style": "ab",
+            "numId": "34",
+            "ilvl": "1"
+          }
+        },
+        {
+          "sectionId": "sunzi-13-s009",
+          "type": "paragraph",
+          "text": "反間者，因其敵而用之；",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 533,
+            "style": "ab",
+            "numId": "34",
+            "ilvl": "1"
+          }
+        },
+        {
+          "sectionId": "sunzi-13-s010",
+          "type": "paragraph",
+          "text": "死間者，為誑事於外，令吾間知之，而傳於敵間也；",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 534,
+            "style": "ab",
+            "numId": "34",
+            "ilvl": "1"
+          }
+        },
+        {
+          "sectionId": "sunzi-13-s011",
+          "type": "paragraph",
+          "text": "生間者，反報也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 535,
+            "style": "ab",
+            "numId": "34",
+            "ilvl": "1"
+          }
+        },
+        {
+          "sectionId": "sunzi-13-s012",
+          "type": "list",
+          "text": "故三軍之事，",
+          "items": [
+            {
+              "itemId": "sunzi-13-s012-i001",
+              "text": "親莫親於間，",
+              "audio": null,
+              "source": {
+                "paragraphIndex": 537,
+                "style": "ab",
+                "numId": "35",
+                "ilvl": "1"
+              }
+            },
+            {
+              "itemId": "sunzi-13-s012-i002",
+              "text": "賞莫厚於間，",
+              "audio": null,
+              "source": {
+                "paragraphIndex": 538,
+                "style": "ab",
+                "numId": "35",
+                "ilvl": "1"
+              }
+            },
+            {
+              "itemId": "sunzi-13-s012-i003",
+              "text": "事莫密於間；",
+              "audio": null,
+              "source": {
+                "paragraphIndex": 539,
+                "style": "ab",
+                "numId": "35",
+                "ilvl": "1"
+              }
+            },
+            {
+              "itemId": "sunzi-13-s012-i004",
+              "text": "非聖智不能用間，",
+              "audio": null,
+              "source": {
+                "paragraphIndex": 540,
+                "style": "ab",
+                "numId": "36",
+                "ilvl": "1"
+              }
+            },
+            {
+              "itemId": "sunzi-13-s012-i005",
+              "text": "非仁義不能使間，",
+              "audio": null,
+              "source": {
+                "paragraphIndex": 541,
+                "style": "ab",
+                "numId": "36",
+                "ilvl": "1"
+              }
+            },
+            {
+              "itemId": "sunzi-13-s012-i006",
+              "text": "非微妙不能得間之實；",
+              "audio": null,
+              "source": {
+                "paragraphIndex": 542,
+                "style": "ab",
+                "numId": "36",
+                "ilvl": "1"
+              }
+            }
+          ],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 536,
+            "style": "ab",
+            "numId": "31",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-13-s013",
+          "type": "paragraph",
+          "text": "微哉！微哉！無所不用間也。間事未發 而先聞者，間與所告者皆死。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 543,
+            "style": "ab",
+            "numId": "31",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-13-s014",
+          "type": "paragraph",
+          "text": "凡軍之所欲擊，城之所欲攻，人之所欲殺，必先知其守將、左右、謁者、門者、舍人之姓名，令吾間必索知之。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 544,
+            "style": "ab",
+            "numId": "31",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-13-s015",
+          "type": "paragraph",
+          "text": "必索敵間之來間我者，因而利之，導而舍之，故反間可得而使也；",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 545,
+            "style": "ab",
+            "numId": "31",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-13-s016",
+          "type": "paragraph",
+          "text": "因是而知之，故鄉間、內間可得而使也；",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 546,
+            "style": "ab",
+            "numId": "45",
+            "ilvl": "1"
+          }
+        },
+        {
+          "sectionId": "sunzi-13-s017",
+          "type": "paragraph",
+          "text": "因是而知之，故死間為誑事可使告敵；",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 547,
+            "style": "ab",
+            "numId": "45",
+            "ilvl": "1"
+          }
+        },
+        {
+          "sectionId": "sunzi-13-s018",
+          "type": "paragraph",
+          "text": "因是而知之，故生間可使如期。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 548,
+            "style": "ab",
+            "numId": "45",
+            "ilvl": "1"
+          }
+        },
+        {
+          "sectionId": "sunzi-13-s019",
+          "type": "paragraph",
+          "text": "五間之事，主必知之，知之必在反間，故反間不可不厚也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 549,
+            "style": "ab",
+            "numId": "31",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-13-s020",
+          "type": "paragraph",
+          "text": "昔殷之興也，伊摯在夏；周之興也，呂牙在殷，",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 550,
+            "style": "ab",
+            "numId": "31",
+            "ilvl": "0"
+          }
+        },
+        {
+          "sectionId": "sunzi-13-s021",
+          "type": "paragraph",
+          "text": "故明君賢將，能以上智為間者，必成大功。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 551,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        },
+        {
+          "sectionId": "sunzi-13-s022",
+          "type": "paragraph",
+          "text": "此兵之要，三軍之所恃而動也。",
+          "items": [],
+          "audio": null,
+          "source": {
+            "paragraphIndex": 552,
+            "style": "",
+            "numId": "",
+            "ilvl": ""
+          }
+        }
+      ]
+    }
+  ]
+}
