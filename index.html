@@ -18,11 +18,11 @@
           <label class="difficulty">
             <span>兵法難度</span>
             <select id="scriptureLevel" aria-label="兵法難度">
-              <option value="0">入門：全有數</option>
-              <option value="1">一階：13 張無數</option>
-              <option value="2">二階：26 張無數</option>
-              <option value="3">三階：39 張無數</option>
-              <option value="4">軍師：全無數</option>
+              <option value="L1">L1 入門｜全數字</option>
+              <option value="L2">L2 熟讀｜隨機13張無數字</option>
+              <option value="L3">L3 進階｜隨機26張無數字</option>
+              <option value="L4">L4 精熟｜隨機39張無數字</option>
+              <option value="L5">L5 宗師｜全無數字</option>
             </select>
           </label>
           <div class="stat">
@@ -156,7 +156,7 @@
           </section>
           <section>
             <h3>牌面學習</h3>
-            <p>難度越高，越多牌會改用無數字版本。歸位後的小牌可點擊或長按放大查看，幫助辨識篇名與篇序。</p>
+            <p>L1 全數字；L2 到 L4 每局隨機增加無數字牌；L5 全部使用無數字牌。歸位後的小牌可點擊或長按放大查看，幫助辨識篇名與篇序。</p>
           </section>
           <section>
             <h3>完成播放</h3>
@@ -168,7 +168,7 @@
           </section>
           <section>
             <h3>積分與紀錄</h3>
-            <p>分數會受時間、Pass 次數、放錯次數與兵法難度影響。完成後會保存本機最佳紀錄。</p>
+            <p>分數會受時間、Pass 次數、放錯次數與兵法難度影響。每一級會分別保存本機最佳分數、最快時間與最低 Pass 紀錄。</p>
           </section>
           <section>
             <h3>版權資訊</h3>
@@ -179,5 +179,6 @@
     </div>
 
     <script src="script.js?v=alpha-0.0.4"></script>
+    <script src="phase1.js?v=alpha-0.0.5"></script>
   </body>
 </html>
