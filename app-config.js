@@ -1,4 +1,4 @@
-window.SUNZI_APP_INFO = Object.freeze({
+const SUNZI_APP_VERSION_SOURCE = {
   appName: "孫子兵法接龍",
   releaseStage: "Alpha",
   appVersion: "0.0.4",
@@ -6,10 +6,12 @@ window.SUNZI_APP_INFO = Object.freeze({
   copyrightYear: "2026",
   copyrightOwner: "林煥章",
   assetVersion: "alpha-0.0.4"
-});
+};
 
-window.SUNZI_APP_INFO.versionLabel = `${window.SUNZI_APP_INFO.releaseStage} v${window.SUNZI_APP_INFO.appVersion}`;
-window.SUNZI_APP_INFO.copyrightLabel = `© ${window.SUNZI_APP_INFO.copyrightOwner} ${window.SUNZI_APP_INFO.copyrightYear} · ${window.SUNZI_APP_INFO.versionLabel} · ${window.SUNZI_APP_INFO.releaseDate}`;
+SUNZI_APP_VERSION_SOURCE.versionLabel = `${SUNZI_APP_VERSION_SOURCE.releaseStage} v${SUNZI_APP_VERSION_SOURCE.appVersion}`;
+SUNZI_APP_VERSION_SOURCE.copyrightLabel = `© ${SUNZI_APP_VERSION_SOURCE.copyrightOwner} ${SUNZI_APP_VERSION_SOURCE.copyrightYear} · ${SUNZI_APP_VERSION_SOURCE.versionLabel} · ${SUNZI_APP_VERSION_SOURCE.releaseDate}`;
+
+window.SUNZI_APP_INFO = Object.freeze(SUNZI_APP_VERSION_SOURCE);
 
 function applySunziAppInfo() {
   document.querySelectorAll("[data-app-version-text]").forEach((element) => {
