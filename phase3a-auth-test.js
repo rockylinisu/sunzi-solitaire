@@ -11,14 +11,24 @@ function phase3aInstallStyles() {
   style.id = "phase3aStyles";
   style.textContent = `
     #otpTestButton {
+      position: fixed;
+      right: max(12px, env(safe-area-inset-right));
+      bottom: max(72px, calc(env(safe-area-inset-bottom) + 58px));
+      z-index: 4200;
       border: 0;
-      min-height: 46px;
+      min-height: 42px;
       padding: 0 12px;
       color: #21160d;
-      background: rgba(255, 255, 255, 0.72);
-      box-shadow: 0 2px 0 rgba(0, 0, 0, 0.18);
+      background: rgba(246, 239, 227, 0.94);
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.25), 0 2px 0 rgba(0, 0, 0, 0.18);
       cursor: pointer;
       white-space: nowrap;
+      font-size: 14px;
+    }
+
+    .auth-test-viewer.open ~ #otpTestButton,
+    body:has(.auth-test-viewer.open) #otpTestButton {
+      display: none;
     }
 
     .auth-test-viewer {
@@ -119,10 +129,11 @@ function phase3aInstallStyles() {
 
     @media (max-width: 760px) {
       :root[data-device-layout="phone"] #otpTestButton {
-        grid-column: 1 / 7;
-        min-height: 42px;
-        padding: 0 4px;
-        font-size: clamp(12px, 3.35vw, 14px);
+        right: max(10px, env(safe-area-inset-right));
+        bottom: max(66px, calc(env(safe-area-inset-bottom) + 54px));
+        min-height: 36px;
+        padding: 0 10px;
+        font-size: 12px;
       }
 
       :root[data-device-layout="phone"] .auth-test-panel {
@@ -140,7 +151,7 @@ function phase3aEnsureButton() {
   button.type = "button";
   button.textContent = "OTP測試";
   button.addEventListener("click", phase3aOpenAuthTest);
-  document.querySelector("#readerButton")?.insertAdjacentElement("afterend", button);
+  document.body.append(button);
 }
 
 function phase3aEnsureModal() {
