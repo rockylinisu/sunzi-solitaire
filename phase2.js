@@ -32,7 +32,8 @@ function phase2ChapterTitle(card) {
 }
 
 function phase2ShortChapterTitle(card) {
-  return phase2ChapterTitle(card).replace(/^第[一二三四五六七八九十]+篇[｜ ]?/, "");
+  const title = phase2ChapterTitle(card).replace(/^第[一二三四五六七八九十]+篇[｜ ]?/, "").replace(/第.+$/, "");
+  return title.endsWith("篇") ? title : `${title}篇`;
 }
 
 function phase2IsHiddenCard(card) {
