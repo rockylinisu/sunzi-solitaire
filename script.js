@@ -79,6 +79,22 @@ const els = {
   targets: [...document.querySelectorAll(".target")],
 };
 
+function ensurePlaybackControls() {
+  if (els.playbackPause && els.playbackStop) return;
+  const panel = document.querySelector(".playback-panel");
+  if (!panel) return;
+  const controls = document.createElement("div");
+  controls.className = "playback-controls";
+  controls.setAttribute("aria-label", "全牌播放控制");
+  controls.innerHTML = `
+    <button id="playbackPause" type="button">暫停</button>
+    <button id="playbackStop" type="button">停止</button>
+  `;
+  panel.append(controls);
+  els.playbackPause = controls.querySelector("#playbackPause");
+  els.playbackStop = controls.querySelector("#playbackStop");
+}
+
 function detectLayoutMode() {
   const width = window.innerWidth;
   const height = window.innerHeight;
@@ -883,8 +899,9 @@ document.querySelector("#closeCardPreviewBackdrop").addEventListener("click", cl
 document.querySelector("#closeHelp").addEventListener("click", closeHelpViewer);
 document.querySelector("#closeHelpBackdrop").addEventListener("click", closeHelpViewer);
 document.querySelector("#closePlayback").addEventListener("click", stopPlayback);
-document.querySelector("#playbackPause").addEventListener("click", togglePlaybackPause);
-document.querySelector("#playbackStop").addEventListener("click", stopPlayback);
+ensurePlaybackControls();
+els.playbackPause?.addEventListener("click", togglePlaybackPause);
+els.playbackStop?.addEventListener("click", stopPlayback);
 els.scriptureLevel.addEventListener("change", newGame);
 window.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {
