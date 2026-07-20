@@ -48,7 +48,6 @@
     if (existingImage && existingImage.dataset.cardImage === card.image) return;
 
     const nextImage = new Image();
-    nextImage.src = card.image;
     nextImage.alt = cardLabel(card);
     nextImage.decoding = "async";
     nextImage.loading = "eager";
@@ -68,6 +67,8 @@
       () => replaceWhenCurrent(token, card, buildFallback(card)),
       { once: true }
     );
+
+    nextImage.src = card.image;
 
     if (nextImage.complete && nextImage.naturalWidth > 0) {
       decodeWhenAvailable(nextImage).then(() => replaceWhenCurrent(token, card, nextImage));
