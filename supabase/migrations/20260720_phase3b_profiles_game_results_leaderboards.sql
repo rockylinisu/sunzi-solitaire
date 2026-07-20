@@ -62,6 +62,16 @@ for each row execute function public.set_updated_at();
 alter table public.profiles enable row level security;
 alter table public.game_results enable row level security;
 
+-- Explicit table grants are required when Supabase automatic table exposure/grants are disabled.
+-- Actual row visibility remains constrained by the RLS policies below.
+grant select, insert, update
+on table public.profiles
+to authenticated;
+
+grant select, insert
+on table public.game_results
+to authenticated;
+
 -- profiles: players manage only their own profile. Public nickname reads are exposed through RPCs below.
 drop policy if exists profiles_select_own on public.profiles;
 create policy profiles_select_own
