@@ -4,6 +4,7 @@
   const STYLE_ID = "phase3cTableLayoutStyles";
   const FORMAT_ATTR = "data-phase3c-formatting";
   const originalParents = new WeakMap();
+  let moveScheduled = false;
 
   function remember(el) {
     if (el && !originalParents.has(el)) {
@@ -56,6 +57,19 @@
     });
   }
 
+  function placeInOrder(parent, ordered) {
+    const wanted = ordered.filter(Boolean);
+    wanted.forEach((el, index) => {
+      if (el.parentElement !== parent) {
+        parent.appendChild(el);
+      }
+      const controlsInParent = [...parent.children].filter((child) => wanted.includes(child));
+      if (controlsInParent[index] !== el) {
+        parent.insertBefore(el, controlsInParent[index] || null);
+      }
+    });
+  }
+
   function moveForPhone() {
     const deckInfo = document.querySelector(".deck-info");
     const actions = document.querySelector(".actions");
@@ -71,13 +85,13 @@
     if (!deckInfo || !isPhonePortrait()) {
       [passButton, playbackButton, hintButton].forEach(restore);
       document.documentElement.classList.remove("phase3c-table-mobile");
+      if (actions) actions.removeAttribute("aria-hidden");
       return;
     }
 
     document.documentElement.classList.add("phase3c-table-mobile");
 
-    const ordered = [phase3bActions, passButton, queueCount, passCount, playbackButton, hintButton].filter(Boolean);
-    ordered.forEach((el) => deckInfo.appendChild(el));
+    placeInOrder(deckInfo, [phase3bActions, passButton, queueCount, passCount, playbackButton, hintButton]);
 
     if (passButton) passButton.classList.add("phase3c-side-pass");
     if (playbackButton) playbackButton.classList.add("phase3c-side-playback");
@@ -86,6 +100,15 @@
 
     installCounterObservers();
     formatSideStatus();
+  }
+
+  function scheduleMove() {
+    if (moveScheduled) return;
+    moveScheduled = true;
+    window.requestAnimationFrame(() => {
+      moveScheduled = false;
+      moveForPhone();
+    });
   }
 
   function installStyles() {
@@ -286,11 +309,11 @@
     moveForPhone();
     const observer = new MutationObserver(() => {
       installCounterObservers();
-      moveForPhone();
+      scheduleMove();
     });
     observer.observe(document.body, { childList: true, subtree: true });
-    window.addEventListener("resize", moveForPhone, { passive: true });
-    window.addEventListener("orientationchange", () => window.setTimeout(moveForPhone, 120), { passive: true });
+    window.addEventListener("resize", scheduleMove, { passive: true });
+    window.addEventListener("orientationchange", () => window.setTimeout(scheduleMove, 120), { passive: true });
   }
 
   if (document.readyState === "loading") {
