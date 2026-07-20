@@ -52,8 +52,11 @@
     style.textContent = `
       @media (max-width: 760px) and (orientation: portrait) {
         :root[data-device-layout="phone"] {
-          --phase3c-side-control-w: 58px;
-          --phase3c-action-size: 48px;
+          --sidebar-control-width: 58px;
+          --phase3c-side-control-w: var(--sidebar-control-width);
+          --phase3c-action-size: var(--sidebar-control-width);
+          --phase3c-info-height: 40px;
+          --phase3c-general-height: 34px;
           --phase3c-stage-gap: 6px;
           --phase3c-topbar-estimate: 164px;
           --phase3c-target-estimate: var(--phone-target-h, 118px);
@@ -93,8 +96,9 @@
           display: flex;
           flex-direction: column;
           align-items: center;
-          width: var(--phase3c-side-control-w);
-          min-width: 0;
+          width: var(--sidebar-control-width);
+          min-width: var(--sidebar-control-width);
+          max-width: var(--sidebar-control-width);
           min-height: 0;
           max-height: 100%;
           gap: 5px;
@@ -107,7 +111,9 @@
           order: 10;
           display: grid;
           gap: 5px;
-          width: 100%;
+          width: var(--sidebar-control-width);
+          min-width: var(--sidebar-control-width);
+          max-width: var(--sidebar-control-width);
           margin: 0 0 16px;
         }
 
@@ -122,19 +128,17 @@
         :root[data-device-layout="phone"] .phase3c-side-status {
           display: grid;
           place-items: center;
-          width: 100%;
-          max-width: 100%;
-          min-width: 0 !important;
+          width: var(--sidebar-control-width) !important;
+          min-width: var(--sidebar-control-width) !important;
+          max-width: var(--sidebar-control-width) !important;
           border: 0;
           text-align: center;
-          white-space: normal;
-          overflow-wrap: anywhere;
           box-sizing: border-box;
         }
 
         :root[data-device-layout="phone"] .phase3b-action,
         :root[data-device-layout="phone"] .phase3c-side-action {
-          min-height: 34px;
+          min-height: var(--phase3c-general-height);
           padding: 4px 3px;
           color: #21160d;
           background: rgba(246, 239, 227, 0.96);
@@ -144,13 +148,13 @@
           line-height: 1.08;
           touch-action: manipulation;
           user-select: none;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
         }
 
         :root[data-device-layout="phone"] #passButton.phase3c-side-pass,
         :root[data-device-layout="phone"] #playbackButton.phase3c-side-playback {
-          width: var(--phase3c-action-size) !important;
-          min-width: var(--phase3c-action-size) !important;
-          max-width: var(--phase3c-action-size) !important;
           height: var(--phase3c-action-size) !important;
           min-height: var(--phase3c-action-size) !important;
           max-height: var(--phase3c-action-size) !important;
@@ -159,6 +163,9 @@
           border: 1px solid rgba(23, 18, 14, 0.18);
           border-radius: 3px;
           z-index: 22;
+          white-space: normal;
+          overflow: hidden;
+          text-overflow: clip;
         }
 
         :root[data-device-layout="phone"] #passButton.phase3c-side-pass {
@@ -166,8 +173,14 @@
         }
 
         :root[data-device-layout="phone"] #playbackButton.phase3c-side-playback {
-          word-break: keep-all;
-          overflow-wrap: anywhere;
+          font-size: 0;
+        }
+
+        :root[data-device-layout="phone"] #playbackButton.phase3c-side-playback::before {
+          content: "播放\A全牌";
+          white-space: pre;
+          font-size: 10.5px;
+          line-height: 1.12;
         }
 
         :root[data-device-layout="phone"] .phase3b-action:active,
@@ -177,7 +190,9 @@
         }
 
         :root[data-device-layout="phone"] .phase3c-side-status {
-          min-height: 38px;
+          height: var(--phase3c-info-height);
+          min-height: var(--phase3c-info-height);
+          max-height: var(--phase3c-info-height);
           padding: 5px 4px;
           color: white;
           background: rgba(0, 0, 0, 0.32);
@@ -185,6 +200,8 @@
           cursor: default;
           font-size: 11px;
           line-height: 1.18;
+          white-space: pre-line;
+          overflow: hidden;
         }
 
         :root[data-device-layout="phone"] .phase3c-queue-status,
@@ -232,8 +249,9 @@
 
       @media (max-width: 390px) and (orientation: portrait) {
         :root[data-device-layout="phone"] {
-          --phase3c-side-control-w: 52px;
-          --phase3c-action-size: 44px;
+          --sidebar-control-width: 52px;
+          --phase3c-info-height: 37px;
+          --phase3c-general-height: 32px;
           --phase3c-topbar-estimate: 158px;
           --phase3c-board-pad-estimate: 12px;
           --phase3c-card-cell-w: calc(100vw - var(--phase3c-side-control-w) - var(--phase3c-stage-gap) - 26px);
@@ -250,12 +268,17 @@
         :root[data-device-layout="phone"] .phase3c-side-status {
           font-size: 10px;
         }
+
+        :root[data-device-layout="phone"] #playbackButton.phase3c-side-playback::before {
+          font-size: 10px;
+        }
       }
 
       @media (max-width: 330px) and (orientation: portrait) {
         :root[data-device-layout="phone"] {
-          --phase3c-side-control-w: 49px;
-          --phase3c-action-size: 42px;
+          --sidebar-control-width: 49px;
+          --phase3c-info-height: 35px;
+          --phase3c-general-height: 31px;
           --phase3c-topbar-estimate: 154px;
           --phase3c-card-cell-w: calc(100vw - var(--phase3c-side-control-w) - var(--phase3c-stage-gap) - 24px);
           --card-w: clamp(154px, min(var(--phase3c-card-cell-w), var(--phase3c-card-max-by-height), var(--phase3c-card-max-by-dvh), var(--phase3c-card-max-by-svh)), 246px);
