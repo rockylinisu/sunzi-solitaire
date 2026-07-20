@@ -16,7 +16,6 @@ const imageCache = new Map();
 const state = {
   queue: [],
   foundations: { S: 0, H: 0, D: 0, C: 0 },
-  targetImages: { S: null, H: null, D: null, C: null },
   targetCards: { S: null, H: null, D: null, C: null },
   current: null,
   seconds: 0,
@@ -51,19 +50,15 @@ const els = {
   queueCount: document.querySelector("#queueCount"),
   passCount: document.querySelector("#passCount"),
   currentCard: document.querySelector("#currentCard"),
-  cardSlot: document.querySelector("#cardSlot"),
   passButton: document.querySelector("#passButton"),
   playbackButton: document.querySelector("#playbackButton"),
   message: document.querySelector("#message"),
-  learnLine: document.querySelector("#learnLine"),
   recordLine: document.querySelector("#recordLine"),
   helpViewer: document.querySelector("#helpViewer"),
   playbackViewer: document.querySelector("#playbackViewer"),
   playbackImage: document.querySelector("#playbackImage"),
   playbackMode: document.querySelector("#playbackMode"),
   playbackCaption: document.querySelector("#playbackCaption"),
-  playbackPause: document.querySelector("#playbackPause"),
-  playbackStop: document.querySelector("#playbackStop"),
   cardPreviewViewer: document.querySelector("#cardPreviewViewer"),
   cardPreviewImage: document.querySelector("#cardPreviewImage"),
   cardPreviewTitle: document.querySelector("#cardPreviewTitle"),
@@ -77,39 +72,37 @@ const els = {
   readerStop: document.querySelector("#readerStop"),
   readerSpeechStatus: document.querySelector("#readerSpeechStatus"),
   targets: [...document.querySelectorAll(".target")],
+  playbackPause: null,
+  playbackStop: null,
 };
 
-function ensurePlaybackControls() {
-  if (els.playbackPause && els.playbackStop) return;
-  const panel = document.querySelector(".playback-panel");
-  if (!panel) return;
-  const controls = document.createElement("div");
-  controls.className = "playback-controls";
-  controls.setAttribute("aria-label", "全牌播放控制");
-  controls.innerHTML = `
-    <button id="playbackPause" type="button">暫停</button>
-    <button id="playbackStop" type="button">停止</button>
-  `;
-  panel.append(controls);
-  els.playbackPause = controls.querySelector("#playbackPause");
-  els.playbackStop = controls.querySelector("#playbackStop");
-}
-
-function detectLayoutMode() {
+function applyLayoutMode() {
   const width = window.innerWidth;
   const height = window.innerHeight;
   const isTouch = window.matchMedia("(pointer: coarse)").matches;
-  const isPortrait = height >= width;
-
-  if (width <= 760 || (isTouch && isPortrait && width <= 900)) return "phone";
-  if (width <= 1180 || isTouch) return "tablet";
-  return "desktop";
+  const root = document.documentElement;
+  root.dataset.orientation = height >= width ? "portrait" : "landscape";
+  root.dataset.deviceLayout = width <= 760 || (isTouch && height >= width && width <= 900) ? "phone" : width <= 1180 || isTouch ? "tablet" : "desktop";
 }
 
-function applyLayoutMode() {
-  const root = document.documentElement;
-  root.dataset.deviceLayout = detectLayoutMode();
-  root.dataset.orientation = window.innerHeight >= window.innerWidth ? "portrait" : "landscape";
+async function loadJson(path) {
+  const response = await fetch(`${path}?v=20260720b`, { cache: "no-store" });
+  if (!response.ok) throw new Error(`Cannot load ${path}`);
+  return response.json();
+}
+
+async function loadProjectData() {
+  try {
+    const [texts, cards] = await Promise.all([loadJson("data/sunzi-texts.json"), loadJson("data/sunzi-cards.json")]);
+    if (texts?.chapters?.length === 13) {
+      sunziTexts = texts;
+      TITLES = [...texts.chapters].sort((a, b) => a.chapterNumber - b.chapterNumber).map((chapter) => chapter.title.replace(/第.+$/, ""));
+    }
+    if (cards?.cards?.length === 52) sunziCards = cards;
+  } catch (error) {
+    console.warn("Using built-in Sunzi metadata fallback.", error);
+  }
+  renderReaderOptions();
 }
 
 function makeDeck() {
@@ -117,7 +110,7 @@ function makeDeck() {
     return sunziCards.cards.map((card) => ({
       id: card.cardId,
       suit: card.suit,
-      value: card.value,
+      value: Number(card.value),
       rank: card.rank,
       title: card.title,
       numberedImage: card.numberedImage,
@@ -125,24 +118,19 @@ function makeDeck() {
       image: card.numberedImage,
     }));
   }
-
-  const deck = [];
-  for (const suit of SUITS) {
-    for (let i = 0; i < RANKS.length; i += 1) {
-      const number = String(i + 1).padStart(2, "0");
-      deck.push({
-        id: `${suit}${number}`,
-        suit,
-        value: i + 1,
-        rank: RANKS[i],
-        title: TITLES[i],
-        numberedImage: `cards/${suit}${number}.jpg`,
-        scriptureImage: `cards-n/N${suit}${number}.jpg`,
-        image: `cards/${suit}${number}.jpg`,
-      });
-    }
-  }
-  return deck;
+  return SUITS.flatMap((suit) => RANKS.map((rank, index) => {
+    const number = String(index + 1).padStart(2, "0");
+    return {
+      id: `${suit}${number}`,
+      suit,
+      value: index + 1,
+      rank,
+      title: TITLES[index],
+      numberedImage: `cards/${suit}${number}.jpg`,
+      scriptureImage: `cards-n/N${suit}${number}.jpg`,
+      image: `cards/${suit}${number}.jpg`,
+    };
+  }));
 }
 
 function shuffle(items) {
@@ -153,37 +141,10 @@ function shuffle(items) {
   return items;
 }
 
-async function loadJson(path) {
-  const response = await fetch(path, { cache: "no-store" });
-  if (!response.ok) throw new Error(`Cannot load ${path}`);
-  return response.json();
-}
-
-async function loadProjectData() {
-  try {
-    const [texts, cards] = await Promise.all([
-      loadJson("data/sunzi-texts.json"),
-      loadJson("data/sunzi-cards.json"),
-    ]);
-    if (texts?.chapters?.length === 13) {
-      sunziTexts = texts;
-      TITLES = texts.chapters
-        .slice()
-        .sort((a, b) => a.chapterNumber - b.chapterNumber)
-        .map((chapter) => chapter.title);
-    }
-    if (cards?.cards?.length === 52) sunziCards = cards;
-    renderReaderOptions();
-  } catch (error) {
-    console.warn("Using built-in Sunzi card metadata fallback.", error);
-  }
-}
-
 function newGame() {
   clearInterval(state.timer);
   stopPlayback();
   state.foundations = { S: 0, H: 0, D: 0, C: 0 };
-  state.targetImages = { S: null, H: null, D: null, C: null };
   state.targetCards = { S: null, H: null, D: null, C: null };
   state.queue = shuffle(makeDeck());
   state.current = null;
@@ -203,13 +164,9 @@ function newGame() {
 }
 
 function applyDifficulty() {
-  const level = Number(els.scriptureLevel.value);
-  const scriptureCount = level * 13;
-  const ids = shuffle(state.queue.map((card) => card.id));
-  const scriptureIds = new Set(ids.slice(0, scriptureCount));
-  for (const card of state.queue) {
-    card.image = scriptureIds.has(card.id) ? card.scriptureImage : card.numberedImage;
-  }
+  const level = Number(els.scriptureLevel?.value || 0);
+  const scriptureIds = new Set(shuffle(state.queue.map((card) => card.id)).slice(0, level * 13));
+  for (const card of state.queue) card.image = scriptureIds.has(card.id) ? card.scriptureImage : card.numberedImage;
 }
 
 function drawNext() {
@@ -229,6 +186,7 @@ function render() {
 }
 
 function renderCurrentCard() {
+  if (!els.currentCard) return;
   els.currentCard.innerHTML = "";
   if (!state.current) {
     els.currentCard.removeAttribute("data-id");
@@ -245,37 +203,32 @@ function renderCurrentCard() {
 
 function renderTargets() {
   for (const suit of SUITS) {
-    const nextValue = state.foundations[suit] + 1;
     const target = document.querySelector(`.target[data-suit="${suit}"]`);
-    const label = SUIT_NAMES[suit];
-    const symbol = SUIT_SYMBOLS[suit];
+    if (!target) continue;
+    const nextValue = state.foundations[suit] + 1;
+    const card = state.targetCards[suit];
     const nextText = nextValue <= 13 ? TITLES[nextValue - 1] : "完成";
-    const placedCard = state.targetCards[suit];
-    const image = placedCard?.image || state.targetImages[suit];
-    target.classList.toggle("has-card", Boolean(image));
-    target.setAttribute("aria-label", image ? `${label}，已接第 ${placedCard?.value || state.foundations[suit]} 篇，長按可放大` : `${label}，下一張 ${nextText}`);
-    target.innerHTML = `
-      ${image ? "" : `<span class="suit-symbol" aria-hidden="true">${symbol}</span>`}
-      ${image ? `<img class="target-card-image" src="${image}" alt="${label} 已接牌面，可放大查看" />` : ""}
-      <strong>${nextText}</strong>
-    `;
+    target.classList.toggle("has-card", Boolean(card));
+    target.setAttribute("aria-label", card ? `${SUIT_NAMES[suit]}，已接第 ${card.value} 篇，長按可放大` : `${SUIT_NAMES[suit]}，下一張 ${nextText}`);
+    target.innerHTML = card
+      ? `<img class="target-card-image" src="${card.image}" alt="${SUIT_NAMES[suit]} 已接牌面，可放大查看" /><strong>${nextText}</strong>`
+      : `<span class="suit-symbol" aria-hidden="true">${SUIT_SYMBOLS[suit]}</span><strong>${nextText}</strong>`;
   }
 }
 
 function renderStats() {
   updateScore();
-  els.placedCount.textContent = `${state.placed}/52`;
-  els.score.textContent = String(state.score);
-  els.timer.textContent = formatTime(state.seconds);
-  els.queueCount.textContent = state.current ? `待判斷 ${state.queue.length + 1} 張` : "已完成";
-  els.passCount.textContent = `Pass ${state.passes}`;
-  els.playbackButton.disabled = false;
+  if (els.placedCount) els.placedCount.textContent = `${state.placed}/52`;
+  if (els.score) els.score.textContent = String(state.score);
+  if (els.timer) els.timer.textContent = formatTime(state.seconds);
+  if (els.queueCount) els.queueCount.textContent = state.current ? `待判斷\n${state.queue.length + 1} 張` : "已完成";
+  if (els.passCount) els.passCount.textContent = `Pass ${state.passes}`;
+  if (els.playbackButton) els.playbackButton.disabled = false;
 }
 
 function placeOnSuit(suit) {
   if (!state.current || state.won) return;
   if (state.current.suit === suit && state.current.value === state.foundations[suit] + 1) {
-    state.targetImages[suit] = state.current.image;
     state.targetCards[suit] = { ...state.current };
     state.foundations[suit] += 1;
     state.placed += 1;
@@ -312,13 +265,9 @@ function checkWin() {
 }
 
 function updateScore() {
-  const level = Number(els.scriptureLevel.value);
+  const level = Number(els.scriptureLevel?.value || 0);
   const raw = Math.max(0, 12000 - state.seconds * 4 - state.passes * 35 - state.wrong * 120);
   state.score = Math.round(raw * LEVEL_MULTIPLIERS[level]);
-}
-
-function recordKey() {
-  return `center-level-${els.scriptureLevel.value}`;
 }
 
 function loadRecords() {
@@ -329,22 +278,11 @@ function loadRecords() {
   }
 }
 
-function saveRecords(records) {
-  localStorage.setItem(RECORD_KEY, JSON.stringify(records));
-}
-
 function saveRecord() {
   const records = loadRecords();
-  const key = recordKey();
+  const key = `center-level-${els.scriptureLevel?.value || 0}`;
   const old = records[key];
-  const current = {
-    score: state.score,
-    seconds: state.seconds,
-    passes: state.passes,
-    wrong: state.wrong,
-    level: Number(els.scriptureLevel.value),
-    savedAt: new Date().toISOString(),
-  };
+  const current = { score: state.score, seconds: state.seconds, passes: state.passes, wrong: state.wrong, level: Number(els.scriptureLevel?.value || 0), savedAt: new Date().toISOString() };
   const isBest = !old || current.score > old.score;
   records[key] = {
     score: Math.max(old?.score || 0, current.score),
@@ -354,19 +292,19 @@ function saveRecord() {
     level: current.level,
     savedAt: current.savedAt,
   };
-  saveRecords(records);
+  localStorage.setItem(RECORD_KEY, JSON.stringify(records));
   return { isBest, record: records[key] };
 }
 
 function updateRecordDisplay() {
-  const record = loadRecords()[recordKey()];
+  const record = loadRecords()[`center-level-${els.scriptureLevel?.value || 0}`];
   if (!record) {
-    els.bestScore.textContent = "--";
-    els.recordLine.textContent = `本機最佳：${LEVEL_NAMES[Number(els.scriptureLevel.value)]} 尚無完成紀錄。`;
+    if (els.bestScore) els.bestScore.textContent = "--";
+    if (els.recordLine) els.recordLine.textContent = `本機最佳：${LEVEL_NAMES[Number(els.scriptureLevel?.value || 0)]} 尚無完成紀錄。`;
     return;
   }
-  els.bestScore.textContent = String(record.score);
-  els.recordLine.textContent = `本機最佳：${record.score} 分 / ${formatTime(record.seconds)} / Pass ${record.passes} / 錯 ${record.wrong}。`;
+  if (els.bestScore) els.bestScore.textContent = String(record.score);
+  if (els.recordLine) els.recordLine.textContent = `本機最佳：${record.score} 分 / ${formatTime(record.seconds)} / Pass ${record.passes} / 錯 ${record.wrong}。`;
 }
 
 function startDrag(event) {
@@ -374,11 +312,7 @@ function startDrag(event) {
   const rect = els.currentCard.getBoundingClientRect();
   const dragScale = window.matchMedia("(max-width: 760px)").matches ? 0.48 : 0.42;
   els.currentCard.style.setProperty("--drag-scale", dragScale);
-  state.drag = {
-    offsetX: (rect.width * dragScale) / 2,
-    offsetY: Math.min(event.clientY - rect.top, (rect.height * dragScale) / 2),
-    moved: false,
-  };
+  state.drag = { offsetX: (rect.width * dragScale) / 2, offsetY: Math.min(event.clientY - rect.top, (rect.height * dragScale) / 2), moved: false };
   els.currentCard.classList.add("dragging");
   moveDrag(event.clientX, event.clientY);
   window.addEventListener("pointermove", dragMove);
@@ -430,21 +364,12 @@ function clearTargetHighlights() {
 }
 
 function orderedCards(prefix) {
-  const cards = [];
-  for (const suit of SUITS) {
-    for (let value = 1; value <= 13; value += 1) {
-      const number = String(value).padStart(2, "0");
-      const filePrefix = prefix === "cards-n" ? "N" : "";
-      cards.push({
-        suit,
-        value,
-        rank: RANKS[value - 1],
-        title: TITLES[value - 1],
-        image: `${prefix}/${filePrefix}${suit}${number}.jpg`,
-      });
-    }
-  }
-  return cards;
+  return SUITS.flatMap((suit) => RANKS.map((rank, index) => {
+    const value = index + 1;
+    const number = String(value).padStart(2, "0");
+    const filePrefix = prefix === "cards-n" ? "N" : "";
+    return { suit, value, rank, title: TITLES[index], image: `${prefix}/${filePrefix}${suit}${number}.jpg` };
+  }));
 }
 
 function playbackCards() {
@@ -456,7 +381,6 @@ function playbackCards() {
 
 function preloadImage(src) {
   if (imageCache.has(src)) return imageCache.get(src);
-
   const promise = new Promise((resolve) => {
     const image = new Image();
     image.decoding = "async";
@@ -465,30 +389,40 @@ function preloadImage(src) {
       if (typeof image.decode === "function") {
         try {
           await image.decode();
-        } catch {
-          // Some mobile browsers already decoded the image by onload.
-        }
+        } catch {}
       }
       resolve(image);
     };
     image.onerror = () => resolve(null);
     image.src = src;
   });
-
   imageCache.set(src, promise);
   return promise;
 }
 
 async function preloadPlaybackImages(cards) {
-  const batchSize = 12;
-  for (let i = 0; i < cards.length; i += batchSize) {
-    const batch = cards.slice(i, i + batchSize);
-    await Promise.allSettled(batch.map((card) => preloadImage(card.image)));
-  }
+  for (let i = 0; i < cards.length; i += 12) await Promise.allSettled(cards.slice(i, i + 12).map((card) => preloadImage(card.image)));
+}
+
+function ensurePlaybackControls() {
+  if (els.playbackPause && els.playbackStop) return;
+  const panel = document.querySelector(".playback-panel");
+  if (!panel) return;
+  const controls = document.createElement("div");
+  controls.className = "playback-controls";
+  controls.style.cssText = "display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:10px";
+  controls.innerHTML = `<button id="playbackPause" type="button">暫停</button><button id="playbackStop" type="button">停止</button>`;
+  panel.append(controls);
+  els.playbackPause = controls.querySelector("#playbackPause");
+  els.playbackStop = controls.querySelector("#playbackStop");
+  els.playbackPause.addEventListener("click", togglePlaybackPause);
+  els.playbackStop.addEventListener("click", stopPlayback);
+  updatePlaybackControls();
 }
 
 async function startPlayback() {
   stopPlayback();
+  ensurePlaybackControls();
   const cards = playbackCards();
   const runId = state.playbackRunId + 1;
   state.playbackRunId = runId;
@@ -499,18 +433,15 @@ async function startPlayback() {
   els.playbackViewer.classList.add("open");
   els.playbackViewer.setAttribute("aria-hidden", "false");
   els.playbackImage.removeAttribute("src");
-  els.playbackImage.alt = "";
   els.playbackMode.textContent = "準備播放";
   els.playbackCaption.textContent = "正在預載牌面，請稍候...";
   if (els.playbackButton) els.playbackButton.disabled = true;
   updatePlaybackControls();
-
   try {
     await preloadPlaybackImages(cards);
   } finally {
     if (els.playbackButton) els.playbackButton.disabled = false;
   }
-
   if (state.playbackRunId !== runId || !state.playbackPreparing) return;
   state.playbackPreparing = false;
   updatePlaybackControls();
@@ -521,28 +452,21 @@ function schedulePlaybackFrame(runId) {
   window.clearTimeout(state.playbackTimer);
   state.playbackTimer = null;
   if (state.playbackRunId !== runId || state.playbackState !== "playing") return;
-  showPlaybackCard(state.playbackCards);
+  showPlaybackCard();
   if (state.playbackIndex < state.playbackCards.length) {
     state.playbackTimer = window.setTimeout(() => schedulePlaybackFrame(runId), PLAYBACK_DELAY_MS);
   } else {
-    completePlayback(runId);
+    state.playbackState = "completed";
+    updatePlaybackControls();
+    state.playbackTimer = window.setTimeout(() => {
+      if (state.playbackRunId === runId && state.playbackState === "completed") stopPlayback();
+    }, PLAYBACK_DELAY_MS);
   }
 }
 
-function showPlaybackCard(cards) {
-  if (state.playbackIndex >= cards.length) {
-    stopPlayback();
-    return;
-  }
-  const card = cards[state.playbackIndex];
-  const cachedImage = imageCache.get(card.image);
-  if (cachedImage && typeof cachedImage.then === "function") {
-    cachedImage.then((image) => {
-      if (image && els.playbackImage.dataset.currentImage === card.image) {
-        els.playbackImage.src = image.src;
-      }
-    });
-  }
+function showPlaybackCard() {
+  const card = state.playbackCards[state.playbackIndex];
+  if (!card) return;
   els.playbackImage.dataset.currentImage = card.image;
   els.playbackImage.src = card.image;
   els.playbackImage.alt = `${card.mode} ${SUIT_NAMES[card.suit]} ${card.title}`;
@@ -557,22 +481,10 @@ function togglePlaybackPause() {
     window.clearTimeout(state.playbackTimer);
     state.playbackTimer = null;
     state.playbackState = "paused";
-    els.playbackCaption.textContent = `${els.playbackCaption.textContent}（已暫停）`;
-    updatePlaybackControls();
-    return;
+  } else {
+    state.playbackState = "playing";
+    schedulePlaybackFrame(state.playbackRunId);
   }
-  state.playbackState = "playing";
-  updatePlaybackControls();
-  schedulePlaybackFrame(state.playbackRunId);
-}
-
-function completePlayback(runId) {
-  if (state.playbackRunId !== runId) return;
-  state.playbackState = "completed";
-  window.clearTimeout(state.playbackTimer);
-  state.playbackTimer = window.setTimeout(() => {
-    if (state.playbackRunId === runId && state.playbackState === "completed") stopPlayback();
-  }, PLAYBACK_DELAY_MS);
   updatePlaybackControls();
 }
 
@@ -580,6 +492,7 @@ function updatePlaybackControls() {
   if (!els.playbackPause) return;
   els.playbackPause.disabled = state.playbackPreparing || state.playbackState === "idle" || state.playbackState === "completed";
   els.playbackPause.textContent = state.playbackState === "paused" ? "繼續" : "暫停";
+  if (els.playbackStop) els.playbackStop.disabled = state.playbackState === "idle";
 }
 
 function stopPlayback() {
@@ -589,8 +502,10 @@ function stopPlayback() {
   state.playbackPreparing = false;
   state.playbackState = "idle";
   state.playbackCards = [];
-  els.playbackViewer.classList.remove("open");
-  els.playbackViewer.setAttribute("aria-hidden", "true");
+  if (els.playbackViewer) {
+    els.playbackViewer.classList.remove("open");
+    els.playbackViewer.setAttribute("aria-hidden", "true");
+  }
   if (els.playbackButton) els.playbackButton.disabled = false;
   updatePlaybackControls();
   if (state.won && !state.readerHintShown) {
@@ -610,15 +525,13 @@ function openCardPreview(suit) {
 }
 
 function closeCardPreview() {
-  if (!els.cardPreviewViewer) return;
-  els.cardPreviewViewer.classList.remove("open");
-  els.cardPreviewViewer.setAttribute("aria-hidden", "true");
+  els.cardPreviewViewer?.classList.remove("open");
+  els.cardPreviewViewer?.setAttribute("aria-hidden", "true");
 }
 
 function bindTargetPreview(target) {
   let longPressTimer = null;
   let longPressOpened = false;
-
   target.addEventListener("pointerdown", () => {
     longPressOpened = false;
     if (!state.targetCards[target.dataset.suit]) return;
@@ -627,12 +540,10 @@ function bindTargetPreview(target) {
       openCardPreview(target.dataset.suit);
     }, 420);
   });
-
   const clearLongPress = () => {
     window.clearTimeout(longPressTimer);
     longPressTimer = null;
   };
-
   target.addEventListener("pointerup", clearLongPress);
   target.addEventListener("pointerleave", clearLongPress);
   target.addEventListener("pointercancel", clearLongPress);
@@ -656,38 +567,39 @@ function bindTargetPreview(target) {
 }
 
 function renderReaderOptions() {
-  if (!els.readerChapterSelect || !sunziTexts?.chapters?.length) return;
+  if (!els.readerChapterSelect) return;
+  const chapters = sunziTexts?.chapters || [];
   els.readerChapterSelect.innerHTML = "";
-  for (const chapter of sunziTexts.chapters) {
+  for (const chapter of chapters) {
     const option = document.createElement("option");
     option.value = chapter.chapterId;
-    option.textContent = `${chapter.chapterNumber}. ${chapter.fullTitle}`;
+    option.textContent = `${String(chapter.chapterNumber).padStart(2, "0")} ${chapter.fullTitle || chapter.title}`;
     els.readerChapterSelect.append(option);
   }
   renderReaderChapter();
 }
 
 function renderReaderChapter() {
-  stopReaderSpeech();
+  stopReaderSpeech({ silent: true });
   if (!els.readerContent) return;
   els.readerContent.innerHTML = "";
   applyReaderFont();
-  if (!sunziTexts?.chapters?.length) {
+  const chapters = sunziTexts?.chapters || [];
+  if (!chapters.length) {
     const empty = document.createElement("p");
-    empty.textContent = "十三篇資料尚未載入。";
+    empty.textContent = "十三篇資料尚未載入。請重新整理頁面。";
     els.readerContent.append(empty);
     return;
   }
-
-  const selectedId = els.readerChapterSelect.value || sunziTexts.chapters[0].chapterId;
-  const chapter = sunziTexts.chapters.find((item) => item.chapterId === selectedId) || sunziTexts.chapters[0];
+  const selectedId = els.readerChapterSelect.value || chapters[0].chapterId;
+  const chapter = chapters.find((item) => item.chapterId === selectedId) || chapters[0];
+  els.readerChapterSelect.value = chapter.chapterId;
   const title = document.createElement("h3");
-  title.textContent = chapter.fullTitle;
+  title.textContent = chapter.fullTitle || chapter.title;
   els.readerContent.append(title);
-
-  for (const section of chapter.sections) {
+  for (const section of chapter.sections || []) {
     const block = document.createElement("section");
-    block.className = `reader-section reader-section-${section.type}`;
+    block.className = `reader-section reader-section-${section.type || "paragraph"}`;
     if (section.text) {
       const paragraph = document.createElement("p");
       paragraph.textContent = section.text;
@@ -707,9 +619,9 @@ function renderReaderChapter() {
 }
 
 function currentReaderChapter() {
-  if (!sunziTexts?.chapters?.length) return null;
-  const selectedId = els.readerChapterSelect.value || sunziTexts.chapters[0].chapterId;
-  return sunziTexts.chapters.find((item) => item.chapterId === selectedId) || sunziTexts.chapters[0];
+  const chapters = sunziTexts?.chapters || [];
+  if (!chapters.length) return null;
+  return chapters.find((item) => item.chapterId === els.readerChapterSelect.value) || chapters[0];
 }
 
 function applyReaderFont() {
@@ -738,12 +650,10 @@ function updateReaderSpeechControls() {
 }
 
 function readerSpeechParts(chapter) {
-  const parts = [chapter.fullTitle];
+  const parts = [chapter.fullTitle || chapter.title];
   for (const section of chapter.sections || []) {
     if (section.text) parts.push(section.text);
-    for (const item of section.items || []) {
-      if (item.text) parts.push(item.text);
-    }
+    for (const item of section.items || []) if (item.text) parts.push(item.text);
   }
   return parts.filter(Boolean);
 }
@@ -755,13 +665,12 @@ function startReaderSpeech() {
     setReaderSpeechStatus("此瀏覽器不支援朗讀功能。");
     return;
   }
-
-  stopReaderSpeech();
+  stopReaderSpeech({ silent: true });
   state.speechParts = readerSpeechParts(chapter);
   state.currentSpeechIndex = 0;
   state.speechRunId += 1;
   state.readingState = "speaking";
-  setReaderSpeechStatus(`正在朗讀：${chapter.fullTitle}`);
+  setReaderSpeechStatus(`正在朗讀：${chapter.fullTitle || chapter.title}`);
   updateReaderSpeechControls();
   speakReaderPart(state.speechRunId);
 }
@@ -775,7 +684,6 @@ function speakReaderPart(runId) {
     updateReaderSpeechControls();
     return;
   }
-
   const utterance = new SpeechSynthesisUtterance(state.speechParts[state.currentSpeechIndex]);
   utterance.lang = "zh-TW";
   utterance.rate = 0.92;
@@ -793,71 +701,74 @@ function speakReaderPart(runId) {
     setReaderSpeechStatus("朗讀中斷，請再試一次。");
     updateReaderSpeechControls();
   };
-
   state.speechUtterance = utterance;
-  window.speechSynthesis.speak(utterance);
+  try {
+    window.speechSynthesis.speak(utterance);
+  } catch {
+    state.readingState = "idle";
+    setReaderSpeechStatus("朗讀啟動失敗，請再試一次。");
+    updateReaderSpeechControls();
+  }
 }
 
 function toggleReaderSpeechPause() {
   if (!("speechSynthesis" in window)) return;
-  if (state.readingState === "speaking") {
-    window.speechSynthesis.pause();
-    state.readingState = "paused";
-    setReaderSpeechStatus("朗讀已暫停。");
-    updateReaderSpeechControls();
-    return;
-  }
-  if (state.readingState === "paused") {
-    window.speechSynthesis.resume();
-    if (!state.speechUtterance && state.currentSpeechIndex < state.speechParts.length) {
+  try {
+    if (state.readingState === "speaking") {
+      window.speechSynthesis.pause();
+      state.readingState = "paused";
+      setReaderSpeechStatus("朗讀已暫停。");
+    } else if (state.readingState === "paused") {
+      window.speechSynthesis.resume();
       state.readingState = "speaking";
-      speakReaderPart(state.speechRunId);
-    } else {
-      state.readingState = "speaking";
+      if (!state.speechUtterance && state.currentSpeechIndex < state.speechParts.length) speakReaderPart(state.speechRunId);
+      setReaderSpeechStatus("繼續朗讀。");
     }
-    setReaderSpeechStatus("繼續朗讀。");
-    updateReaderSpeechControls();
+  } catch {
+    setReaderSpeechStatus("朗讀控制暫時無法使用。");
   }
+  updateReaderSpeechControls();
 }
 
-function stopReaderSpeech() {
+function stopReaderSpeech(options = {}) {
   state.speechRunId += 1;
   if (state.speechUtterance) {
     state.speechUtterance.onend = null;
     state.speechUtterance.onerror = null;
   }
   if ("speechSynthesis" in window) {
-    window.speechSynthesis.cancel();
-    window.speechSynthesis.resume();
+    try {
+      window.speechSynthesis.cancel();
+    } catch {}
   }
   state.speechUtterance = null;
   state.speechParts = [];
   state.currentSpeechIndex = 0;
   state.readingState = "idle";
-  setReaderSpeechStatus("");
+  if (!options.silent) setReaderSpeechStatus("");
   updateReaderSpeechControls();
 }
 
 function openReaderViewer() {
   renderReaderOptions();
-  els.readerViewer.classList.add("open");
-  els.readerViewer.setAttribute("aria-hidden", "false");
+  els.readerViewer?.classList.add("open");
+  els.readerViewer?.setAttribute("aria-hidden", "false");
 }
 
 function closeReaderViewer() {
   stopReaderSpeech();
-  els.readerViewer.classList.remove("open");
-  els.readerViewer.setAttribute("aria-hidden", "true");
+  els.readerViewer?.classList.remove("open");
+  els.readerViewer?.setAttribute("aria-hidden", "true");
 }
 
 function openHelpViewer() {
-  els.helpViewer.classList.add("open");
-  els.helpViewer.setAttribute("aria-hidden", "false");
+  els.helpViewer?.classList.add("open");
+  els.helpViewer?.setAttribute("aria-hidden", "false");
 }
 
 function closeHelpViewer() {
-  els.helpViewer.classList.remove("open");
-  els.helpViewer.setAttribute("aria-hidden", "true");
+  els.helpViewer?.classList.remove("open");
+  els.helpViewer?.setAttribute("aria-hidden", "true");
 }
 
 function nextTitle(suit) {
@@ -866,7 +777,7 @@ function nextTitle(suit) {
 }
 
 function setMessage(text) {
-  els.message.textContent = text;
+  if (els.message) els.message.textContent = text;
 }
 
 function formatTime(seconds) {
@@ -875,34 +786,35 @@ function formatTime(seconds) {
   return `${mm}:${ss}`;
 }
 
-els.currentCard.addEventListener("pointerdown", startDrag);
-els.currentCard.addEventListener("dblclick", passCard);
-els.currentCard.addEventListener("keydown", (event) => {
+function bind(selector, event, handler) {
+  document.querySelector(selector)?.addEventListener(event, handler);
+}
+
+els.currentCard?.addEventListener("pointerdown", startDrag);
+els.currentCard?.addEventListener("dblclick", passCard);
+els.currentCard?.addEventListener("keydown", (event) => {
   if (event.key === "Enter" || event.key === " ") passCard();
 });
-els.passButton.addEventListener("click", passCard);
-els.playbackButton.addEventListener("click", startPlayback);
+els.passButton?.addEventListener("click", passCard);
+els.playbackButton?.addEventListener("click", startPlayback);
 els.targets.forEach(bindTargetPreview);
-document.querySelector("#newGame").addEventListener("click", newGame);
-document.querySelector("#readerButton").addEventListener("click", openReaderViewer);
-document.querySelector("#helpButton").addEventListener("click", openHelpViewer);
-document.querySelector("#readerChapterSelect").addEventListener("change", renderReaderChapter);
-document.querySelector("#readerMingFont").addEventListener("click", () => setReaderFont("ming"));
-document.querySelector("#readerSealFont").addEventListener("click", () => setReaderFont("seal"));
-document.querySelector("#readerSpeak").addEventListener("click", startReaderSpeech);
-document.querySelector("#readerPause").addEventListener("click", toggleReaderSpeechPause);
-document.querySelector("#readerStop").addEventListener("click", stopReaderSpeech);
-document.querySelector("#closeReader").addEventListener("click", closeReaderViewer);
-document.querySelector("#closeReaderBackdrop").addEventListener("click", closeReaderViewer);
-document.querySelector("#closeCardPreview").addEventListener("click", closeCardPreview);
-document.querySelector("#closeCardPreviewBackdrop").addEventListener("click", closeCardPreview);
-document.querySelector("#closeHelp").addEventListener("click", closeHelpViewer);
-document.querySelector("#closeHelpBackdrop").addEventListener("click", closeHelpViewer);
-document.querySelector("#closePlayback").addEventListener("click", stopPlayback);
-ensurePlaybackControls();
-els.playbackPause?.addEventListener("click", togglePlaybackPause);
-els.playbackStop?.addEventListener("click", stopPlayback);
-els.scriptureLevel.addEventListener("change", newGame);
+bind("#newGame", "click", newGame);
+bind("#readerButton", "click", openReaderViewer);
+bind("#helpButton", "click", openHelpViewer);
+bind("#readerChapterSelect", "change", renderReaderChapter);
+bind("#readerMingFont", "click", () => setReaderFont("ming"));
+bind("#readerSealFont", "click", () => setReaderFont("seal"));
+bind("#readerSpeak", "click", startReaderSpeech);
+bind("#readerPause", "click", toggleReaderSpeechPause);
+bind("#readerStop", "click", () => stopReaderSpeech());
+bind("#closeReader", "click", closeReaderViewer);
+bind("#closeReaderBackdrop", "click", closeReaderViewer);
+bind("#closeCardPreview", "click", closeCardPreview);
+bind("#closeCardPreviewBackdrop", "click", closeCardPreview);
+bind("#closeHelp", "click", closeHelpViewer);
+bind("#closeHelpBackdrop", "click", closeHelpViewer);
+bind("#closePlayback", "click", stopPlayback);
+els.scriptureLevel?.addEventListener("change", newGame);
 window.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {
     closeReaderViewer();
@@ -916,9 +828,9 @@ window.addEventListener("orientationchange", applyLayoutMode);
 
 async function initializeApp() {
   applyLayoutMode();
-  await loadProjectData();
+  ensurePlaybackControls();
   updateReaderSpeechControls();
-  updatePlaybackControls();
+  await loadProjectData();
   newGame();
 }
 
