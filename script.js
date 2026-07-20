@@ -12,6 +12,7 @@ let TITLES = [...DEFAULT_TITLES];
 let sunziTexts = null;
 let sunziCards = null;
 const imageCache = new Map();
+let playbackControlLastTap = 0;
 
 const state = {
   queue: [],
@@ -86,7 +87,7 @@ function applyLayoutMode() {
 }
 
 async function loadJson(path) {
-  const response = await fetch(`${path}?v=20260720b`, { cache: "no-store" });
+  const response = await fetch(`${path}?v=20260720c`, { cache: "no-store" });
   if (!response.ok) throw new Error(`Cannot load ${path}`);
   return response.json();
 }
@@ -169,21 +170,9 @@ function applyDifficulty() {
   for (const card of state.queue) card.image = scriptureIds.has(card.id) ? card.scriptureImage : card.numberedImage;
 }
 
-function drawNext() {
-  state.current = state.queue.shift() || null;
-}
-
-function tick() {
-  state.seconds += 1;
-  updateScore();
-  renderStats();
-}
-
-function render() {
-  renderCurrentCard();
-  renderTargets();
-  renderStats();
-}
+function drawNext() { state.current = state.queue.shift() || null; }
+function tick() { state.seconds += 1; updateScore(); renderStats(); }
+function render() { renderCurrentCard(); renderTargets(); renderStats(); }
 
 function renderCurrentCard() {
   if (!els.currentCard) return;
@@ -270,13 +259,7 @@ function updateScore() {
   state.score = Math.round(raw * LEVEL_MULTIPLIERS[level]);
 }
 
-function loadRecords() {
-  try {
-    return JSON.parse(localStorage.getItem(RECORD_KEY)) || {};
-  } catch {
-    return {};
-  }
-}
+function loadRecords() { try { return JSON.parse(localStorage.getItem(RECORD_KEY)) || {}; } catch { return {}; } }
 
 function saveRecord() {
   const records = loadRecords();
@@ -319,13 +302,7 @@ function startDrag(event) {
   window.addEventListener("pointerup", dragEnd, { once: true });
 }
 
-function dragMove(event) {
-  if (!state.drag) return;
-  state.drag.moved = true;
-  moveDrag(event.clientX, event.clientY);
-  highlightTarget(event.clientX, event.clientY);
-}
-
+function dragMove(event) { if (!state.drag) return; state.drag.moved = true; moveDrag(event.clientX, event.clientY); highlightTarget(event.clientX, event.clientY); }
 function dragEnd(event) {
   window.removeEventListener("pointermove", dragMove);
   clearTargetHighlights();
@@ -340,28 +317,10 @@ function dragEnd(event) {
   const target = targetFromPoint(event.clientX, event.clientY);
   if (target) placeOnSuit(target.dataset.suit);
 }
-
-function moveDrag(x, y) {
-  els.currentCard.style.left = `${x - state.drag.offsetX}px`;
-  els.currentCard.style.top = `${y - state.drag.offsetY}px`;
-}
-
-function targetFromPoint(x, y) {
-  els.currentCard.style.display = "none";
-  const found = document.elementsFromPoint(x, y).find((el) => el.classList?.contains("target"));
-  els.currentCard.style.display = "";
-  return found || null;
-}
-
-function highlightTarget(x, y) {
-  clearTargetHighlights();
-  const target = targetFromPoint(x, y);
-  if (target) target.classList.add("drop-ok");
-}
-
-function clearTargetHighlights() {
-  els.targets.forEach((target) => target.classList.remove("drop-ok"));
-}
+function moveDrag(x, y) { els.currentCard.style.left = `${x - state.drag.offsetX}px`; els.currentCard.style.top = `${y - state.drag.offsetY}px`; }
+function targetFromPoint(x, y) { els.currentCard.style.display = "none"; const found = document.elementsFromPoint(x, y).find((el) => el.classList?.contains("target")); els.currentCard.style.display = ""; return found || null; }
+function highlightTarget(x, y) { clearTargetHighlights(); const target = targetFromPoint(x, y); if (target) target.classList.add("drop-ok"); }
+function clearTargetHighlights() { els.targets.forEach((target) => target.classList.remove("drop-ok")); }
 
 function orderedCards(prefix) {
   return SUITS.flatMap((suit) => RANKS.map((rank, index) => {
@@ -371,38 +330,21 @@ function orderedCards(prefix) {
     return { suit, value, rank, title: TITLES[index], image: `${prefix}/${filePrefix}${suit}${number}.jpg` };
   }));
 }
-
-function playbackCards() {
-  return [
-    ...orderedCards("cards").map((card) => ({ ...card, mode: "有數字牌" })),
-    ...orderedCards("cards-n").map((card) => ({ ...card, mode: "無數字牌" })),
-  ];
-}
-
+function playbackCards() { return [...orderedCards("cards").map((card) => ({ ...card, mode: "有數字牌" })), ...orderedCards("cards-n").map((card) => ({ ...card, mode: "無數字牌" }))]; }
 function preloadImage(src) {
   if (imageCache.has(src)) return imageCache.get(src);
   const promise = new Promise((resolve) => {
     const image = new Image();
     image.decoding = "async";
     image.loading = "eager";
-    image.onload = async () => {
-      if (typeof image.decode === "function") {
-        try {
-          await image.decode();
-        } catch {}
-      }
-      resolve(image);
-    };
+    image.onload = async () => { if (typeof image.decode === "function") { try { await image.decode(); } catch {} } resolve(image); };
     image.onerror = () => resolve(null);
     image.src = src;
   });
   imageCache.set(src, promise);
   return promise;
 }
-
-async function preloadPlaybackImages(cards) {
-  for (let i = 0; i < cards.length; i += 12) await Promise.allSettled(cards.slice(i, i + 12).map((card) => preloadImage(card.image)));
-}
+async function preloadPlaybackImages(cards) { for (let i = 0; i < cards.length; i += 12) await Promise.allSettled(cards.slice(i, i + 12).map((card) => preloadImage(card.image))); }
 
 function ensurePlaybackControls() {
   if (els.playbackPause && els.playbackStop) return;
@@ -415,11 +357,19 @@ function ensurePlaybackControls() {
   panel.append(controls);
   els.playbackPause = controls.querySelector("#playbackPause");
   els.playbackStop = controls.querySelector("#playbackStop");
-  els.playbackPause.addEventListener("click", togglePlaybackPause);
+  els.playbackPause.style.cssText = "min-width:88px;min-height:44px;padding:8px 14px;font-size:18px;cursor:pointer";
+  els.playbackStop.style.cssText = "min-width:88px;min-height:44px;padding:8px 14px;font-size:18px;cursor:pointer";
+  els.playbackPause.addEventListener("click", handlePlaybackPauseInput);
+  els.playbackPause.addEventListener("pointerup", handlePlaybackPauseInput);
   els.playbackStop.addEventListener("click", stopPlayback);
   updatePlaybackControls();
 }
-
+function handlePlaybackPauseInput(event) {
+  const now = Date.now();
+  if (event.type === "click" && now - playbackControlLastTap < 500) return;
+  if (event.type === "pointerup") { playbackControlLastTap = now; event.preventDefault(); }
+  togglePlaybackPause();
+}
 async function startPlayback() {
   stopPlayback();
   ensurePlaybackControls();
@@ -437,17 +387,12 @@ async function startPlayback() {
   els.playbackCaption.textContent = "正在預載牌面，請稍候...";
   if (els.playbackButton) els.playbackButton.disabled = true;
   updatePlaybackControls();
-  try {
-    await preloadPlaybackImages(cards);
-  } finally {
-    if (els.playbackButton) els.playbackButton.disabled = false;
-  }
+  try { await preloadPlaybackImages(cards); } finally { if (els.playbackButton) els.playbackButton.disabled = false; }
   if (state.playbackRunId !== runId || !state.playbackPreparing) return;
   state.playbackPreparing = false;
   updatePlaybackControls();
   schedulePlaybackFrame(runId);
 }
-
 function schedulePlaybackFrame(runId) {
   window.clearTimeout(state.playbackTimer);
   state.playbackTimer = null;
@@ -458,12 +403,9 @@ function schedulePlaybackFrame(runId) {
   } else {
     state.playbackState = "completed";
     updatePlaybackControls();
-    state.playbackTimer = window.setTimeout(() => {
-      if (state.playbackRunId === runId && state.playbackState === "completed") stopPlayback();
-    }, PLAYBACK_DELAY_MS);
+    state.playbackTimer = window.setTimeout(() => { if (state.playbackRunId === runId && state.playbackState === "completed") stopPlayback(); }, PLAYBACK_DELAY_MS);
   }
 }
-
 function showPlaybackCard() {
   const card = state.playbackCards[state.playbackIndex];
   if (!card) return;
@@ -474,27 +416,26 @@ function showPlaybackCard() {
   els.playbackCaption.textContent = `${SUIT_NAMES[card.suit]} ${card.rank} / 第 ${card.value} 篇 / ${card.title}`;
   state.playbackIndex += 1;
 }
-
 function togglePlaybackPause() {
-  if (state.playbackPreparing || state.playbackState === "idle" || state.playbackState === "completed") return;
+  if (state.playbackState === "idle" || state.playbackState === "completed") return;
   if (state.playbackState === "playing") {
     window.clearTimeout(state.playbackTimer);
     state.playbackTimer = null;
     state.playbackState = "paused";
+    if (els.playbackCaption) { els.playbackCaption.dataset.baseText = els.playbackCaption.textContent.replace("（已暫停）", ""); els.playbackCaption.textContent = `${els.playbackCaption.dataset.baseText}（已暫停）`; }
   } else {
     state.playbackState = "playing";
-    schedulePlaybackFrame(state.playbackRunId);
+    if (els.playbackCaption?.dataset.baseText) els.playbackCaption.textContent = els.playbackCaption.dataset.baseText;
+    if (!state.playbackPreparing) schedulePlaybackFrame(state.playbackRunId);
   }
   updatePlaybackControls();
 }
-
 function updatePlaybackControls() {
   if (!els.playbackPause) return;
-  els.playbackPause.disabled = state.playbackPreparing || state.playbackState === "idle" || state.playbackState === "completed";
+  els.playbackPause.disabled = state.playbackState === "idle" || state.playbackState === "completed";
   els.playbackPause.textContent = state.playbackState === "paused" ? "繼續" : "暫停";
   if (els.playbackStop) els.playbackStop.disabled = state.playbackState === "idle";
 }
-
 function stopPlayback() {
   state.playbackRunId += 1;
   window.clearTimeout(state.playbackTimer);
@@ -502,16 +443,10 @@ function stopPlayback() {
   state.playbackPreparing = false;
   state.playbackState = "idle";
   state.playbackCards = [];
-  if (els.playbackViewer) {
-    els.playbackViewer.classList.remove("open");
-    els.playbackViewer.setAttribute("aria-hidden", "true");
-  }
+  if (els.playbackViewer) { els.playbackViewer.classList.remove("open"); els.playbackViewer.setAttribute("aria-hidden", "true"); }
   if (els.playbackButton) els.playbackButton.disabled = false;
   updatePlaybackControls();
-  if (state.won && !state.readerHintShown) {
-    state.readerHintShown = true;
-    setMessage("點擊任一花色，進入《孫子兵法十三篇》。");
-  }
+  if (state.won && !state.readerHintShown) { state.readerHintShown = true; setMessage("點擊任一花色，進入《孫子兵法十三篇》。"); }
 }
 
 function openCardPreview(suit) {
@@ -523,45 +458,19 @@ function openCardPreview(suit) {
   els.cardPreviewViewer.classList.add("open");
   els.cardPreviewViewer.setAttribute("aria-hidden", "false");
 }
-
-function closeCardPreview() {
-  els.cardPreviewViewer?.classList.remove("open");
-  els.cardPreviewViewer?.setAttribute("aria-hidden", "true");
-}
-
+function closeCardPreview() { els.cardPreviewViewer?.classList.remove("open"); els.cardPreviewViewer?.setAttribute("aria-hidden", "true"); }
 function bindTargetPreview(target) {
   let longPressTimer = null;
   let longPressOpened = false;
-  target.addEventListener("pointerdown", () => {
-    longPressOpened = false;
-    if (!state.targetCards[target.dataset.suit]) return;
-    longPressTimer = window.setTimeout(() => {
-      longPressOpened = true;
-      openCardPreview(target.dataset.suit);
-    }, 420);
-  });
-  const clearLongPress = () => {
-    window.clearTimeout(longPressTimer);
-    longPressTimer = null;
-  };
+  target.addEventListener("pointerdown", () => { longPressOpened = false; if (!state.targetCards[target.dataset.suit]) return; longPressTimer = window.setTimeout(() => { longPressOpened = true; openCardPreview(target.dataset.suit); }, 420); });
+  const clearLongPress = () => { window.clearTimeout(longPressTimer); longPressTimer = null; };
   target.addEventListener("pointerup", clearLongPress);
   target.addEventListener("pointerleave", clearLongPress);
   target.addEventListener("pointercancel", clearLongPress);
   target.addEventListener("click", (event) => {
-    if (longPressOpened) {
-      event.preventDefault();
-      return;
-    }
-    if (state.won && state.placed >= 52) {
-      event.preventDefault();
-      openReaderViewer();
-      return;
-    }
-    if (event.target.closest(".target-card-image")) {
-      event.preventDefault();
-      openCardPreview(target.dataset.suit);
-      return;
-    }
+    if (longPressOpened) { event.preventDefault(); return; }
+    if (state.won && state.placed >= 52) { event.preventDefault(); openReaderViewer(); return; }
+    if (event.target.closest(".target-card-image")) { event.preventDefault(); openCardPreview(target.dataset.suit); return; }
     placeOnSuit(target.dataset.suit);
   });
 }
@@ -578,19 +487,13 @@ function renderReaderOptions() {
   }
   renderReaderChapter();
 }
-
 function renderReaderChapter() {
   stopReaderSpeech({ silent: true });
   if (!els.readerContent) return;
   els.readerContent.innerHTML = "";
   applyReaderFont();
   const chapters = sunziTexts?.chapters || [];
-  if (!chapters.length) {
-    const empty = document.createElement("p");
-    empty.textContent = "十三篇資料尚未載入。請重新整理頁面。";
-    els.readerContent.append(empty);
-    return;
-  }
+  if (!chapters.length) { const empty = document.createElement("p"); empty.textContent = "十三篇資料尚未載入。請重新整理頁面。"; els.readerContent.append(empty); return; }
   const selectedId = els.readerChapterSelect.value || chapters[0].chapterId;
   const chapter = chapters.find((item) => item.chapterId === selectedId) || chapters[0];
   els.readerChapterSelect.value = chapter.chapterId;
@@ -600,30 +503,12 @@ function renderReaderChapter() {
   for (const section of chapter.sections || []) {
     const block = document.createElement("section");
     block.className = `reader-section reader-section-${section.type || "paragraph"}`;
-    if (section.text) {
-      const paragraph = document.createElement("p");
-      paragraph.textContent = section.text;
-      block.append(paragraph);
-    }
-    if (section.items?.length) {
-      const list = document.createElement("ul");
-      for (const item of section.items) {
-        const li = document.createElement("li");
-        li.textContent = item.text;
-        list.append(li);
-      }
-      block.append(list);
-    }
+    if (section.text) { const paragraph = document.createElement("p"); paragraph.textContent = section.text; block.append(paragraph); }
+    if (section.items?.length) { const list = document.createElement("ul"); for (const item of section.items) { const li = document.createElement("li"); li.textContent = item.text; list.append(li); } block.append(list); }
     els.readerContent.append(block);
   }
 }
-
-function currentReaderChapter() {
-  const chapters = sunziTexts?.chapters || [];
-  if (!chapters.length) return null;
-  return chapters.find((item) => item.chapterId === els.readerChapterSelect.value) || chapters[0];
-}
-
+function currentReaderChapter() { const chapters = sunziTexts?.chapters || []; if (!chapters.length) return null; return chapters.find((item) => item.chapterId === els.readerChapterSelect.value) || chapters[0]; }
 function applyReaderFont() {
   if (!els.readerContent) return;
   els.readerContent.classList.toggle("font-ming", state.readerFont === "ming");
@@ -631,40 +516,21 @@ function applyReaderFont() {
   els.readerMingFont?.classList.toggle("active", state.readerFont === "ming");
   els.readerSealFont?.classList.toggle("active", state.readerFont === "seal");
 }
-
-function setReaderFont(font) {
-  state.readerFont = font;
-  applyReaderFont();
-}
-
-function setReaderSpeechStatus(text) {
-  if (els.readerSpeechStatus) els.readerSpeechStatus.textContent = text;
-}
-
+function setReaderFont(font) { state.readerFont = font; applyReaderFont(); }
+function setReaderSpeechStatus(text) { if (els.readerSpeechStatus) els.readerSpeechStatus.textContent = text; }
 function updateReaderSpeechControls() {
-  if (els.readerPause) {
-    els.readerPause.disabled = state.readingState === "idle" || state.readingState === "completed";
-    els.readerPause.textContent = state.readingState === "paused" ? "▶ 繼續" : "⏸ 暫停";
-  }
+  if (els.readerPause) { els.readerPause.disabled = state.readingState === "idle" || state.readingState === "completed"; els.readerPause.textContent = state.readingState === "paused" ? "▶ 繼續" : "⏸ 暫停"; }
   if (els.readerStop) els.readerStop.disabled = state.readingState === "idle";
 }
-
 function readerSpeechParts(chapter) {
   const parts = [chapter.fullTitle || chapter.title];
-  for (const section of chapter.sections || []) {
-    if (section.text) parts.push(section.text);
-    for (const item of section.items || []) if (item.text) parts.push(item.text);
-  }
+  for (const section of chapter.sections || []) { if (section.text) parts.push(section.text); for (const item of section.items || []) if (item.text) parts.push(item.text); }
   return parts.filter(Boolean);
 }
-
 function startReaderSpeech() {
   const chapter = currentReaderChapter();
   if (!chapter) return;
-  if (!("speechSynthesis" in window) || typeof SpeechSynthesisUtterance === "undefined") {
-    setReaderSpeechStatus("此瀏覽器不支援朗讀功能。");
-    return;
-  }
+  if (!("speechSynthesis" in window) || typeof SpeechSynthesisUtterance === "undefined") { setReaderSpeechStatus("此瀏覽器不支援朗讀功能。"); return; }
   stopReaderSpeech({ silent: true });
   state.speechParts = readerSpeechParts(chapter);
   state.currentSpeechIndex = 0;
@@ -674,73 +540,43 @@ function startReaderSpeech() {
   updateReaderSpeechControls();
   speakReaderPart(state.speechRunId);
 }
-
 function speakReaderPart(runId) {
   if (state.speechRunId !== runId || state.readingState !== "speaking") return;
-  if (state.currentSpeechIndex >= state.speechParts.length) {
-    state.speechUtterance = null;
-    state.readingState = "completed";
-    setReaderSpeechStatus("朗讀完成。");
-    updateReaderSpeechControls();
-    return;
-  }
+  if (state.currentSpeechIndex >= state.speechParts.length) { state.speechUtterance = null; state.readingState = "completed"; setReaderSpeechStatus("朗讀完成。"); updateReaderSpeechControls(); return; }
   const utterance = new SpeechSynthesisUtterance(state.speechParts[state.currentSpeechIndex]);
   utterance.lang = "zh-TW";
   utterance.rate = 0.92;
   utterance.pitch = 1;
-  utterance.onend = () => {
-    if (state.speechRunId !== runId || state.readingState !== "speaking") return;
-    state.currentSpeechIndex += 1;
-    state.speechUtterance = null;
-    window.setTimeout(() => speakReaderPart(runId), 0);
-  };
-  utterance.onerror = () => {
-    if (state.speechRunId !== runId) return;
-    state.speechUtterance = null;
-    state.readingState = "idle";
-    setReaderSpeechStatus("朗讀中斷，請再試一次。");
-    updateReaderSpeechControls();
-  };
+  utterance.onend = () => { if (state.speechRunId !== runId || state.readingState !== "speaking") return; state.currentSpeechIndex += 1; state.speechUtterance = null; window.setTimeout(() => speakReaderPart(runId), 0); };
+  utterance.onerror = () => { if (state.speechRunId !== runId) return; state.speechUtterance = null; state.readingState = "idle"; setReaderSpeechStatus("朗讀中斷，請再試一次。"); updateReaderSpeechControls(); };
   state.speechUtterance = utterance;
-  try {
-    window.speechSynthesis.speak(utterance);
-  } catch {
-    state.readingState = "idle";
-    setReaderSpeechStatus("朗讀啟動失敗，請再試一次。");
-    updateReaderSpeechControls();
-  }
+  try { window.speechSynthesis.speak(utterance); } catch { state.readingState = "idle"; setReaderSpeechStatus("朗讀啟動失敗，請再試一次。"); updateReaderSpeechControls(); }
 }
-
 function toggleReaderSpeechPause() {
   if (!("speechSynthesis" in window)) return;
   try {
     if (state.readingState === "speaking") {
-      window.speechSynthesis.pause();
+      const pausedIndex = state.currentSpeechIndex;
+      state.speechRunId += 1;
+      if (state.speechUtterance) { state.speechUtterance.onend = null; state.speechUtterance.onerror = null; }
+      window.speechSynthesis.cancel();
+      state.speechUtterance = null;
+      state.currentSpeechIndex = pausedIndex;
       state.readingState = "paused";
-      setReaderSpeechStatus("朗讀已暫停。");
+      setReaderSpeechStatus("朗讀已暫停；按繼續會從目前段落重讀。");
     } else if (state.readingState === "paused") {
-      window.speechSynthesis.resume();
+      state.speechRunId += 1;
       state.readingState = "speaking";
-      if (!state.speechUtterance && state.currentSpeechIndex < state.speechParts.length) speakReaderPart(state.speechRunId);
       setReaderSpeechStatus("繼續朗讀。");
+      speakReaderPart(state.speechRunId);
     }
-  } catch {
-    setReaderSpeechStatus("朗讀控制暫時無法使用。");
-  }
+  } catch { setReaderSpeechStatus("朗讀控制暫時無法使用。"); }
   updateReaderSpeechControls();
 }
-
 function stopReaderSpeech(options = {}) {
   state.speechRunId += 1;
-  if (state.speechUtterance) {
-    state.speechUtterance.onend = null;
-    state.speechUtterance.onerror = null;
-  }
-  if ("speechSynthesis" in window) {
-    try {
-      window.speechSynthesis.cancel();
-    } catch {}
-  }
+  if (state.speechUtterance) { state.speechUtterance.onend = null; state.speechUtterance.onerror = null; }
+  if ("speechSynthesis" in window) { try { window.speechSynthesis.cancel(); } catch {} }
   state.speechUtterance = null;
   state.speechParts = [];
   state.currentSpeechIndex = 0;
@@ -748,53 +584,18 @@ function stopReaderSpeech(options = {}) {
   if (!options.silent) setReaderSpeechStatus("");
   updateReaderSpeechControls();
 }
-
-function openReaderViewer() {
-  renderReaderOptions();
-  els.readerViewer?.classList.add("open");
-  els.readerViewer?.setAttribute("aria-hidden", "false");
-}
-
-function closeReaderViewer() {
-  stopReaderSpeech();
-  els.readerViewer?.classList.remove("open");
-  els.readerViewer?.setAttribute("aria-hidden", "true");
-}
-
-function openHelpViewer() {
-  els.helpViewer?.classList.add("open");
-  els.helpViewer?.setAttribute("aria-hidden", "false");
-}
-
-function closeHelpViewer() {
-  els.helpViewer?.classList.remove("open");
-  els.helpViewer?.setAttribute("aria-hidden", "true");
-}
-
-function nextTitle(suit) {
-  const value = state.foundations[suit] + 1;
-  return value <= 13 ? TITLES[value - 1] : "完成";
-}
-
-function setMessage(text) {
-  if (els.message) els.message.textContent = text;
-}
-
-function formatTime(seconds) {
-  const mm = String(Math.floor(seconds / 60)).padStart(2, "0");
-  const ss = String(seconds % 60).padStart(2, "0");
-  return `${mm}:${ss}`;
-}
-
-function bind(selector, event, handler) {
-  document.querySelector(selector)?.addEventListener(event, handler);
-}
+function openReaderViewer() { renderReaderOptions(); els.readerViewer?.classList.add("open"); els.readerViewer?.setAttribute("aria-hidden", "false"); }
+function closeReaderViewer() { stopReaderSpeech(); els.readerViewer?.classList.remove("open"); els.readerViewer?.setAttribute("aria-hidden", "true"); }
+function openHelpViewer() { els.helpViewer?.classList.add("open"); els.helpViewer?.setAttribute("aria-hidden", "false"); }
+function closeHelpViewer() { els.helpViewer?.classList.remove("open"); els.helpViewer?.setAttribute("aria-hidden", "true"); }
+function nextTitle(suit) { const value = state.foundations[suit] + 1; return value <= 13 ? TITLES[value - 1] : "完成"; }
+function setMessage(text) { if (els.message) els.message.textContent = text; }
+function formatTime(seconds) { const mm = String(Math.floor(seconds / 60)).padStart(2, "0"); const ss = String(seconds % 60).padStart(2, "0"); return `${mm}:${ss}`; }
+function bind(selector, event, handler) { document.querySelector(selector)?.addEventListener(event, handler); }
 
 els.currentCard?.addEventListener("pointerdown", startDrag);
 els.currentCard?.addEventListener("dblclick", passCard);
-els.currentCard?.addEventListener("keydown", (event) => {
-  if (event.key === "Enter" || event.key === " ") passCard();
-});
+els.currentCard?.addEventListener("keydown", (event) => { if (event.key === "Enter" || event.key === " ") passCard(); });
 els.passButton?.addEventListener("click", passCard);
 els.playbackButton?.addEventListener("click", startPlayback);
 els.targets.forEach(bindTargetPreview);
@@ -815,14 +616,7 @@ bind("#closeHelp", "click", closeHelpViewer);
 bind("#closeHelpBackdrop", "click", closeHelpViewer);
 bind("#closePlayback", "click", stopPlayback);
 els.scriptureLevel?.addEventListener("change", newGame);
-window.addEventListener("keydown", (event) => {
-  if (event.key === "Escape") {
-    closeReaderViewer();
-    closeCardPreview();
-    closeHelpViewer();
-    stopPlayback();
-  }
-});
+window.addEventListener("keydown", (event) => { if (event.key === "Escape") { closeReaderViewer(); closeCardPreview(); closeHelpViewer(); stopPlayback(); } });
 window.addEventListener("resize", applyLayoutMode);
 window.addEventListener("orientationchange", applyLayoutMode);
 
