@@ -1,128 +1,48 @@
-// Phase 3C-UI-4: mobile portrait table control layout.
-// Scope: reposition and size existing controls only; no game, auth, scoring, or data logic changes.
-(function installPhase3cTableLayout() {
+// Phase 3C stable mobile table layout.
+// Scope: one-time control placement plus CSS-only responsive layout.
+// No persistent observers, resize DOM relocation, polling, or game/auth logic changes.
+(function installPhase3cStableTableLayout() {
   const STYLE_ID = "phase3cTableLayoutStyles";
-  const FORMAT_ATTR = "data-phase3c-formatting";
-  const originalParents = new WeakMap();
-  let moveScheduled = false;
-
-  function remember(el) {
-    if (el && !originalParents.has(el)) {
-      originalParents.set(el, { parent: el.parentElement, next: el.nextSibling });
-    }
-  }
-
-  function restore(el) {
-    const original = el ? originalParents.get(el) : null;
-    if (!el || !original || !original.parent) return;
-    if (el.parentElement === original.parent) return;
-    original.parent.insertBefore(el, original.next && original.next.parentElement === original.parent ? original.next : null);
-  }
+  const INIT_ATTR = "data-phase3c-table-initialized";
 
   function isPhonePortrait() {
     const root = document.documentElement;
     return root.dataset.deviceLayout === "phone" && window.matchMedia("(orientation: portrait)").matches;
   }
 
-  function extractNumber(text, fallback) {
-    const match = String(text || "").match(/\d+/);
-    return match ? match[0] : fallback;
+  function moveOnce(parent, el) {
+    if (!parent || !el || el.parentElement === parent) return;
+    parent.appendChild(el);
   }
 
-  function formatCounter(el, label, fallbackNumber, suffix) {
-    if (!el || el.getAttribute(FORMAT_ATTR) === "1") return;
-    const number = extractNumber(el.textContent, fallbackNumber);
-    el.setAttribute(FORMAT_ATTR, "1");
-    el.classList.add("phase3c-side-status");
-    el.innerHTML = `<span class="phase3c-side-label">${label}</span><span class="phase3c-side-value">${number}${suffix}</span>`;
-    el.removeAttribute(FORMAT_ATTR);
-  }
-
-  function formatSideStatus() {
+  function initializeMobileDomOnce() {
+    if (document.documentElement.getAttribute(INIT_ATTR) === "1") return;
     if (!isPhonePortrait()) return;
-    formatCounter(document.querySelector("#queueCount"), "待判斷", "52", " 張");
-    formatCounter(document.querySelector("#passCount"), "Pass", "0", " 張");
-  }
 
-  function installCounterObservers() {
-    ["#queueCount", "#passCount"].forEach((selector) => {
-      const el = document.querySelector(selector);
-      if (!el || el.dataset.phase3cObserved === "1") return;
-      el.dataset.phase3cObserved = "1";
-      const observer = new MutationObserver(() => {
-        if (el.getAttribute(FORMAT_ATTR) === "1") return;
-        window.requestAnimationFrame(formatSideStatus);
-      });
-      observer.observe(el, { childList: true, characterData: true, subtree: true });
-    });
-  }
-
-  function placeInOrder(parent, ordered) {
-    const wanted = ordered.filter(Boolean);
-    wanted.forEach((el, index) => {
-      if (el.parentElement !== parent) {
-        parent.appendChild(el);
-      }
-      const controlsInParent = [...parent.children].filter((child) => wanted.includes(child));
-      if (controlsInParent[index] !== el) {
-        parent.insertBefore(el, controlsInParent[index] || null);
-      }
-    });
-  }
-
-  function setSideButtonLabels(isPhone) {
-    const playbackButton = document.querySelector("#playbackButton");
-    if (!playbackButton) return;
-    if (isPhone) {
-      playbackButton.setAttribute("aria-label", "播放全牌");
-      playbackButton.innerHTML = "播放<br>全牌";
-    } else {
-      playbackButton.removeAttribute("aria-label");
-      playbackButton.textContent = "播放全牌";
-    }
-  }
-
-  function moveForPhone() {
     const deckInfo = document.querySelector(".deck-info");
     const actions = document.querySelector(".actions");
+    if (!deckInfo) return;
+
     const phase3bActions = document.querySelector("#phase3bActions");
     const passButton = document.querySelector("#passButton");
     const queueCount = document.querySelector("#queueCount");
     const passCount = document.querySelector("#passCount");
     const playbackButton = document.querySelector("#playbackButton");
     const hintButton = document.querySelector("#hintButton");
-    const phone = isPhonePortrait();
 
-    [phase3bActions, passButton, queueCount, passCount, playbackButton, hintButton].forEach(remember);
-    setSideButtonLabels(phone);
-
-    if (!deckInfo || !phone) {
-      [passButton, playbackButton, hintButton].forEach(restore);
-      document.documentElement.classList.remove("phase3c-table-mobile");
-      if (actions) actions.removeAttribute("aria-hidden");
-      return;
-    }
+    [phase3bActions, passButton, queueCount, passCount, playbackButton, hintButton].forEach((el) => moveOnce(deckInfo, el));
 
     document.documentElement.classList.add("phase3c-table-mobile");
+    document.documentElement.setAttribute(INIT_ATTR, "1");
 
-    placeInOrder(deckInfo, [phase3bActions, passButton, queueCount, passCount, playbackButton, hintButton]);
+    passButton?.classList.add("phase3c-side-action", "phase3c-side-pass");
+    playbackButton?.classList.add("phase3c-side-action", "phase3c-side-playback");
+    hintButton?.classList.add("phase3c-side-action", "phase3c-side-hint");
+    queueCount?.classList.add("phase3c-side-status", "phase3c-queue-status");
+    passCount?.classList.add("phase3c-side-status", "phase3c-pass-status");
 
-    if (passButton) passButton.classList.add("phase3c-side-pass");
-    if (playbackButton) playbackButton.classList.add("phase3c-side-playback");
-    if (hintButton) hintButton.classList.add("phase3c-side-hint");
+    if (playbackButton) playbackButton.setAttribute("aria-label", "播放全牌");
     if (actions) actions.setAttribute("aria-hidden", "true");
-
-    installCounterObservers();
-    formatSideStatus();
-  }
-
-  function scheduleMove() {
-    if (moveScheduled) return;
-    moveScheduled = true;
-    window.requestAnimationFrame(() => {
-      moveScheduled = false;
-      moveForPhone();
-    });
   }
 
   function installStyles() {
@@ -134,12 +54,12 @@
         :root[data-device-layout="phone"] {
           --phase3c-side-control-w: 58px;
           --phase3c-action-size: 48px;
-          --phase3c-table-gap: 6px;
+          --phase3c-stage-gap: 6px;
           --phase3c-topbar-estimate: 164px;
           --phase3c-target-estimate: var(--phone-target-h, 118px);
           --phase3c-footer-estimate: 17px;
           --phase3c-board-pad-estimate: 14px;
-          --phase3c-card-cell-w: calc(100vw - var(--phase3c-side-control-w) - var(--phase3c-table-gap) - 30px);
+          --phase3c-card-cell-w: calc(100vw - var(--phase3c-side-control-w) - var(--phase3c-stage-gap) - 30px);
           --phase3c-card-max-by-height: calc((100vh - var(--phase3c-topbar-estimate) - var(--phase3c-target-estimate) - var(--phase3c-footer-estimate) - var(--phase3c-board-pad-estimate)) / 1.516);
           --phase3c-card-max-by-dvh: calc((100dvh - var(--phase3c-topbar-estimate) - var(--phase3c-target-estimate) - var(--phase3c-footer-estimate) - var(--phase3c-board-pad-estimate)) / 1.516);
           --phase3c-card-max-by-svh: calc((100svh - var(--phase3c-topbar-estimate) - var(--phase3c-target-estimate) - var(--phase3c-footer-estimate) - var(--phase3c-board-pad-estimate)) / 1.516);
@@ -152,14 +72,13 @@
         }
 
         :root[data-device-layout="phone"] .center-stage {
-          position: relative;
           display: grid;
           grid-template-columns: var(--phase3c-side-control-w) minmax(0, 1fr);
           grid-template-rows: minmax(0, 1fr);
           grid-template-areas: "info card";
           align-items: stretch;
           justify-items: stretch;
-          gap: var(--phase3c-table-gap);
+          gap: var(--phase3c-stage-gap);
           min-width: 0;
           min-height: 0;
           overflow: hidden;
@@ -167,7 +86,7 @@
 
         :root[data-device-layout="phone"] .deck-info {
           position: relative;
-          z-index: 30;
+          z-index: 20;
           grid-area: info;
           align-self: center;
           justify-self: stretch;
@@ -192,49 +111,43 @@
           margin: 0 0 16px;
         }
 
-        :root[data-device-layout="phone"] #passButton.phase3c-side-pass {
-          order: 20;
-          margin-bottom: 16px;
-          background: var(--gold);
-        }
-
-        :root[data-device-layout="phone"] #queueCount { order: 30; }
-        :root[data-device-layout="phone"] #passCount { order: 40; }
+        :root[data-device-layout="phone"] #passButton.phase3c-side-pass { order: 20; margin-bottom: 16px; }
+        :root[data-device-layout="phone"] #queueCount.phase3c-side-status { order: 30; }
+        :root[data-device-layout="phone"] #passCount.phase3c-side-status { order: 40; }
         :root[data-device-layout="phone"] #playbackButton.phase3c-side-playback { order: 50; }
         :root[data-device-layout="phone"] #hintButton.phase3c-side-hint { order: 60; }
 
         :root[data-device-layout="phone"] .phase3b-action,
-        :root[data-device-layout="phone"] .deck-info > button,
-        :root[data-device-layout="phone"] .deck-info > span {
+        :root[data-device-layout="phone"] .phase3c-side-action,
+        :root[data-device-layout="phone"] .phase3c-side-status {
           display: grid;
           place-items: center;
           width: 100%;
-          min-width: 0 !important;
           max-width: 100%;
-          min-height: 36px;
-          padding: 5px 4px;
+          min-width: 0 !important;
           border: 0;
           text-align: center;
-          font-size: 11px;
-          line-height: 1.14;
           white-space: normal;
           overflow-wrap: anywhere;
-          box-shadow: 0 2px 0 rgba(0, 0, 0, 0.18);
+          box-sizing: border-box;
         }
 
         :root[data-device-layout="phone"] .phase3b-action,
-        :root[data-device-layout="phone"] #playbackButton.phase3c-side-playback,
-        :root[data-device-layout="phone"] #hintButton.phase3c-side-hint {
-          background: rgba(246, 239, 227, 0.96);
+        :root[data-device-layout="phone"] .phase3c-side-action {
+          min-height: 34px;
+          padding: 4px 3px;
           color: #21160d;
+          background: rgba(246, 239, 227, 0.96);
+          box-shadow: 0 2px 0 rgba(0, 0, 0, 0.18);
+          cursor: pointer;
+          font-size: 10.5px;
+          line-height: 1.08;
+          touch-action: manipulation;
+          user-select: none;
         }
 
         :root[data-device-layout="phone"] #passButton.phase3c-side-pass,
         :root[data-device-layout="phone"] #playbackButton.phase3c-side-playback {
-          position: relative;
-          z-index: 35;
-          display: grid !important;
-          place-items: center;
           width: var(--phase3c-action-size) !important;
           min-width: var(--phase3c-action-size) !important;
           max-width: var(--phase3c-action-size) !important;
@@ -245,49 +158,42 @@
           padding: 0 3px !important;
           border: 1px solid rgba(23, 18, 14, 0.18);
           border-radius: 3px;
-          font-size: 10.5px !important;
-          line-height: 1.05;
-          overflow: hidden;
-          pointer-events: auto;
-          touch-action: manipulation;
-          user-select: none;
+          z-index: 22;
         }
 
-        :root[data-device-layout="phone"] #passButton.phase3c-side-pass:active,
-        :root[data-device-layout="phone"] #playbackButton.phase3c-side-playback:active,
-        :root[data-device-layout="phone"] #hintButton.phase3c-side-hint:active,
-        :root[data-device-layout="phone"] .phase3b-action:active {
+        :root[data-device-layout="phone"] #passButton.phase3c-side-pass {
+          background: var(--gold);
+        }
+
+        :root[data-device-layout="phone"] #playbackButton.phase3c-side-playback {
+          word-break: keep-all;
+          overflow-wrap: anywhere;
+        }
+
+        :root[data-device-layout="phone"] .phase3b-action:active,
+        :root[data-device-layout="phone"] .phase3c-side-action:active {
           transform: translateY(1px);
           box-shadow: 0 1px 0 rgba(0, 0, 0, 0.22);
         }
 
-        :root[data-device-layout="phone"] #playbackButton.phase3c-side-playback {
-          font-size: 10px !important;
-        }
-
-        :root[data-device-layout="phone"] .deck-info > span.phase3c-side-status {
+        :root[data-device-layout="phone"] .phase3c-side-status {
           min-height: 38px;
+          padding: 5px 4px;
           color: white;
           background: rgba(0, 0, 0, 0.32);
           box-shadow: none;
           cursor: default;
+          font-size: 11px;
+          line-height: 1.18;
         }
 
-        :root[data-device-layout="phone"] .phase3c-side-label,
-        :root[data-device-layout="phone"] .phase3c-side-value {
-          display: block;
-          width: 100%;
-        }
-
-        :root[data-device-layout="phone"] .phase3c-side-value {
-          margin-top: 1px;
-          font-weight: 800;
+        :root[data-device-layout="phone"] .phase3c-queue-status,
+        :root[data-device-layout="phone"] .phase3c-pass-status {
+          white-space: pre-line;
         }
 
         :root[data-device-layout="phone"] .card-slot {
           grid-area: card;
-          position: relative;
-          z-index: 1;
           align-self: center;
           justify-self: center;
           display: grid;
@@ -301,9 +207,6 @@
         }
 
         :root[data-device-layout="phone"] .current-card {
-          grid-area: unset;
-          position: relative;
-          z-index: 1;
           width: 100%;
           height: 100%;
           max-width: 100%;
@@ -333,7 +236,7 @@
           --phase3c-action-size: 44px;
           --phase3c-topbar-estimate: 158px;
           --phase3c-board-pad-estimate: 12px;
-          --phase3c-card-cell-w: calc(100vw - var(--phase3c-side-control-w) - var(--phase3c-table-gap) - 26px);
+          --phase3c-card-cell-w: calc(100vw - var(--phase3c-side-control-w) - var(--phase3c-stage-gap) - 26px);
           --card-w: clamp(164px, min(var(--phase3c-card-cell-w), var(--phase3c-card-max-by-height), var(--phase3c-card-max-by-dvh), var(--phase3c-card-max-by-svh)), 286px);
         }
 
@@ -343,15 +246,9 @@
         }
 
         :root[data-device-layout="phone"] .phase3b-action,
-        :root[data-device-layout="phone"] .deck-info > button,
-        :root[data-device-layout="phone"] .deck-info > span {
-          min-height: 34px;
-          padding: 4px 3px;
-          font-size: 10.5px;
-        }
-
-        :root[data-device-layout="phone"] .deck-info > span.phase3c-side-status {
-          min-height: 36px;
+        :root[data-device-layout="phone"] .phase3c-side-action,
+        :root[data-device-layout="phone"] .phase3c-side-status {
+          font-size: 10px;
         }
       }
 
@@ -360,20 +257,13 @@
           --phase3c-side-control-w: 49px;
           --phase3c-action-size: 42px;
           --phase3c-topbar-estimate: 154px;
-          --phase3c-card-cell-w: calc(100vw - var(--phase3c-side-control-w) - var(--phase3c-table-gap) - 24px);
+          --phase3c-card-cell-w: calc(100vw - var(--phase3c-side-control-w) - var(--phase3c-stage-gap) - 24px);
           --card-w: clamp(154px, min(var(--phase3c-card-cell-w), var(--phase3c-card-max-by-height), var(--phase3c-card-max-by-dvh), var(--phase3c-card-max-by-svh)), 246px);
         }
 
         :root[data-device-layout="phone"] .phase3b-actions,
         :root[data-device-layout="phone"] #passButton.phase3c-side-pass {
           margin-bottom: 12px;
-        }
-
-        :root[data-device-layout="phone"] .phase3b-action,
-        :root[data-device-layout="phone"] .deck-info > button,
-        :root[data-device-layout="phone"] .deck-info > span {
-          min-height: 32px;
-          font-size: 10px;
         }
       }
     `;
@@ -382,14 +272,7 @@
 
   function boot() {
     installStyles();
-    moveForPhone();
-    const observer = new MutationObserver(() => {
-      installCounterObservers();
-      scheduleMove();
-    });
-    observer.observe(document.body, { childList: true, subtree: true });
-    window.addEventListener("resize", scheduleMove, { passive: true });
-    window.addEventListener("orientationchange", () => window.setTimeout(scheduleMove, 120), { passive: true });
+    initializeMobileDomOnce();
   }
 
   if (document.readyState === "loading") {
