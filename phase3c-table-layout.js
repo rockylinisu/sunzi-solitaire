@@ -1,5 +1,5 @@
-// Phase 3C-UI-3: mobile portrait table control layout.
-// Scope: reposition existing controls only; no game, auth, scoring, or data logic changes.
+// Phase 3C-UI-4: mobile portrait table control layout.
+// Scope: reposition and size existing controls only; no game, auth, scoring, or data logic changes.
 (function installPhase3cTableLayout() {
   const STYLE_ID = "phase3cTableLayoutStyles";
   const FORMAT_ATTR = "data-phase3c-formatting";
@@ -70,6 +70,18 @@
     });
   }
 
+  function setSideButtonLabels(isPhone) {
+    const playbackButton = document.querySelector("#playbackButton");
+    if (!playbackButton) return;
+    if (isPhone) {
+      playbackButton.setAttribute("aria-label", "播放全牌");
+      playbackButton.innerHTML = "播放<br>全牌";
+    } else {
+      playbackButton.removeAttribute("aria-label");
+      playbackButton.textContent = "播放全牌";
+    }
+  }
+
   function moveForPhone() {
     const deckInfo = document.querySelector(".deck-info");
     const actions = document.querySelector(".actions");
@@ -79,10 +91,12 @@
     const passCount = document.querySelector("#passCount");
     const playbackButton = document.querySelector("#playbackButton");
     const hintButton = document.querySelector("#hintButton");
+    const phone = isPhonePortrait();
 
     [phase3bActions, passButton, queueCount, passCount, playbackButton, hintButton].forEach(remember);
+    setSideButtonLabels(phone);
 
-    if (!deckInfo || !isPhonePortrait()) {
+    if (!deckInfo || !phone) {
       [passButton, playbackButton, hintButton].forEach(restore);
       document.documentElement.classList.remove("phase3c-table-mobile");
       if (actions) actions.removeAttribute("aria-hidden");
@@ -120,16 +134,16 @@
         :root[data-device-layout="phone"] {
           --phase3c-side-control-w: 58px;
           --phase3c-action-size: 48px;
-          --phase3c-table-gap: 5px;
+          --phase3c-table-gap: 6px;
           --phase3c-topbar-estimate: 164px;
           --phase3c-target-estimate: var(--phone-target-h, 118px);
           --phase3c-footer-estimate: 17px;
           --phase3c-board-pad-estimate: 14px;
-          --phase3c-card-max-by-width: calc(100vw - var(--phase3c-side-control-w) - 34px);
+          --phase3c-card-cell-w: calc(100vw - var(--phase3c-side-control-w) - var(--phase3c-table-gap) - 30px);
           --phase3c-card-max-by-height: calc((100vh - var(--phase3c-topbar-estimate) - var(--phase3c-target-estimate) - var(--phase3c-footer-estimate) - var(--phase3c-board-pad-estimate)) / 1.516);
           --phase3c-card-max-by-dvh: calc((100dvh - var(--phase3c-topbar-estimate) - var(--phase3c-target-estimate) - var(--phase3c-footer-estimate) - var(--phase3c-board-pad-estimate)) / 1.516);
           --phase3c-card-max-by-svh: calc((100svh - var(--phase3c-topbar-estimate) - var(--phase3c-target-estimate) - var(--phase3c-footer-estimate) - var(--phase3c-board-pad-estimate)) / 1.516);
-          --card-w: clamp(178px, min(var(--phase3c-card-max-by-width), var(--phase3c-card-max-by-height), var(--phase3c-card-max-by-dvh), var(--phase3c-card-max-by-svh)), 318px);
+          --card-w: clamp(174px, min(var(--phase3c-card-cell-w), var(--phase3c-card-max-by-height), var(--phase3c-card-max-by-dvh), var(--phase3c-card-max-by-svh)), 304px);
         }
 
         :root[data-device-layout="phone"] .board {
@@ -138,18 +152,22 @@
         }
 
         :root[data-device-layout="phone"] .center-stage {
+          position: relative;
+          display: grid;
           grid-template-columns: var(--phase3c-side-control-w) minmax(0, 1fr);
           grid-template-rows: minmax(0, 1fr);
           grid-template-areas: "info card";
           align-items: stretch;
+          justify-items: stretch;
           gap: var(--phase3c-table-gap);
+          min-width: 0;
           min-height: 0;
-          overflow: visible;
+          overflow: hidden;
         }
 
         :root[data-device-layout="phone"] .deck-info {
           position: relative;
-          z-index: 10;
+          z-index: 30;
           grid-area: info;
           align-self: center;
           justify-self: stretch;
@@ -157,11 +175,13 @@
           flex-direction: column;
           align-items: center;
           width: var(--phase3c-side-control-w);
+          min-width: 0;
           min-height: 0;
           max-height: 100%;
           gap: 5px;
           padding: 0;
           overflow: visible;
+          pointer-events: auto;
         }
 
         :root[data-device-layout="phone"] .phase3b-actions {
@@ -189,7 +209,8 @@
           display: grid;
           place-items: center;
           width: 100%;
-          min-width: 0;
+          min-width: 0 !important;
+          max-width: 100%;
           min-height: 36px;
           padding: 5px 4px;
           border: 0;
@@ -211,12 +232,14 @@
         :root[data-device-layout="phone"] #passButton.phase3c-side-pass,
         :root[data-device-layout="phone"] #playbackButton.phase3c-side-playback {
           position: relative;
-          z-index: 11;
+          z-index: 35;
+          display: grid !important;
+          place-items: center;
           width: var(--phase3c-action-size) !important;
-          min-width: 0 !important;
+          min-width: var(--phase3c-action-size) !important;
           max-width: var(--phase3c-action-size) !important;
           height: var(--phase3c-action-size) !important;
-          min-height: 0 !important;
+          min-height: var(--phase3c-action-size) !important;
           max-height: var(--phase3c-action-size) !important;
           aspect-ratio: 1 / 1;
           padding: 0 3px !important;
@@ -224,8 +247,18 @@
           border-radius: 3px;
           font-size: 10.5px !important;
           line-height: 1.05;
+          overflow: hidden;
           pointer-events: auto;
           touch-action: manipulation;
+          user-select: none;
+        }
+
+        :root[data-device-layout="phone"] #passButton.phase3c-side-pass:active,
+        :root[data-device-layout="phone"] #playbackButton.phase3c-side-playback:active,
+        :root[data-device-layout="phone"] #hintButton.phase3c-side-hint:active,
+        :root[data-device-layout="phone"] .phase3b-action:active {
+          transform: translateY(1px);
+          box-shadow: 0 1px 0 rgba(0, 0, 0, 0.22);
         }
 
         :root[data-device-layout="phone"] #playbackButton.phase3c-side-playback {
@@ -237,6 +270,7 @@
           color: white;
           background: rgba(0, 0, 0, 0.32);
           box-shadow: none;
+          cursor: default;
         }
 
         :root[data-device-layout="phone"] .phase3c-side-label,
@@ -250,21 +284,31 @@
           font-weight: 800;
         }
 
-        :root[data-device-layout="phone"] .card-slot,
-        :root[data-device-layout="phone"] .current-card {
+        :root[data-device-layout="phone"] .card-slot {
           grid-area: card;
-          width: var(--card-w);
-          height: calc(var(--card-w) * 1.516);
+          position: relative;
+          z-index: 1;
+          align-self: center;
+          justify-self: center;
+          display: grid;
+          place-items: center;
+          width: min(var(--card-w), 100%);
+          height: min(calc(var(--card-w) * 1.516), 100%);
+          min-width: 0;
           max-width: 100%;
-          max-height: none;
+          max-height: 100%;
           overflow: visible;
         }
 
-        :root[data-device-layout="phone"] .card-slot {
+        :root[data-device-layout="phone"] .current-card {
+          grid-area: unset;
           position: relative;
-          z-index: 2;
-          align-self: center;
-          justify-self: center;
+          z-index: 1;
+          width: 100%;
+          height: 100%;
+          max-width: 100%;
+          max-height: 100%;
+          overflow: visible;
         }
 
         :root[data-device-layout="phone"] .actions {
@@ -289,8 +333,8 @@
           --phase3c-action-size: 44px;
           --phase3c-topbar-estimate: 158px;
           --phase3c-board-pad-estimate: 12px;
-          --phase3c-card-max-by-width: calc(100vw - var(--phase3c-side-control-w) - 28px);
-          --card-w: clamp(166px, min(var(--phase3c-card-max-by-width), var(--phase3c-card-max-by-height), var(--phase3c-card-max-by-dvh), var(--phase3c-card-max-by-svh)), 292px);
+          --phase3c-card-cell-w: calc(100vw - var(--phase3c-side-control-w) - var(--phase3c-table-gap) - 26px);
+          --card-w: clamp(164px, min(var(--phase3c-card-cell-w), var(--phase3c-card-max-by-height), var(--phase3c-card-max-by-dvh), var(--phase3c-card-max-by-svh)), 286px);
         }
 
         :root[data-device-layout="phone"] .phase3b-actions,
@@ -316,7 +360,8 @@
           --phase3c-side-control-w: 49px;
           --phase3c-action-size: 42px;
           --phase3c-topbar-estimate: 154px;
-          --card-w: clamp(156px, min(var(--phase3c-card-max-by-width), var(--phase3c-card-max-by-height), var(--phase3c-card-max-by-dvh), var(--phase3c-card-max-by-svh)), 250px);
+          --phase3c-card-cell-w: calc(100vw - var(--phase3c-side-control-w) - var(--phase3c-table-gap) - 24px);
+          --card-w: clamp(154px, min(var(--phase3c-card-cell-w), var(--phase3c-card-max-by-height), var(--phase3c-card-max-by-dvh), var(--phase3c-card-max-by-svh)), 246px);
         }
 
         :root[data-device-layout="phone"] .phase3b-actions,
