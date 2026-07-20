@@ -7,6 +7,18 @@ const LEVEL_NAMES = ["全有數", "13 張無數", "26 張無數", "39 張無數"
 const LEVEL_MULTIPLIERS = [1, 1.15, 1.35, 1.6, 2];
 const RECORD_KEY = "sunzi-center-solitaire-records-v1";
 const PLAYBACK_DELAY_MS = 185;
+const APP_INFO = Object.freeze({
+  appName: "孫子兵法接龍",
+  releaseStage: "Alpha",
+  appVersion: "0.0.4",
+  releaseDate: "2026.07.20",
+  copyrightYear: "2026",
+  copyrightOwner: "林煥章",
+  assetVersion: "alpha-0.0.4",
+});
+const APP_VERSION_LABEL = `${APP_INFO.releaseStage} v${APP_INFO.appVersion}`;
+const APP_COPYRIGHT_LABEL = `© ${APP_INFO.copyrightOwner} ${APP_INFO.copyrightYear} · ${APP_VERSION_LABEL} · ${APP_INFO.releaseDate}`;
+const ASSET_VERSION = APP_INFO.assetVersion;
 
 let TITLES = [...DEFAULT_TITLES];
 let sunziTexts = null;
@@ -73,6 +85,7 @@ const els = {
   readerStop: document.querySelector("#readerStop"),
   readerSpeechStatus: document.querySelector("#readerSpeechStatus"),
   targets: [...document.querySelectorAll(".target")],
+  versionText: [...document.querySelectorAll("[data-app-version-text]")],
   playbackPause: null,
   playbackStop: null,
 };
@@ -87,9 +100,15 @@ function applyLayoutMode() {
 }
 
 async function loadJson(path) {
-  const response = await fetch(`${path}?v=20260720c`, { cache: "no-store" });
+  const response = await fetch(`${path}?v=${encodeURIComponent(ASSET_VERSION)}`, { cache: "no-store" });
   if (!response.ok) throw new Error(`Cannot load ${path}`);
   return response.json();
+}
+
+function renderAppVersionInfo() {
+  for (const element of els.versionText) {
+    element.textContent = APP_COPYRIGHT_LABEL;
+  }
 }
 
 async function loadProjectData() {
@@ -185,6 +204,9 @@ function renderCurrentCard() {
   const img = document.createElement("img");
   img.src = state.current.image;
   img.alt = `${SUIT_NAMES[state.current.suit]} ${state.current.title}`;
+  img.onerror = () => {
+    els.currentCard.innerHTML = `<div class="card-fallback">${SUIT_SYMBOLS[state.current.suit]}<br>${state.current.rank}<br>${state.current.title}</div>`;
+  };
   els.currentCard.dataset.id = state.current.id;
   els.currentCard.setAttribute("aria-label", `${SUIT_NAMES[state.current.suit]} ${state.current.title}`);
   els.currentCard.append(img);
@@ -622,6 +644,7 @@ window.addEventListener("orientationchange", applyLayoutMode);
 
 async function initializeApp() {
   applyLayoutMode();
+  renderAppVersionInfo();
   ensurePlaybackControls();
   updateReaderSpeechControls();
   await loadProjectData();
