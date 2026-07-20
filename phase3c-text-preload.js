@@ -5,6 +5,7 @@
 
   const STYLE_ID = "phase3cTextPreloadStyles";
   const PRELOAD_BATCH_SIZE = 8;
+  const MVP_COPYRIGHT_TEXT = "© 林煥章 2026 · Alpha v0.0.7 · MVP Released · 2026.07.20";
   let preloadStarted = false;
   let preloadFinished = false;
   let preloadTotal = 0;
@@ -41,6 +42,12 @@
     document.head.append(style);
   }
 
+  function renderMvpCopyright() {
+    document.querySelectorAll("[data-app-version-text]").forEach((element) => {
+      element.textContent = MVP_COPYRIGHT_TEXT;
+    });
+  }
+
   function normalizeSidebarText() {
     if (typeof els === "undefined" || typeof state === "undefined") return;
     if (els.queueCount) {
@@ -61,6 +68,7 @@
     renderStats = function phase3cRenderStatsWithSidebarBreaks() {
       originalRenderStats.apply(this, arguments);
       normalizeSidebarText();
+      renderMvpCopyright();
     };
   }
 
@@ -120,6 +128,7 @@
   patchRenderStats();
   patchNewGamePreloadHook();
   normalizeSidebarText();
+  renderMvpCopyright();
   startPreloadAfterFirstCard();
 
   window.SUNZI_PHASE3C_PRELOAD_DEBUG = function phase3cPreloadDebug() {
@@ -129,6 +138,7 @@
       total: preloadTotal,
       loaded: preloadLoaded,
       failed: preloadFailed,
+      copyright: MVP_COPYRIGHT_TEXT,
     };
   };
 })();
