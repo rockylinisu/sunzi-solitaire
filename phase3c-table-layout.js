@@ -119,6 +119,7 @@
       @media (max-width: 760px) and (orientation: portrait) {
         :root[data-device-layout="phone"] {
           --phase3c-side-control-w: 58px;
+          --phase3c-action-size: 48px;
           --phase3c-table-gap: 5px;
           --phase3c-topbar-estimate: 164px;
           --phase3c-target-estimate: var(--phone-target-h, 118px);
@@ -147,12 +148,14 @@
         }
 
         :root[data-device-layout="phone"] .deck-info {
+          position: relative;
+          z-index: 10;
           grid-area: info;
           align-self: center;
           justify-self: stretch;
           display: flex;
           flex-direction: column;
-          align-items: stretch;
+          align-items: center;
           width: var(--phase3c-side-control-w);
           min-height: 0;
           max-height: 100%;
@@ -205,6 +208,30 @@
           color: #21160d;
         }
 
+        :root[data-device-layout="phone"] #passButton.phase3c-side-pass,
+        :root[data-device-layout="phone"] #playbackButton.phase3c-side-playback {
+          position: relative;
+          z-index: 11;
+          width: var(--phase3c-action-size) !important;
+          min-width: 0 !important;
+          max-width: var(--phase3c-action-size) !important;
+          height: var(--phase3c-action-size) !important;
+          min-height: 0 !important;
+          max-height: var(--phase3c-action-size) !important;
+          aspect-ratio: 1 / 1;
+          padding: 0 3px !important;
+          border: 1px solid rgba(23, 18, 14, 0.18);
+          border-radius: 3px;
+          font-size: 10.5px !important;
+          line-height: 1.05;
+          pointer-events: auto;
+          touch-action: manipulation;
+        }
+
+        :root[data-device-layout="phone"] #playbackButton.phase3c-side-playback {
+          font-size: 10px !important;
+        }
+
         :root[data-device-layout="phone"] .deck-info > span.phase3c-side-status {
           min-height: 38px;
           color: white;
@@ -234,6 +261,8 @@
         }
 
         :root[data-device-layout="phone"] .card-slot {
+          position: relative;
+          z-index: 2;
           align-self: center;
           justify-self: center;
         }
@@ -257,6 +286,7 @@
       @media (max-width: 390px) and (orientation: portrait) {
         :root[data-device-layout="phone"] {
           --phase3c-side-control-w: 52px;
+          --phase3c-action-size: 44px;
           --phase3c-topbar-estimate: 158px;
           --phase3c-board-pad-estimate: 12px;
           --phase3c-card-max-by-width: calc(100vw - var(--phase3c-side-control-w) - 28px);
@@ -284,6 +314,7 @@
       @media (max-width: 330px) and (orientation: portrait) {
         :root[data-device-layout="phone"] {
           --phase3c-side-control-w: 49px;
+          --phase3c-action-size: 42px;
           --phase3c-topbar-estimate: 154px;
           --card-w: clamp(156px, min(var(--phase3c-card-max-by-width), var(--phase3c-card-max-by-height), var(--phase3c-card-max-by-dvh), var(--phase3c-card-max-by-svh)), 250px);
         }
