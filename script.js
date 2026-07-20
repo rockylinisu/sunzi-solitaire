@@ -1,4 +1,4 @@
-﻿const SUITS = ["S", "H", "D", "C"];
+const SUITS = ["S", "H", "D", "C"];
 const SUIT_NAMES = { S: "黑桃", H: "紅心", D: "鑽石", C: "梅花" };
 const SUIT_SYMBOLS = { S: "♠", H: "♥", D: "♦", C: "♣" };
 const RANKS = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
@@ -31,11 +31,15 @@ const state = {
   playbackIndex: 0,
   playbackCards: [],
   playbackPreparing: false,
+  playbackState: "idle",
   playbackRunId: 0,
   readerHintShown: false,
   readerFont: "ming",
+  readingState: "idle",
   speechUtterance: null,
-  speechPaused: false,
+  speechParts: [],
+  currentSpeechIndex: 0,
+  speechRunId: 0,
 };
 
 const els = {
@@ -58,6 +62,8 @@ const els = {
   playbackImage: document.querySelector("#playbackImage"),
   playbackMode: document.querySelector("#playbackMode"),
   playbackCaption: document.querySelector("#playbackCaption"),
+  playbackPause: document.querySelector("#playbackPause"),
+  playbackStop: document.querySelector("#playbackStop"),
   cardPreviewViewer: document.querySelector("#cardPreviewViewer"),
   cardPreviewImage: document.querySelector("#cardPreviewImage"),
   cardPreviewTitle: document.querySelector("#cardPreviewTitle"),
@@ -471,6 +477,7 @@ async function startPlayback() {
   const runId = state.playbackRunId + 1;
   state.playbackRunId = runId;
   state.playbackPreparing = true;
+  state.playbackState = "playing";
   state.playbackCards = cards;
   state.playbackIndex = 0;
   els.playbackViewer.classList.add("open");
@@ -480,6 +487,7 @@ async function startPlayback() {
   els.playbackMode.textContent = "準備播放";
   els.playbackCaption.textContent = "正在預載牌面，請稍候...";
   if (els.playbackButton) els.playbackButton.disabled = true;
+  updatePlaybackControls();
 
   try {
     await preloadPlaybackImages(cards);
@@ -489,18 +497,19 @@ async function startPlayback() {
 
   if (state.playbackRunId !== runId || !state.playbackPreparing) return;
   state.playbackPreparing = false;
+  updatePlaybackControls();
   schedulePlaybackFrame(runId);
 }
 
 function schedulePlaybackFrame(runId) {
-  if (state.playbackRunId !== runId) return;
+  window.clearTimeout(state.playbackTimer);
+  state.playbackTimer = null;
+  if (state.playbackRunId !== runId || state.playbackState !== "playing") return;
   showPlaybackCard(state.playbackCards);
   if (state.playbackIndex < state.playbackCards.length) {
     state.playbackTimer = window.setTimeout(() => schedulePlaybackFrame(runId), PLAYBACK_DELAY_MS);
   } else {
-    state.playbackTimer = window.setTimeout(() => {
-      if (state.playbackRunId === runId) stopPlayback();
-    }, PLAYBACK_DELAY_MS);
+    completePlayback(runId);
   }
 }
 
@@ -526,15 +535,48 @@ function showPlaybackCard(cards) {
   state.playbackIndex += 1;
 }
 
+function togglePlaybackPause() {
+  if (state.playbackPreparing || state.playbackState === "idle" || state.playbackState === "completed") return;
+  if (state.playbackState === "playing") {
+    window.clearTimeout(state.playbackTimer);
+    state.playbackTimer = null;
+    state.playbackState = "paused";
+    els.playbackCaption.textContent = `${els.playbackCaption.textContent}（已暫停）`;
+    updatePlaybackControls();
+    return;
+  }
+  state.playbackState = "playing";
+  updatePlaybackControls();
+  schedulePlaybackFrame(state.playbackRunId);
+}
+
+function completePlayback(runId) {
+  if (state.playbackRunId !== runId) return;
+  state.playbackState = "completed";
+  window.clearTimeout(state.playbackTimer);
+  state.playbackTimer = window.setTimeout(() => {
+    if (state.playbackRunId === runId && state.playbackState === "completed") stopPlayback();
+  }, PLAYBACK_DELAY_MS);
+  updatePlaybackControls();
+}
+
+function updatePlaybackControls() {
+  if (!els.playbackPause) return;
+  els.playbackPause.disabled = state.playbackPreparing || state.playbackState === "idle" || state.playbackState === "completed";
+  els.playbackPause.textContent = state.playbackState === "paused" ? "繼續" : "暫停";
+}
+
 function stopPlayback() {
   state.playbackRunId += 1;
   window.clearTimeout(state.playbackTimer);
   state.playbackTimer = null;
   state.playbackPreparing = false;
+  state.playbackState = "idle";
   state.playbackCards = [];
   els.playbackViewer.classList.remove("open");
   els.playbackViewer.setAttribute("aria-hidden", "true");
   if (els.playbackButton) els.playbackButton.disabled = false;
+  updatePlaybackControls();
   if (state.won && !state.readerHintShown) {
     state.readerHintShown = true;
     setMessage("點擊任一花色，進入《孫子兵法十三篇》。");
@@ -671,6 +713,25 @@ function setReaderSpeechStatus(text) {
   if (els.readerSpeechStatus) els.readerSpeechStatus.textContent = text;
 }
 
+function updateReaderSpeechControls() {
+  if (els.readerPause) {
+    els.readerPause.disabled = state.readingState === "idle" || state.readingState === "completed";
+    els.readerPause.textContent = state.readingState === "paused" ? "▶ 繼續" : "⏸ 暫停";
+  }
+  if (els.readerStop) els.readerStop.disabled = state.readingState === "idle";
+}
+
+function readerSpeechParts(chapter) {
+  const parts = [chapter.fullTitle];
+  for (const section of chapter.sections || []) {
+    if (section.text) parts.push(section.text);
+    for (const item of section.items || []) {
+      if (item.text) parts.push(item.text);
+    }
+  }
+  return parts.filter(Boolean);
+}
+
 function startReaderSpeech() {
   const chapter = currentReaderChapter();
   if (!chapter) return;
@@ -680,45 +741,85 @@ function startReaderSpeech() {
   }
 
   stopReaderSpeech();
-  const utterance = new SpeechSynthesisUtterance(chapter.fullText || chapter.sections.map((section) => section.text).join("\n"));
+  state.speechParts = readerSpeechParts(chapter);
+  state.currentSpeechIndex = 0;
+  state.speechRunId += 1;
+  state.readingState = "speaking";
+  setReaderSpeechStatus(`正在朗讀：${chapter.fullTitle}`);
+  updateReaderSpeechControls();
+  speakReaderPart(state.speechRunId);
+}
+
+function speakReaderPart(runId) {
+  if (state.speechRunId !== runId || state.readingState !== "speaking") return;
+  if (state.currentSpeechIndex >= state.speechParts.length) {
+    state.speechUtterance = null;
+    state.readingState = "completed";
+    setReaderSpeechStatus("朗讀完成。");
+    updateReaderSpeechControls();
+    return;
+  }
+
+  const utterance = new SpeechSynthesisUtterance(state.speechParts[state.currentSpeechIndex]);
   utterance.lang = "zh-TW";
   utterance.rate = 0.92;
   utterance.pitch = 1;
   utterance.onend = () => {
+    if (state.speechRunId !== runId || state.readingState !== "speaking") return;
+    state.currentSpeechIndex += 1;
     state.speechUtterance = null;
-    state.speechPaused = false;
-    setReaderSpeechStatus("朗讀完成。");
+    window.setTimeout(() => speakReaderPart(runId), 0);
   };
   utterance.onerror = () => {
+    if (state.speechRunId !== runId) return;
     state.speechUtterance = null;
-    state.speechPaused = false;
+    state.readingState = "idle";
     setReaderSpeechStatus("朗讀中斷，請再試一次。");
+    updateReaderSpeechControls();
   };
 
   state.speechUtterance = utterance;
-  state.speechPaused = false;
   window.speechSynthesis.speak(utterance);
-  setReaderSpeechStatus(`正在朗讀：${chapter.fullTitle}`);
 }
 
 function toggleReaderSpeechPause() {
-  if (!state.speechUtterance || !("speechSynthesis" in window)) return;
-  if (state.speechPaused) {
-    window.speechSynthesis.resume();
-    state.speechPaused = false;
-    setReaderSpeechStatus("繼續朗讀。");
-  } else {
+  if (!("speechSynthesis" in window)) return;
+  if (state.readingState === "speaking") {
     window.speechSynthesis.pause();
-    state.speechPaused = true;
+    state.readingState = "paused";
     setReaderSpeechStatus("朗讀已暫停。");
+    updateReaderSpeechControls();
+    return;
+  }
+  if (state.readingState === "paused") {
+    window.speechSynthesis.resume();
+    if (!state.speechUtterance && state.currentSpeechIndex < state.speechParts.length) {
+      state.readingState = "speaking";
+      speakReaderPart(state.speechRunId);
+    } else {
+      state.readingState = "speaking";
+    }
+    setReaderSpeechStatus("繼續朗讀。");
+    updateReaderSpeechControls();
   }
 }
 
 function stopReaderSpeech() {
-  if ("speechSynthesis" in window) window.speechSynthesis.cancel();
+  state.speechRunId += 1;
+  if (state.speechUtterance) {
+    state.speechUtterance.onend = null;
+    state.speechUtterance.onerror = null;
+  }
+  if ("speechSynthesis" in window) {
+    window.speechSynthesis.cancel();
+    window.speechSynthesis.resume();
+  }
   state.speechUtterance = null;
-  state.speechPaused = false;
+  state.speechParts = [];
+  state.currentSpeechIndex = 0;
+  state.readingState = "idle";
   setReaderSpeechStatus("");
+  updateReaderSpeechControls();
 }
 
 function openReaderViewer() {
@@ -782,6 +883,8 @@ document.querySelector("#closeCardPreviewBackdrop").addEventListener("click", cl
 document.querySelector("#closeHelp").addEventListener("click", closeHelpViewer);
 document.querySelector("#closeHelpBackdrop").addEventListener("click", closeHelpViewer);
 document.querySelector("#closePlayback").addEventListener("click", stopPlayback);
+document.querySelector("#playbackPause").addEventListener("click", togglePlaybackPause);
+document.querySelector("#playbackStop").addEventListener("click", stopPlayback);
 els.scriptureLevel.addEventListener("change", newGame);
 window.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {
@@ -797,11 +900,9 @@ window.addEventListener("orientationchange", applyLayoutMode);
 async function initializeApp() {
   applyLayoutMode();
   await loadProjectData();
+  updateReaderSpeechControls();
+  updatePlaybackControls();
   newGame();
 }
 
 initializeApp();
-
-
-
-
